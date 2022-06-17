@@ -1,0 +1,5 @@
+a:12:{s:13:"base/sitename";s:16:"lovephp演示站";s:16:"base/friendlinks";s:88:"http://www.lovephp.com@lovephp|
+http://www.gitee.com@gitee|
+http://www.github.com@github";s:22:"base/hotsearchkeywords";s:15:"aaa,bbb,ccc,ddd";s:20:"base/indexsliderpics";s:85:"/aaa/0.jpg@/jumpto&#x3f;111|
+/aaa/1.jpg@/jumpto&#x3f;222|
+/aaa/2.jpg@/jumpto&#x3f;333";s:25:"app/android/latestversion";s:3:"1.0";s:23:"app/android/releasenote";s:28:"修复bug,优化用户体验";s:18:"app/android/apkurl";s:12:"/aaa/bbb.apk";s:28:"app/android/channelid/xiaomi";s:3:"111";s:28:"app/android/channelid/huawei";s:3:"222";s:24:"app/iphone/latestversion";s:3:"1.0";s:22:"app/iphone/releasenote";s:28:"修复bug,优化用户体验";s:21:"app/iphone/appstoreid";s:3:"111";}

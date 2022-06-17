@@ -1,0 +1,44 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+
+	<style type="text/css" >
+
+		.svg_0
+		{
+			stroke:#ddd;
+		}
+		.svg_1
+		{
+			stroke:#08f;
+		}
+		.svg_2
+		{
+			transition-duration:500ms;
+			stroke-dasharray:128;
+			stroke-dashoffset:128;
+		}
+		svg.svg_done .svg_0
+		{
+
+		}
+		svg.svg_done .svg_1
+		{
+			transition-duration:500ms;
+			stroke:#0abf5b;
+		}
+		svg.svg_done .svg_2
+		{
+			stroke-dashoffset:0;
+		}
+		svg.svg_done .svg_3
+		{
+			display:none;
+		}
+
+	</style>
+
+	<circle class="svg_0" cx="100" cy="100" r="80" fill="none" stroke-width="20" style="transition-duration:1s;" />
+	<circle class="svg_1" cx="100" cy="100" r="80" fill="none" stroke-width="20" style="stroke-dasharray:503;stroke-dashoffset:100;transform:rotate(-90deg);transform-origin:center;" />
+	<polyline class="svg_2" fill="none" stroke="#0abf5b" stroke-width="15" points="55,100 85,130 145,70" stroke-linecap="round" stroke-linejoin="round" />
+	<text class="svg_3" x="100" y="100" width="100" height="100" style="dominant-baseline:central;text-anchor:middle;font-size:60;" fill="#666" >0%</text>
+
+</svg>

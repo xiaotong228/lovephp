@@ -1,0 +1,8 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" __svg__="ring_uploadprogress" class="svg_color_fff">
+
+	<circle class="svg_0" cx="100" cy="100" r="90" fill="none" stroke-width="16" />
+	<circle class="svg_1" cx="100" cy="100" r="90" fill="none" stroke-width="16" />
+	<polyline class="svg_2" fill="none" stroke="#0abf5b" stroke-width="16" points="55,100 85,130 145,70" stroke-linecap="round" stroke-linejoin="round" />
+	<text class="svg_3" x="100" y="100" width="100" height="100" fill="#fff" >0%</text>
+
+</svg>

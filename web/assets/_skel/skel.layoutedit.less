@@ -1,0 +1,302 @@
+
+
+
+<?php
+require __prj_dir__.'/less/prj.config.less';
+require __lp_dir__.'/less/lp.function.less';
+
+require __lp_dir__.'/less/lp.htmltag.less';
+
+foreach(\Prjconfig::pc_config['pc_widget_list'] as $v)
+{
+	require __lp_dir__.'/widget/widget.'.$v.'.less';
+}
+
+?>
+
+body[pageroute_module=skel]
+{
+
+	[__pageheader__=pageheader]
+	{
+		background:#000;
+		position:relative;
+		color:#fff;
+		line-height:0;
+		padding:10px 20px;
+
+		.dd_bg(@dd_randomcolor_18);
+
+		span,a,b
+		{
+			.ibt();
+			.hlh(20px);
+			font-size:14px;
+			color:#fff;
+			.dd_bg(@dd_randomcolor_55);
+			margin-right:10px;
+		}
+		a
+		{
+			color:@color_link;
+			.dd_bg(@dd_randomcolor_30);
+			&:hover
+			{
+				text-decoration:underline;
+			}
+		}
+
+	}
+	.moduledrag
+	{
+		background:#08f;
+		height:34px;
+		cursor:move;
+		margin:10px 0px;
+		border:1px solid #9bf;
+		.user_select_none();
+		line-height:34px;
+		text-indent:10px;
+		color:#fff;
+		a.module_operbtn
+		{
+			display:none;
+		}
+	}
+	.layout
+	{
+		padding-bottom:10px;
+		font-size:13px;
+		.grid,.griddrag
+		{
+			width:1297px;
+			margin:10px auto;
+			min-height:30px;
+			position:relative;
+			left:37px;
+			.titlez
+			{
+				text-align:left;
+				display:block;
+				margin-bottom:10px;
+				color:#000;
+				.dd_bg(@dd_randomcolor_09);
+				.hlh(30px);
+				padding:0 10px;
+				background:#dff;
+				.bjyx
+				{
+					float:right;
+					.hlh(30px);
+					.dd_bg(@dd_randomcolor_26);
+				}
+			}
+			.add_module
+			{
+				display:block;
+				background:#fed;
+				height:36px;
+				line-height:36px;
+				text-align:left;
+				border:1px dashed #fb7;
+				text-indent:10px;
+				&:hover
+				{
+					background:#fdc;
+					border:1px dashed #fa6;
+				}
+			}
+
+			.setting,.delete
+			{
+				display:block;
+				position:absolute;
+				right:0px;
+				bottom:0px;
+				width:25px;
+				font-family:iconfont;
+				background:#f0f;
+				color:#fff;
+				font-size:20px;
+				.hlh(25px);
+				text-align:center;
+				&:hover
+				{
+					.opacity_opacity(50);
+				}
+			}
+			.setting
+			{
+				right:25px;
+				&:before
+				{
+					content:'\f099';
+				}
+			}
+			.delete
+			{
+				right:0px;
+				&:before
+				{
+					content:'\f06d';
+				}
+			}
+			.gridd
+			{
+				width:@pc_page_layout_heartwidth;
+				border:1px solid #0cc;
+				background:#fff;
+				padding:10px;
+				.after_clearboth();
+				.griddd
+				{
+					border-width:1px 0px;
+					border-style:solid;
+					border-color:#fff;
+					min-height:34px;
+					.zone
+					{
+						float:left;
+						.zonee
+						{
+							min-height:34px;
+
+							&:empty
+							{
+								height:34px;
+								border:1px dashed #ddd;
+								margin-bottom:10px;
+								text-indent:10px;
+								line-height:34px;
+								color:#bbb;
+								&:after
+								{
+									content: '请添加模块';
+								}
+							}
+						}
+
+					}
+					.module
+					{
+						position:relative;
+						background:#bdf;
+						height:34px;
+						cursor:move;
+						margin:0px 0px 10px 0px;
+						border:1px solid #9bf;
+						.user_select_none();
+						line-height:34px;
+						text-indent:10px;
+						.text_textellipsis();
+
+						a.module_operbtn
+						{
+							.iconfont_cube(20px);
+
+							font-size:16px;
+
+							display:none;
+
+							position:absolute;
+
+							top:0px;
+
+							font-family:iconfont;
+
+							color:#fff;
+
+							text-align:center;
+							text-indent:0;
+							background:#f0f;
+
+							&:hover
+							{
+								.opacity_opacity(50);
+							}
+						}
+						&:hover
+						{
+							a.module_operbtn
+							{
+								display:block;
+							}
+						}
+					}
+
+					&:empty
+					{
+						height:34px;
+						border:1px dashed #D4D4D4;
+						margin-bottom:10px;
+						text-indent:10px;
+						line-height:34px;
+						color:#D4D4D4;
+						&:after
+						{
+							content: '请拖入模块';
+						}
+					}
+
+				}
+
+				&.__crossgrid__
+				{
+					border-color:#c0c;
+
+					.titlez
+					{
+						background:#fef;
+					}
+
+				}
+			}
+
+			&:after
+			{
+				content:'\f09e';
+				display:block;
+				.hlh(25px);
+				width:25px;
+				position:absolute;
+				right:50px;
+				bottom:0;
+				.dd_bg(@dd_randomcolor_35);
+				font-family:iconfont;
+				text-align:center;
+				font-size:20px;
+				background:#f0f;
+				color:#fff;
+			}
+		}
+	}
+	.add_grid
+	{
+		width:1198px;
+		display:block;
+		margin:0px auto 10px auto;
+
+		height:36px;
+		line-height:36px;
+		text-align:left;
+		background:#bff;
+		border:1px dashed #0cc;
+		text-indent:10px;
+		&:hover
+		{
+			background:#9ff;
+			border:1px dashed #0bb;
+		}
+		&.crossgrid
+		{
+			background:#fcf;
+			border:1px dashed #c0c;
+			&:hover
+			{
+				background:#fbf;
+				border:1px dashed #b0b;
+			}
+		}
+	}
+
+}

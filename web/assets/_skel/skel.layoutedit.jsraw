@@ -1,0 +1,299 @@
+var __lp_skel_layoutedit__=
+{
+
+//1 module
+
+	currenteditmodule_moduleinfo:
+	{
+
+	},
+	currenteditmodule_moduleposition:
+	{
+
+	},
+
+//1 pagedata
+	pagedata_publish:function()
+	{
+		if(confirm('确认发布此页面设计?'))
+		{
+			ajax_sync('/skel/layoutedit/pagedata_publish?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna+'&act=publish');
+		}
+	},
+	pagedata_rescue:function()
+	{
+		if(confirm('确定重置?这让你的编辑状态还原到和已发布状态一致'))
+		{
+			ajax_sync('/skel/layoutedit/pagedata_publish?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna+'&act=rescue');
+		}
+	},
+//1 pagedata_pageset
+	pagedata_pageset_edit:function()
+	{
+		ajax_sync('/skel/layoutedit/pagedata_pageset_edit?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna);
+	},
+//1 pagedata_layout
+	pagedata_layout_getgrids:function()
+	{
+
+		var grid_data={};
+
+		var grid_list=$('.grid');
+
+		for(var i=0;i<grid_list.length;i++)
+		{
+
+			var data=JSON.parse($(grid_list[i]).attr('skelgrid_griddata'));
+
+			if(__lpconfig__.skel_gridtype_map.griddir_vertical==data.grid_gridinfo.dir)
+			{
+				var module_list=$(grid_list[i]).find('.module');
+				data.grid_modules={};
+				for(var j=0;j<module_list.length;j++)
+				{
+					data.grid_modules[j]=JSON.parse($(module_list[j]).attr('skelmodule_moduledata'));
+				}
+
+			}
+			else if(__lpconfig__.skel_gridtype_map.griddir_horizontal==data.grid_gridinfo.dir)
+			{
+
+				var zone_list=$(grid_list[i]).find('.zone');
+				data.grid_zones={};
+				for(var j=0;j<zone_list.length;j++)
+				{
+					data.grid_zones[j]={};
+					var module_list=$(zone_list[j]).find('.module');
+					for(var k=0;k<module_list.length;k++)
+					{
+						data.grid_zones[j][k]=JSON.parse($(module_list[k]).attr('skelmodule_moduledata'));
+					}
+				}
+
+			}else
+			{
+				alert("[error-3721]");
+			}
+			grid_data[i]=data;
+		}
+
+		return grid_data;
+
+	},
+	pagedata_layout_savegrids:function()
+	{
+		var data=__lp_skel_layoutedit__.pagedata_layout_getgrids();
+		ajax_sync('/skel/layoutedit/pagedata_layout_savegrids?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna,data);
+	},
+//1 module
+	module_getmoduleposition:function(_this)
+	{
+
+		_this=$(_this);
+
+		var _grid=_this.closest('.grid');
+
+		var griddata=JSON.parse(_grid.attr('skelgrid_griddata'));
+
+		var pos={};
+		pos.grid_index=_grid.index();
+
+		if(__lpconfig__.skel_gridtype_map.griddir_vertical==griddata.grid_gridinfo.dir)
+		{
+			pos.zone_index=-1;
+		}
+		else if(__lpconfig__.skel_gridtype_map.griddir_horizontal==griddata.grid_gridinfo.dir)
+		{
+			pos.zone_index=$(_this).closest('.zone').index();
+		}
+		else
+		{
+			alert("[error-0621]");
+			return;
+		}
+		pos.module_index=_this.closest('.module').index();
+		return pos;
+	},
+	module_getmoduleinfo:function(_this)
+	{
+
+		var data=JSON.parse(_this.attr('skelmodule_moduledata'));
+
+		return data;
+	},
+//1 grid
+	grid_addgrid:function()
+	{
+
+		ajax_sync('/skel/layoutedit/grid_addgrid?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna);
+
+	},
+	grid_changegridtype:function(_this)
+	{
+
+		var temp=__lp_skel_layoutedit__.module_getmoduleposition(_this);
+
+		var gridindex=temp.grid_index;
+
+		ajax_sync('/skel/layoutedit/grid_changegridtype?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna+'&gridindex='+gridindex);
+
+	},
+	grid_deletegrid:function(_this)
+	{
+
+		if(confirm('删除此布局?'))
+		{
+			$(_this).parent('.grid').remove();
+			__lp_skel_layoutedit__.pagedata_layout_savegrids();
+		}
+	},
+	crossgrid_add:function()
+	{
+
+		ajax_sync('/skel/layoutedit/crossgrid_add?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna);
+
+	},
+//1 module
+	module_addmodule:function(_this)
+	{
+
+		var data={};
+
+		data.module_position=__lp_skel_layoutedit__.module_getmoduleposition(_this);
+
+		ajax_sync('/skel/layoutedit/module_addmodule?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna,data);
+
+	},
+	module_deletemodule:function(_this)
+	{
+		if(confirm('删除此模块?'))
+		{
+			$(_this).parent('.module').remove();
+			__lp_skel_layoutedit__.pagedata_layout_savegrids();
+		}
+	},
+	module_editmodule:function(_this)
+	{
+
+		_this=$(_this);
+
+		var data=__lp_skel_layoutedit__.module_getmoduleinfo(_this.closest('.module'));
+
+		ajax_sync('/skel/layoutedit/module_editmodule',data);
+
+	},
+
+//1 visualedit
+
+	visualedit_module_editmodule:function()
+	{
+		ajax_sync('/skel/layoutedit/module_editmodule',__lp_skel_layoutedit__.currenteditmodule_moduleinfo);
+	},
+	visualedit_module_deletemodule:function()
+	{
+		if(confirm('确定删除此模块?'))
+		{
+			ajax_sync('/skel/layoutedit/visualedit_module_deletemodule?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna,__lp_skel_layoutedit__.currenteditmodule_moduleinfo);
+		}
+	},
+	visualedit_module_addmodule:function(dir)
+	{
+
+		var data={};
+
+		data.module_position=__lp_skel_layoutedit__.currenteditmodule_moduleposition;
+		data.module_position.module_index+=dir;
+
+		ajax_sync('/skel/layoutedit/module_addmodule?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna,data);
+
+	},
+	visualedit_module_moveindex:function(dir)
+	{
+
+		var data={};
+
+		data.module_position=__lp_skel_layoutedit__.currenteditmodule_moduleposition;
+
+		ajax_sync('/skel/layoutedit/visualedit_module_moveindex?routedna='+__lpvar__.skeledit_currenteditpageinfo.route_dna+'&dir='+dir,__lp_skel_layoutedit__.currenteditmodule_moduleinfo);
+
+	},
+	visualedit_module_mouseover:function()
+	{
+
+		var _this=$(this);
+	
+		var module_pos=_this.dompos_get();//domPos_getPos(_this);
+
+		var cssobj=
+		{
+			left:module_pos.abs_x+'px',
+			top:module_pos.abs_y+'px',
+			width:module_pos.outer_width+'px',
+			height:module_pos.outer_height+'px'
+		};
+
+		$('[skelvisualedit_role=modulemask]').css(cssobj).show();
+
+		var _grid=_this.closest('[__skelgrid__=skelgrid]');
+
+		var grid_data=JSON.parse(_grid.attr('skelgrid_data'));
+
+		if(1)
+		{
+
+			__lp_skel_layoutedit__.currenteditmodule_moduleinfo=
+			{
+				'module_name':_this.attr('skelmodule_name'),
+				'module_configid':_this.attr('skelmodule_configid')
+			};
+
+			__lp_skel_layoutedit__.currenteditmodule_moduleposition={};
+			__lp_skel_layoutedit__.currenteditmodule_moduleposition.grid_index=_grid.index('[__skelgrid__=skelgrid]');
+
+			if(__lpconfig__.skel_gridtype_map.griddir_vertical==grid_data.gridinfo.dir)
+			{
+				__lp_skel_layoutedit__.currenteditmodule_moduleposition.zone_index=-1;
+			}
+			else if(__lpconfig__.skel_gridtype_map.griddir_horizontal==grid_data.gridinfo.dir)
+			{
+				__lp_skel_layoutedit__.currenteditmodule_moduleposition.zone_index=$(this).closest('[__skelzone__=skelzone]').index();
+			}
+			else{}
+
+			__lp_skel_layoutedit__.currenteditmodule_moduleposition.module_index=$(this).closest('[__skelmodule__=skelmodule]').index();
+
+		}
+
+	},
+
+};
+
+_document.ready(function()
+{
+
+	if(__lpvar__.skelvisualedit_enable)
+	{
+
+		if($('[__skelmodule__=skelmodule]').length)
+		{
+
+			$('[__skelmodule__=skelmodule]').on('mouseenter',__lp_skel_layoutedit__.visualedit_module_mouseover);
+
+			var inhtml='';
+
+			inhtml+="<a onclick='__lp_skel_layoutedit__.visualedit_module_editmodule();' title='编辑模块'>&#xf099;</a>";
+
+			inhtml+="<a onclick='__lp_skel_layoutedit__.visualedit_module_moveindex(-1);' title='向上移动一位'>&#xf059;</a>";
+			inhtml+="<a onclick='__lp_skel_layoutedit__.visualedit_module_moveindex(1);' title='向下移动一位'>&#xf05b;</a>";
+			inhtml+="<a onclick='__lp_skel_layoutedit__.visualedit_module_addmodule(0);' title='在此模块上方添加新模块'>&#xf0a6;</a>";
+			inhtml+="<a onclick='__lp_skel_layoutedit__.visualedit_module_addmodule(1);' title='在此模块下方添加新模块'>&#xf0a5;</a>";
+
+			inhtml+="<a onclick='__lp_skel_layoutedit__.visualedit_module_deletemodule();' title='删除模块'>&#xf06d;</a>";
+
+			_body.append("<div skelvisualedit_role=modulemask ondblclick='__lp_skel_layoutedit__.visualedit_module_editmodule();'>"+inhtml+"</div>");
+
+		}
+
+	}
+
+});

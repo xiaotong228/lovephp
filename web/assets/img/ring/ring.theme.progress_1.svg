@@ -1,0 +1,9 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="background:rgba(0,0,0,0.5);" >
+
+	<circle cx="100" cy="100" r="80" stroke="#fff" fill="none" stroke-width="20" />
+
+	<circle class="processind" cx="100" cy="100" r="80" fill="none" stroke="#08f" stroke-width="20" style="stroke-dasharray:503 503;stroke-dashoffset:503;transform:rotate(-90deg);transform-origin:center;" />
+
+	<text x="100" y="100" width="100" height="100" style="dominant-baseline:central;text-anchor:middle;font-size:60;" fill="#fff" background="blue" >0%</text>
+
+</svg>

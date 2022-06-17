@@ -1,0 +1,184 @@
+
+<?php
+	require __prj_dir__.'/less/prj.config.less';
+	require __lp_dir__.'/less/lp.function.less';
+?>
+
+.c_admin_userbox
+{
+
+	.ibt();
+	a
+	{
+		.ibt();
+		&.avatar
+		{
+			img
+			{
+				.ibt();
+				width:30px;
+				height:30px;
+			}
+		}
+		&.name
+		{
+			margin-left:5px;
+			s,span
+			{
+				.ibt();
+				line-height:20px;
+				padding:5px 0;
+			}
+			s
+			{
+				.dd_bg(@dd_randomcolor_21);
+			}
+			span
+			{
+				.dd_bg(@dd_randomcolor_17);
+				color:@color_link;
+			}
+
+			&:hover
+			{
+				span
+				{
+					text-decoration:underline;
+				}
+			}
+		}
+	}
+
+}
+.c_admin_panel_group
+{
+
+	padding:20px;
+	.dd_bg(@dd_randomcolor_50);
+	border:1px solid @bd_color_dark;
+	margin-top:20px;
+
+	.c_admin_panel_search
+	{
+		margin-top:0;
+	}
+	&~.c_admin_panel_group
+	{
+		margin-top:20px;
+	}
+	[__tablelist__=tablelist]
+	{
+		width:100%;
+	}
+
+}
+.c_admin_panel_nav
+{
+	.dd_bg(@dd_randomcolor_57);
+	border-bottom:1px solid @bd_color;
+	.dd_bg(@dd_randomcolor_29);
+	b,span,a,s
+	{
+		.ibt();
+		line-height:40px;
+		font-size:18px;
+	}
+	a
+	{
+		height:39px;
+		.dd_bg(@dd_randomcolor_32);
+		position:relative;
+		margin-bottom:-1px;
+		&._csel_,&:hover
+		{
+			color:@color_link;
+		}
+		&._csel_
+		{
+			border-bottom:2px solid @color_link;
+		}
+		&~a
+		{
+			margin-left:30px;
+		}
+	}
+
+}
+.c_admin_panel_search
+{
+
+	.dd_bg(@dd_randomcolor_34);
+	margin-top:0;
+	line-height:0;
+	&:after
+	{
+		content:'';
+		display:block;
+		height:0;
+		clear:right;
+	}
+	select
+	{
+		.hlh(28px);
+	}
+	input
+	{
+		.dd_bg(@dd_randomcolor_30);
+
+		padding:6px;
+		height:16px;
+		line-height:16px;
+		border:1px solid @bd_color;
+		.ibt();
+		&[type=text]
+		{
+			width:150px;
+		}
+	}
+	span,b
+	{
+		.ibt();
+		.hlh(30px);
+		margin:0 0;
+		.dd_bg(@dd_randomcolor_37);
+	}
+	button,a.leftoperbtn,a.rightoperbtn
+	{
+		.ibt();
+		height:28px;
+		width:40px;
+		border:1px solid @bd_color;
+		line-height:28px;
+		text-align:center;
+
+		margin-left:20px;
+
+		background:#f7f7f7;
+
+		&:hover
+		{
+			color:#fff;
+			background:@color_0;
+			border:1px solid @color_0;
+		}
+	}
+	a
+	{
+		&.leftoperbtn
+		{
+			width:auto;
+			padding:0 10px;
+			.dd_bg(@dd_randomcolor_08);
+			margin-left:20px;
+		}
+		&.rightoperbtn
+		{
+			width:auto;
+			padding:0 10px;
+			float:right;
+			.dd_bg(@dd_randomcolor_08);
+			margin-right:20px;
+			margin-left:0;
+		}
+	}
+}

@@ -1,0 +1,136 @@
+
+<?php
+
+	require __prj_dir__.'/js/prj.config.js';
+
+	require __lp_dir__.'/js/lp.core.js';
+
+	require __lp_dir__.'/js/lp.function.js';
+	require __lp_dir__.'/js/lp.client.js';
+	require __lp_dir__.'/js/lp.ajax.js';
+	require __lp_dir__.'/js/lp.file.js';
+
+	require __lp_dir__.'/js/lp.cookie.js';
+	require __lp_dir__.'/js/lp.localstorage.js';
+
+	require __lp_dir__.'/js/lp.mutationobserver.js';
+
+	require __lp_dir__.'/js/lp.mouseevent.js';
+
+	foreach(\Prjconfig::pc_config['pc_widget_list'] as $v)
+	{
+		require __lp_dir__.'/widget/widget.'.$v.'.js';
+	}
+
+?>
+
+//1 connect
+function clu_connect_logout()
+{
+	ui_confirm('确定退出?',function()
+		{
+			jump_jump('/connect/logout');
+		});
+}
+
+//1 table
+function table_oper(_this,action,needconfirm=false)
+{
+
+	_this=$(_this);
+
+	var id;
+
+	id=int_intval(_this.closest('tr').attr('managetable_value'));
+//	id=int_intval($(_this).closest('tr').find('td').eq(0).find('input[type=checkbox]').val());
+
+	if(!id)
+	{
+		id='';
+	}
+
+	var cmdstring=_this.html();
+
+	var url='';
+
+	if(1)
+	{
+
+		if(0===action.indexOf('/'))
+		{
+			url=action;
+		}
+		else
+		{
+
+			var temp=action.split('/');
+
+			if(1==temp.length)
+			{
+				url=__lpvar__.route_routeinfo.controller_rooturl+'/'+action;
+			}
+			else if(2==temp.length)
+			{
+				url=__lpvar__.route_routeinfo.module_rooturl+'/'+action;
+			}
+			else
+			{
+
+			}
+		}
+
+
+		if(-1==url.indexOf('?'))
+		{
+			url+='?';
+		}
+		else
+		{
+			url+='&';
+
+		}
+		if(-1==url.indexOf('?id=')&&-1==url.indexOf('&id='))
+		{
+			url+='id='+id+'&ids='+id;
+		}
+
+
+	}
+
+	if(needconfirm)
+	{
+		ui_confirm('确定['+cmdstring+']'+id+'?',function()
+		{
+			ajax_async(url);
+
+		});
+	}
+	else
+	{
+		ajax_async(url);
+	}
+}
+function table_oper_confirm(_this,action)
+{
+	return table_oper(_this,action,true)
+}
+//1 tree
+function tree_oper(action,dna,confirmtxt=false)
+{
+
+	var url=__lpvar__.route_routeinfo.controller_rooturl+'/'+action+'?dna='+dna;
+
+	if(confirmtxt)
+	{
+		if(confirm("确定["+confirmtxt+"]"+dna+"?"))
+		{
+			ajax_async(url);
+		}
+	}
+	else
+	{
+		ajax_async(url);
+	}
+
+}
+
