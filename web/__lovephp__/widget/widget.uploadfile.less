@@ -1,0 +1,166 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__uploadfile__=uploadfile]
+{
+
+	.dd_bg(@dd_randomcolor_37);
+
+	[uploadfile_role=uf_filelist]
+	{
+
+		.dd_bg(@dd_randomcolor_48);
+
+		[uploadfile_role=uf_fileitem]
+		{
+
+			border:1px solid @bd_color;
+
+			display:flex;
+			padding:5px 10px;
+			.dd_bg(@dd_randomcolor_09);
+			margin-bottom:10px;
+			align-items:center;
+
+			.icon_uploaddone
+			{
+				width:40px;
+				height:40px;
+				background-image:url(/assets/img/ring/ring.uploaddone.svg);
+				background-size:100%;
+				.dd_bg(@dd_randomcolor_36);
+				flex-shrink:0;
+			}
+			svg[__svg__=ring_uploadprogress]
+			{
+				width:40px;
+				height:40px;
+				.dd_bg(@dd_randomcolor_02);
+				flex-shrink:0;
+			}
+			.filename
+			{
+				flex-grow:1;
+				.dd_bg(@dd_randomcolor_35);
+				margin-left:10px;
+				.text_textellipsis();
+				line-height:20px;
+				font-size:14px;
+				a,span
+				{
+
+					.dd_bg(@dd_randomcolor_23);
+				}
+				a
+				{
+					color:@color_link;
+					display:none;
+					&:hover
+					{
+						text-decoration:underline;
+					}
+				}
+				s
+				{
+					color:#999;
+
+					.dd_bg(@dd_randomcolor_51);
+				}
+
+			}
+			.operz
+			{
+				margin-left:10px;
+				.dd_bg(@dd_randomcolor_09);
+				.dd_bg(@dd_randomcolor_50);
+				flex-shrink:0;
+				a
+				{
+					.ibt();
+
+					.dd_bg(@dd_randomcolor_18);
+					font-size:20px;
+					.iconfont_cube(20px);
+					&.delete
+					{
+						color:@color_red;
+						&:before
+						{
+							content:'\f06d';
+
+						}
+					}
+					&.move_up
+					{
+						color:@color_0;
+						&:before
+						{
+							content:'\f059';
+						}
+					}
+					&.move_down
+					{
+						color:@color_0;
+						&:before
+						{
+							content:'\f05b';
+						}
+					}
+
+					&~a
+					{
+						margin-left:10px;
+					}
+				}
+			}
+			&[uploadfile_status=done]
+			{
+				.filename
+				{
+					color:@color_link;
+					span
+					{
+						display:none;
+					}
+					a
+					{
+						display:inline;
+					}
+
+				}
+			}
+		}
+
+	}
+	[uploadfile_role=uf_selectfile]
+	{
+
+		i
+		{
+			&:before
+			{
+				content:'\f0ab';
+			}
+
+		}
+
+		span
+		{
+			&:before
+			{
+				content:'选择文件(';
+			}
+			&:after
+			{
+				content:')';
+			}
+		}
+
+	}
+
+}

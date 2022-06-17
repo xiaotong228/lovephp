@@ -1,0 +1,10 @@
+<module>
+	<name>article_c_list</name>
+	<title>article/通用/list</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

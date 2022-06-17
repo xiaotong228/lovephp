@@ -1,0 +1,10 @@
+<module>
+	<name>admin_sitedata</name>
+	<title>admin/sitedata</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

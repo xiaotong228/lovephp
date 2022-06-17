@@ -1,0 +1,114 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+
+[__mobilepage__=mobilepage][pageroute_controller=index][pageroute_action=index]
+{
+
+	display:grid;
+
+	.dd_bg(@dd_randomcolor_07);
+
+	grid-template-rows:1fr @mobile_layout_land_height;
+
+	.dd_bg(@dd_randomcolor_00);
+
+	[indexpageframe_role=viewzone]
+	{
+		.dd_bg(@dd_randomcolor_29);
+		overflow-y:hidden;
+		background:#fff;
+		>*
+		{
+			width:100%;
+			height:100%;
+			display:none;
+			&[indexpageframe_status=active]
+			{
+				display:block;
+			}
+		}
+	}
+
+	[indexpageframe_role=viewport_wreckage]
+	{
+		.dd_bg(@dd_randomcolor_29);
+		overflow-y:hidden;
+		position:relative;
+		>*
+		{
+			width:100%;
+			height:100%;
+			z-index:0;
+			position:absolute;
+			will-change:z-index;
+			&[indexpageframe_status=active]
+			{
+				z-index:1;
+			}
+		}
+	}
+
+	[indexpageframe_role=nav]
+	{
+
+		background:#fff;
+		.dd_bg(@dd_randomcolor_02);
+
+		display:flex;
+
+		>*
+		{
+			.dd_bg(@dd_randomcolor_15);
+			padding-top:10mpx;
+			text-align:center;
+			color:#999;
+			flex-grow:1;
+
+			i
+			{
+				display:block;
+				height:80mpx;
+				background-repeat:no-repeat;
+				background-size:auto 90%;
+				background-position:center center;
+			}
+			span
+			{
+				display:block;
+				.hlh(40mpx);
+				font-size:36mpx;
+				.dd_bg(@dd_randomcolor_27);
+			}
+
+			&[article]		{i{background-image:url(/assets/img/icon/index_article.svg);}}
+			&[example]		{i{background-image:url(/assets/img/icon/index_example.svg);}}
+			&[my]			{i{background-image:url(/assets/img/icon/index_my.svg);}}
+
+			&[indexpageframe_status=active]
+			{
+				span
+				{
+					color:@color_0;
+				}
+				&[article]		{i{background-image:url(/assets/img/icon/index_article_1.svg);}}
+				&[example]		{i{background-image:url(/assets/img/icon/index_example_1.svg);}}
+				&[my]			{i{background-image:url(/assets/img/icon/index_my_1.svg);}}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+

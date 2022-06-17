@@ -1,0 +1,71 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__popupmenu__=popupmenu]
+{
+
+	position:fixed;
+
+	z-index:@pc_ui_mask_zindex+(-10);
+
+	min-width:150px;
+
+	.dd_bg(@dd_randomcolor_09);
+
+	left:0;
+	top:0;
+	display:none;
+
+	border:1px solid #000;
+
+	background:#fff;
+
+	.shadow_boxshadow(4px 4px 0px,#000,20);
+
+	[popupmenu_role=menu]
+	{
+		.hlh(30px);
+		display:block;
+		padding:0 10px;
+		&:hover
+		{
+			background:#000;
+			text-decoration:none;
+			color:#fff;
+		}
+	}
+
+	[popupmenu_role=text]
+	{
+		line-height:20px;
+		display:block;
+		padding:5px 10px;
+		color:#999;
+	}
+
+	[popupmenu_role=sepline]
+	{
+		height:1px;
+		background:#999;
+		display:block;
+	}
+	&:empty
+	{
+		.hlh(30px);
+		color:#999;
+		text-indent:10px;
+		font-style:italic;
+		&:before
+		{
+			content:'__无__';
+
+		}
+	}
+
+}
+

@@ -1,0 +1,10 @@
+<module>
+	<name>cluindex_c_editdata</name>
+	<title>cluindex/通用/editdata</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

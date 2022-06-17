@@ -1,0 +1,323 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+.g_connect_loginbox
+{
+
+	@line_height:120mpx;
+
+	.dd_bg(@dd_randomcolor_54);
+
+	background:#fff;
+
+	[ajaxform_role=field]
+	{
+
+		.dd_bg(@dd_randomcolor_56);
+
+		border:1px solid @bd_color;
+		.dd_bg(@dd_randomcolor_11);
+		display:flex;
+
+		height:@line_height;
+
+		>*:nth-child(1)
+		{
+			.dd_bg(@dd_randomcolor_44);
+			.iconfont_cube(@line_height);
+			font-size:64mpx;
+			.dd_bg(@dd_randomcolor_53);
+		}
+		>*:nth-child(2)
+		{
+			margin-left:20mpx;
+			flex-grow:1;
+			.dd_bg(@dd_randomcolor_40);
+		}
+		>*:nth-child(3)
+		{
+			width:300mpx;
+		}
+		[__smsvcode__=smsvcode]
+		{
+			>*
+			{
+				.hlh(@line_height);
+			}
+		}
+		input
+		{
+			font-size:44mpx;
+			.dd_bg(@dd_randomcolor_09);
+		}
+		&[ajaxform_status=haserror]
+		{
+			border-color:@color_red;
+		}
+		&~[ajaxform_role=field]
+		{
+			margin-top:40mpx;
+		}
+	}
+	.buttonlinez
+	{
+		margin-top:60mpx;
+	}
+
+	.agreelinez
+	{
+		.dd_bg(@dd_randomcolor_37);
+		margin-top:40mpx;
+		span,a,label
+		{
+			.ibt();
+			.hlh(60mpx);
+			font-size:40mpx;
+			.dd_bg(@dd_randomcolor_52);
+		}
+		a
+		{
+			margin-left:20mpx;
+			color:@color_link;
+		}
+
+		span
+		{
+			margin-left:20mpx;
+		}
+
+	}
+
+}
+
+[__mobilepage__=mobilepage][pageroute_controller=connect][pageroute_action=login]
+{
+	background:#fff;
+
+	.dd_bg(@dd_randomcolor_02);
+
+	[mobilepage_role=body]
+	{
+
+		.logoz
+		{
+			height:100mpx;
+			background-image:url(/assets/img/logo/lovephp.logo.theme.svg);
+			background-size:40% auto;
+			background-repeat:no-repeat;
+			background-position:center center;
+
+			margin-bottom:80mpx;
+		}
+		.mainz
+		{
+			margin:0 80mpx 0 80mpx;
+			.ttz
+			{
+				.dd_bg(@dd_randomcolor_32);
+				font-size:44mpx;
+				b
+				{
+					.ibt();
+					.hlh(100mpx);
+					.dd_bg(@dd_randomcolor_29);
+
+				}
+
+				[tabshow_role=nav]
+				{
+					.dd_bg(@dd_randomcolor_37);
+					float:right;
+					>*
+					{
+
+						.ibt();
+						.dd_bg(@dd_randomcolor_10);
+						.hlh(100mpx);
+						border-width:0 0 8mpx 0;
+						border-color:transparent;
+						border-style:solid;
+						.boxsizing_borderbox();
+						color:#666;
+
+						.dd_bg(@dd_randomcolor_17);
+
+
+						&~*
+						{
+							margin-left:40mpx;
+						}
+
+						&[tabshow_navstatus=active]
+						{
+							color:@color_0;
+							border-color:@color_0;
+						}
+
+					}
+
+				}
+
+			}
+			.bdz
+			{
+				margin-top:40mpx;
+			}
+			[tabshow_role=viewzone]
+			{
+
+				.dd_bg(@dd_randomcolor_19);
+
+			}
+		}
+		.otheroperz
+		{
+			margin-top:60mpx;
+			.dd_bg(@dd_randomcolor_55);
+			text-align:center;
+			>*
+			{
+				.ibt();
+				color:@color_link;
+				.dd_bg(@dd_randomcolor_25);
+				.hlh(100mpx);
+				font-size:42mpx;
+				margin:0 20mpx;
+				&[tabshow_navstatus=active]
+				{
+					display:none;
+				}
+			}
+		}
+		.p0_sloganz
+		{
+			padding-top:200mpx;
+
+			.dd_bg(@dd_randomcolor_25);
+			text-align:center;
+			.p00
+			{
+				font-size:80mpx;
+				.hlh(90mpx);
+				font-weight:bold;
+				.dd_bg(@dd_randomcolor_09);
+				.dd_bg(@dd_randomcolor_34);
+				margin-bottom:30mpx;
+			}
+			.p01
+			{
+				.dd_bg(@dd_randomcolor_09);
+				margin-bottom:30mpx;
+				span,a
+				{
+					.ibt();
+					.hlh(60mpx);
+					font-size:40mpx;
+					.dd_bg(@dd_randomcolor_31);
+					margin:0 10mpx;
+				}
+				a
+				{
+					color:@color_link;
+				}
+
+			}
+		}
+
+		.p1_loginwaysz
+		{
+
+			padding:100mpx 0 50mpx 0;
+
+			.tipsz
+			{
+				height:2mpx;
+				width:720mpx;
+				margin:0 auto 0 auto;
+				.dd_bg(@dd_randomcolor_56);
+				background:@bd_color;
+				line-height:0;
+				text-align:center;
+				span
+				{
+					.hlh(60mpx);
+					.ibt();
+					.dd_bg(@dd_randomcolor_41);
+					font-size:40mpx;
+					margin-top:-28mpx;
+					padding:0 20mpx;
+					color:#666;
+					background:#fff;
+				}
+			}
+			.itemsz
+			{
+				.dd_bg(@dd_randomcolor_59);
+				text-align:center;
+				margin-top:100mpx;
+				text-align:center;
+				.item
+				{
+					.ibt();
+					width:240mpx;
+					cursor:pointer;
+					i
+					{
+						.iconfont_cube(120mpx);
+						display:block;
+						margin:0 auto;
+						font-size:64mpx;
+						.borderradius(50%);
+						.dd_bg(@dd_randomcolor_44);
+						border:2mpx solid @bd_color;
+						background:#fff;
+					}
+
+					span
+					{
+						display:block;
+						font-size:40mpx;
+						.hlh(60mpx);
+						.dd_bg(@dd_randomcolor_21);
+						color:#666;
+						margin-top:20mpx;
+
+					}
+
+				}
+
+
+				a
+				{
+					.iconfont_cube(120mpx);
+
+					.ibt();
+
+					margin:0 60mpx;
+
+					font-size:64mpx;
+
+					.borderradius(50%);
+
+					color:#fff;
+
+					&.qq
+					{
+						background:@color_sns_qq;
+					}
+					&.weixin
+					{
+						background:@color_sns_weixin;
+					}
+
+				}
+
+			}
+		}
+	}
+}

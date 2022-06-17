@@ -1,0 +1,179 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__pullrefresh__=pullrefresh]
+{
+
+	.dd_bg(@dd_randomcolor_01);
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	position:relative;
+
+	@keyframes ind_success_ani
+	{
+		0%
+		{
+			transform: scale(0.1);
+		}
+		100%
+		{
+			transform: scale(1);
+		}
+	}
+
+	[pullrefresh_role=indbox]
+	{
+
+		position:absolute;
+		left:0;
+		right:0;
+		top:-180mpx;
+		height:180mpx;
+		line-height:0;
+		.willchange_transform();
+
+		display:flex;
+
+/*		justify-items:center;*/
+
+		align-items:center;
+		justify-content:center;
+		.dd_bg(@dd_randomcolor_22);
+		overflow:hidden;
+
+		[pullrefresh_role=indbox_loadingring]
+		{
+			width:300mpx;
+			height:160mpx;
+			.dd_bg(@dd_randomcolor_24);
+			background-image:url(/assets/img/logo/lovephp.logo.ddd.svg);
+			background-size:100% auto;
+			background-position:center center;
+		}
+
+		[pullrefresh_role=indbox_successtips]
+		{
+			.hlh(80mpx);
+			text-align:center;
+			font-size:36mpx;
+			color:#fff;
+
+			background:@color_0;
+			position:absolute;
+			bottom:0;
+			left:0;
+			right:0;
+
+			animation-name:ind_success_ani;
+			animation-duration:<?php echo \Prjconfig::mobile_config['mobile_page_ani_time'];?>ms;
+/*
+			animation-timing-function:cubic-bezier(.2,.7,.7,1.5);
+*/
+
+		}
+	}
+
+	[pullrefresh_role=dragbox]
+	{
+		width:100%;
+		height:100%;
+		.willchange_transform();
+		.dd_bg_alpha(@dd_randomcolor_02,50);
+		overflow-y:auto;
+	}
+
+	&[pullrefresh_status=refreshing]
+	{
+		.dd_bg(@dd_randomcolor_41);
+		[pullrefresh_role=indbox]
+		{
+			.transition_duration(150ms);
+			.transform_transform(translateY(180mpx)) !important;
+			[pullrefresh_role=indbox_loadingring]
+			{
+				svg
+				{
+					width:100%;
+					height:auto;
+					position:relative;
+					top:-70mpx;
+				}
+			}
+		}
+		[pullrefresh_role=dragbox]
+		{
+			.transition_duration(150ms);
+			.transform_transform(translateY(180mpx)) !important;
+		}
+	}
+
+	&[pullrefresh_status=success]
+	{
+		.dd_bg(@dd_randomcolor_41);
+		.dd_bg(@dd_randomcolor_13);
+		[pullrefresh_role=indbox]
+		{
+			.transform_transform(translateY(80mpx)) !important;
+			.dd_bg(@dd_randomcolor_11);
+		}
+		[pullrefresh_role=dragbox]
+		{
+			.transform_transform(translateY(80mpx)) !important;
+		}
+	}
+
+	&[pullrefresh_status=close]
+	{
+
+		.transition_duration(300ms);
+
+		.dd_bg(@dd_randomcolor_59);
+
+		[pullrefresh_role=indbox]
+		{
+			.transition_duration(<?php echo \Prjconfig::mobile_config['mobile_page_ani_time'];?>ms);
+			.transform_transform(translateY(0)) !important;
+		}
+		[pullrefresh_role=dragbox]
+		{
+			.transition_duration(<?php echo \Prjconfig::mobile_config['mobile_page_ani_time'];?>ms);
+			.transform_transform(translateY(0)) !important;
+		}
+	}
+	&[pullrefresh_status=dragging]
+	{
+		.dd_bg(@dd_randomcolor_39);
+		[pullrefresh_role=dragbox]
+		{
+			overflow:hidden;
+			.dd_bg(@dd_randomcolor_38);
+		}
+	}
+	&[pullrefresh_status=refreshing_silent],&[pullrefresh_status=refreshing]
+	{/*加蒙版保护避免touchevent.target丢失,不能正确响应touchevent*/
+
+		&:after
+		{
+			content:'';
+			.pos_absfullfill();
+			.dd_bg_alpha(@dd_randomcolor_00,50);
+		}
+	}
+
+	&:empty
+	{
+		background-image:url(/assets/img/logo/lovephp.logo.ddd.svg);
+		background-repeat:no-repeat;
+		background-size:400mpx;
+		background-position:center center;
+	}
+
+}
+

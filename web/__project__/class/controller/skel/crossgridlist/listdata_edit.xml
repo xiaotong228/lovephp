@@ -1,0 +1,23 @@
+<module>
+	<name>跨页面布局</name>
+	<params>
+		<group title='x'>
+			<section title='如果改变了布局类型可能会导致其中的模块被合并' folded='false'>
+				<param formtype='text' label='布局名称' name='name' description=''>
+				</param>
+				<param formtype='select' label='布局类型' name='grid_type' description=''>
+
+				<?php
+					$temp=\_skel_\Skelcore::gridtype_namemap_get();
+					foreach($temp as $k=>$v)
+					{
+						echo '<option value=\''.$k.'\' >'.$v.'</option>';
+
+					}
+				?>
+
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

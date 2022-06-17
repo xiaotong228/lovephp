@@ -1,0 +1,23 @@
+<module>
+	<name>添加模块</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='select' label='选择模块' name='module_name' description='' >
+
+				<?php
+
+					$temp=\ld\Skelmodulelist::list_select();
+
+					foreach($temp as $k=>$v)
+					{
+						echo '<option value=\''.$v['name'].'\' >'.$v['name'].'('.$v['title'].')</option>';
+					}
+
+				?>
+
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

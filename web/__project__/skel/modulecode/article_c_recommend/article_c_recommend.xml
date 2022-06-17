@@ -1,0 +1,10 @@
+<module>
+	<name>article_c_recommend</name>
+	<title>article/通用/recommend</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

@@ -1,0 +1,10 @@
+<module>
+	<name>admin_adminuser</name>
+	<title>admin/adminuser</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

@@ -1,0 +1,229 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__button__]
+{
+
+	.button_cavity(@color)
+	{
+		color:@color;
+		border-color:@color;
+	}
+	.button_cavity(@color0,@color1)
+	{
+		color:@color0;
+		border-color:@color1;
+	}
+	.button_solid(@color)
+	{
+		color:#fff;
+		border-color:@color;
+		background:@color;
+	}
+
+	.ibt();
+
+	border-width:1px;
+	border-style:solid;
+	text-align:center;
+	cursor:pointer;
+	background:#fff;
+	padding-left:10px;
+	padding-right:10px;
+
+	>*
+	{
+		.ibt();
+	}
+
+	>i
+	{
+		font-family:iconfont;
+		margin-right:5px;
+		.dd_bg(@dd_randomcolor_19);
+	}
+
+	&:hover
+	{
+		.opacity_opacity(75);
+	}
+
+/*size__________________________________________________________________________________________*/
+	&[__button__~=small]
+	{
+		.hlh(28px);
+		font-size:13px;
+		>*
+		{
+			.hlh(28px);
+		}
+		>i
+		{
+			font-size:15px;
+		}
+	}
+	&[__button__~=medium]
+	{
+
+		.hlh(38px);
+		font-size:14px;
+		>*
+		{
+			.hlh(38px);
+		}
+		>i
+		{
+			font-size:20px;
+		}
+	}
+	&[__button__~=big]
+	{
+		font-size:16px;
+		.hlh(48px);
+		>*
+		{
+			.hlh(48px);
+		}
+		>i
+		{
+			margin-right:10px;
+			font-size:20px;
+		}
+	}
+/*block__________________________________________________________________________________________*/
+	&[__button__~=block]
+	{
+		display:block;
+		.dd_bg(@dd_randomcolor_28);
+		padding-left:0;
+		padding-right:0;
+	}
+
+/*color__________________________________________________________________________________________*/
+	&[__button__~=color0]
+	{
+		.button_cavity(@color_0);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_0);
+		}
+	}
+	&[__button__~=color1]
+	{
+		.button_cavity(@color_1);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_1);
+		}
+	}
+	&[__button__~=black]
+	{
+		.button_cavity(#000);
+		&[__button__~=solid]
+		{
+			.button_solid(#000);
+		}
+	}
+	&[__button__~=red]
+	{
+		.button_cavity(@color_red);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_red);
+		}
+	}
+	&[__button__~=green]
+	{
+		.button_cavity(@color_green);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_green);
+		}
+	}
+	&[__button__~=blue]
+	{
+		.button_cavity(@color_blue);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_blue);
+		}
+	}
+	&[__button__~=yellow]
+	{
+		.button_cavity(@color_yellow);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_yellow);
+		}
+	}
+	&[__button__~=aqua]
+	{
+		.button_cavity(@color_aqua);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_aqua);
+		}
+	}
+	&[__button__~=fuchsia]
+	{
+		.button_cavity(@color_fuchsia);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_fuchsia);
+		}
+	}
+	&[__button__~=orange]
+	{
+		.button_cavity(@color_orange);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_orange);
+		}
+	}
+	&[__button__~=purple]
+	{
+		.button_cavity(@color_purple);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_purple);
+		}
+	}
+	&[__button__~=grey]
+	{
+		.button_cavity(@color_grey,@bd_color);
+		&[__button__~=solid]
+		{
+			.button_solid(@color_grey);
+		}
+	}
+
+	<?php
+		$temp=[50,100,150,200,250,300,350,400];
+		foreach($temp as $v)
+		{
+			echo '	&[__button__~=w'.$v.']
+					{
+						width:'.$v.'px;
+						padding-left:0;
+						padding-right:0;
+					}';
+		}
+	?>
+}
+
+button[__button__]
+{
+
+	&[__button__~=block]
+	{
+		.width_available();
+	}
+
+}
+

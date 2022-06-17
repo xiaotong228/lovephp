@@ -1,0 +1,14 @@
+<module>
+	<name>example_index</name>
+	<title>example/index</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='text' label='aaa' name='aaa' description=''>
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

@@ -1,0 +1,98 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+
+[__numberrange__=numberrange]
+{
+
+	.dd_bg(@dd_randomcolor_37);
+
+	position:relative;
+
+	.ibt();
+
+/*
+	display:flex;实测用flex时,input不能正确的分配空间,chrome浏览器
+*/
+
+	[numberrange_role=dec],[numberrange_role=inc]
+	{
+		.ibt();
+		border-style:solid;
+		border-color:@bd_color;
+		.iconfont_cube(40px);
+		.dd_bg_alpha(@dd_randomcolor_21,50);
+		font-size:16px;
+		cursor:pointer;
+
+		.dd_bg_alpha(@dd_randomcolor_53,50);
+		&[numberrange_status=disable]
+		{
+			color:#999;
+			cursor:not-allowed;
+		}
+
+	}
+	[numberrange_role=dec]
+	{
+		/*
+			flex-shrink:0;
+			flex-grow:0;
+		*/
+		border-width:1px 0 1px 1px;
+		&:before
+		{
+			content:'\f06f';
+		}
+	}
+	[numberrange_role=inc]
+	{
+		/*
+			flex-shrink:0;
+			flex-grow:0;
+		*/
+		border-width:1px 1px 1px 0;
+		&:before
+		{
+			content:'\f06e';
+		}
+	}
+	input
+	{
+		.ibt();
+		/*
+			flex-grow:1;
+		*/
+		border:1px solid @bd_color;
+		.hlh(40px);
+
+		padding:0 30px;
+		text-align:center;
+		font-size:16px;
+		font-weight:bold;
+		width:50px;
+		&:focus
+		{
+			border-color:@color_0;
+		}
+	}
+
+	&:after
+	{
+		content:'个';
+		position:absolute;
+		right:52px;
+		top:0;
+		.dd_bg(@dd_randomcolor_39);
+		font-size:14px;
+		pointer-events:none;
+		.hlh(42px);
+	}
+
+}

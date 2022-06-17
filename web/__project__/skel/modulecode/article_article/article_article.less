@@ -1,0 +1,101 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__skelmodule__=skelmodule][skelmodule_name=article_article]
+{
+	margin-top:40px;
+	.mainz
+	{
+		padding:40px;
+		border:1px solid @bd_color;
+		background:#fff;
+		margin-top:10px;
+	}
+	.article_titlez
+	{
+		font-size:34px;
+		font-weight:bold;
+		.dd_bg(@dd_randomcolor_36);
+	}
+	.article_authorz
+	{
+		.dd_bg(@dd_randomcolor_48);
+		margin:10px 0 0 0;
+		.after_clearboth();
+		span
+		{
+			.ibt();
+			.hlh(20px);
+			font-size:14px;
+			color:#999;
+
+			&._right_
+			{
+				float:right;
+			}
+		}
+	}
+
+	.article_bodyhtmlz_wrap
+	{
+		position:relative;
+
+		.article_bodyhtmlz
+		{
+			margin-top:20px;
+			.dd_bg(@dd_randomcolor_18);
+			font-size:18px;
+			line-height:160%;
+
+			word-break:break-all;
+
+			min-height:400px;
+			overflow:hidden;
+			.rescue_ius();
+			a
+			{
+				color:@color_link;
+				&:hover
+				{
+					text-decoration:underline;
+				}
+			}
+			img
+			{
+				max-width:100%;
+			}
+
+		}
+
+	}
+
+	.article_fromz
+	{
+		.dd_bg(@dd_randomcolor_49);
+		margin:0 0 0 0;
+		background:#f4f4f4;
+		padding:10px;
+		span,a
+		{
+			.ibt();
+			line-height:20px;
+			font-size:14px;
+			color:#999;
+		}
+		a
+		{
+			color:@color_link;
+			&:hover
+			{
+				text-decoration:underline;
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,57 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__tablelist__=tablelist]
+{
+
+	table-layout:fixed;
+
+	.dd_bg(@dd_randomcolor_50);
+
+	img
+	{
+		&.img_w30
+		{
+			width:30px;
+			height:30px;
+		}
+	}
+
+	tr
+	{
+		th,td
+		{
+			border-width:1px 1px;
+			padding:10px 10px;
+
+		}
+		th
+		{
+			font-weight:bold;
+			background:#eef2f7;
+		}
+		a
+		{
+			color:@color_link;
+			&:hover
+			{
+				text-decoration:underline;
+			}
+		}
+		&:nth-child(2n)
+		{
+			background:#f9f9fa;
+		}
+		&[tablelist_status=checked]
+		{
+			background:#f6fafe;
+		}
+	}
+
+}
+

@@ -1,0 +1,89 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+/*widgetslider__________________________________________________________________________________________*/
+[__sliderbox__=sliderbox]
+{
+
+	.dd_bg(@dd_randomcolor_13);
+	position:relative;
+
+	[sliderbox_role=viewzone]
+	{
+
+		display:block;
+		position:relative;
+		overflow:hidden;
+
+	}
+	[sliderbox_role=ind]
+	{
+		>*
+		{
+			cursor:pointer;
+		}
+	}
+
+	&[sliderbox_effect=leftloop]
+	{
+		[sliderbox_role=framewrap]
+		{
+			display:flex;
+			height:100%;
+			position:relative;
+			>*
+			{
+				flex-grow:1;
+			}
+		}
+
+		<?php
+			for($i=-1;$i<=\Prjconfig::widget_config['sliderbox_maxframenum'];$i++)
+			{
+				echo '
+					&[sliderbox_frame_index=\''.$i.'\']
+					{
+						[sliderbox_role=framewrap]
+						{
+							left:'.(-($i+1)*100).'%;
+						}
+					}';
+
+			}
+		?>
+
+	}
+	&[sliderbox_effect=toploop]
+	{
+		[sliderbox_role=viewzone]
+		{
+			[sliderbox_role=framewrap]
+			{
+				width:100%;
+				position:absolute;
+			}
+		}
+
+		<?php
+			for($i=-1;$i<\Prjconfig::widget_config['sliderbox_maxframenum'];$i++)
+			{
+				echo '
+					&[sliderbox_frame_index=\''.$i.'\']
+					{
+						[sliderbox_role=framewrap]
+						{
+							top:'.(-($i+1)*100).'%;
+						}
+					}';
+
+			}
+		?>
+
+	}
+
+}

@@ -1,0 +1,149 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__mobilemodal__=mobilemodal].anv_check_modal
+{
+
+	[mobilemodal_role=viewzone]
+	{
+
+		background:#fff;
+
+		width:800mpx;
+
+		padding:80mpx 40mpx;
+
+		.dd_bg(@dd_randomcolor_38);
+
+		.p0_logoz
+		{
+
+			height:160mpx;
+			background-image:url(/assets/img/logo/lovephp.logo.theme.svg);
+			background-position:center center;
+			background-size:400mpx auto;
+			background-repeat:no-repeat;
+			.dd_bg(@dd_randomcolor_13);
+
+		}
+		.p1_textz
+		{
+			margin-top:40mpx;
+			font-size:40mpx;
+			text-align:center;
+			.hlh(60mpx);
+			.dd_bg(@dd_randomcolor_44);
+		}
+
+		.p2_descz
+		{
+			margin-top:40mpx;
+			line-height:50mpx;
+
+			font-size:36mpx;
+			.dd_bg(@dd_randomcolor_44);
+			color:#666;
+			max-height:300mpx;
+			overflow-y:auto;
+		}
+		.p3_btnz
+		{
+			margin-top:40mpx;
+		}
+		.p3_downloadprogress
+		{
+			.dd_bg(@dd_randomcolor_35);
+			text-align:center;
+			margin-top:40mpx;
+			font-size:40mpx;
+			display:none;
+		}
+
+	}
+
+	&[anv_show_status=downloading]
+	{
+		.p3_btnz
+		{
+			display:none;
+		}
+		.p3_downloadprogress
+		{
+			display:block;
+		}
+	}
+
+}
+
+[__mobilemodal__=mobilemodal].alp_fststartagree_modal
+{
+
+	display:block;
+	.dd_bg(@dd_randomcolor_14);
+	background:#666;
+	[mobilemodal_role=viewzone]
+	{
+
+		background:#fff;
+		position:absolute;
+		left:100mpx;
+		right:100mpx;
+		top:100mpx;
+		bottom:100mpx;
+
+		width:800mpx;
+
+		display:flex;
+
+		flex-direction:column;
+
+		padding:40mpx 40mpx;
+
+		.dd_bg(@dd_randomcolor_38);
+
+		.p0
+		{
+			.hlh(80mpx);
+			text-align:center;
+			font-size:48mpx;
+			font-weight:bold;
+			.dd_bg(@dd_randomcolor_33);
+		}
+
+		.p1
+		{
+			.dd_bg(@dd_randomcolor_55);
+			flex-grow:1;
+			overflow-y:auto;
+			margin-top:40mpx;
+			font-size:40mpx;
+		}
+
+		.p2
+		{
+			margin-top:40mpx;
+			.dd_bg(@dd_randomcolor_02);
+				line-height:60mpx;
+				color:#999;
+				font-size:40mpx;
+
+				a
+				{
+					color:@color_link;
+				}
+		}
+		.p3
+		{
+			margin-top:40mpx;
+		}
+
+	}
+
+}
+

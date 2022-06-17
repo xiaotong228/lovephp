@@ -1,0 +1,95 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__skelmodule__=skelmodule][skelmodule_name=admin_leftmenu]
+{
+
+	width:100%;
+	height:100%;
+	background:#222;
+
+	overflow-y:auto;
+
+	a
+	{
+		display:block;
+		.hlh(40px);
+		.dd_bg(@dd_randomcolor_12);
+		padding-left:20px;
+		color:#fff;
+		font-size:14px;
+		&:hover
+		{
+			background:#333;
+		}
+		&.csel
+		{
+			background:@color_0;
+		}
+	}
+	.menugroup
+	{
+
+		.dd_bg(@dd_randomcolor_03);
+
+		a
+		{
+			padding-left:30px;
+		}
+
+		[toggleshow_role=trigger]
+		{
+			display:block;
+			.hlh(40px);
+			.dd_bg(@dd_randomcolor_12);
+			padding-left:20px;
+			color:#fff;
+			font-size:14px;
+			.dd_bg(@dd_randomcolor_22);
+
+			&:hover
+			{
+				background:#333;
+			}
+			&:after
+			{
+				font-family:iconfont;
+				content:'\f056';
+				float:right;
+				.dd_bg(@dd_randomcolor_34);
+				margin-right:10px;
+				font-size:14px;
+			}
+		}
+
+		&[toggleshow_status=active]
+		{
+			.dd_bg(@dd_randomcolor_04);
+			background:#000;
+			[toggleshow_role=trigger]
+			{
+				&:after
+				{
+					content:'\f057';
+				}
+			}
+		}
+		&.inthisgroup
+		{
+			&:not([toggleshow_status=active])
+			{
+				[toggleshow_role=trigger]
+				{
+					background:@color_0;
+				}
+			}
+		}
+
+	}
+
+}

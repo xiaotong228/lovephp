@@ -1,0 +1,10 @@
+<module>
+	<name>connect_regist</name>
+	<title>connect/regist</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

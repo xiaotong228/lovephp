@@ -1,0 +1,119 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__skelroot__=skelroot]
+{
+	[__skelgrid__=skelgrid]
+	{
+		[__skelzone__=skelzone]
+		{
+			min-height:20px;
+		}
+		[__skelmodule__=skelmodule]
+		{
+/*
+			display:block;
+*/
+		}
+
+		<?php
+		foreach(\_skel_\Skelcore::gridtype_infomap as $k=>$v)
+		{
+			echo '&[skelgrid_type=\''.$k.'\']{';
+				echo $v['grid_csscode'];
+			echo '}';
+		}
+		?>
+
+	}
+
+}
+
+[skelvisualedit_role=modulemask]
+{
+	position:absolute;
+	z-index:@pc_ui_mask_zindex+(-10);
+	width:100px;
+	height:100px;
+	left:0px;
+	top:0px;
+	.bg_alpha(#0ff,75);
+	text-align:center;
+	display:none;
+	a
+	{
+		.ibt();
+
+		.iconfont_cube(20px);
+
+		font-family:iconfont;
+
+		font-size:16px;
+		.dd_bg(@dd_randomcolor_46);
+		background:#f0f;
+		color:#fff;
+		margin:0 5px 5px 5px;
+		&:hover
+		{
+			.opacity_opacity(90);
+		}
+	}
+}
+[skelvisualedit_role=menutrigger]
+{
+	position:fixed;
+	left:20px;
+	top:20px;
+
+	z-index:@pc_ui_mask_zindex+(-1);
+
+	background:#f0f;
+
+	color:#fff;
+
+	padding:10px 0;
+
+	.p0
+	{
+		.iconfont_cube(30px);
+		font-family:iconfont;
+		font-size:24px;
+		.dd_bg(@dd_randomcolor_23);
+		padding:0 10px;
+
+	}
+	.p1
+	{
+		.dd_bg(@dd_randomcolor_53);
+		display:none;
+		a
+		{
+			.hlh(30px);
+			.dd_bg(@dd_randomcolor_18);
+			font-size:14px;
+			display:block;
+			color:#fff;
+			padding:0 10px;
+		}
+		a:hover
+		{
+			background:#0ff;
+
+			color:#f0f;
+		}
+	}
+	&:hover
+	{
+		.p1
+		{
+			display:block;
+		}
+	}
+
+}

@@ -1,0 +1,79 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+
+
+
+[indexpageframe_tab=article]
+{
+	.dd_bg(@dd_randomcolor_18);
+
+	grid-template-rows:~"calc(@{mobile_layout_sky_height} + var(--mobile_app_statusbarheight))" 1fr;
+
+	background:#fff;
+
+	.top_searchz
+	{
+
+		.dd_bg(@dd_randomcolor_53);
+		display:grid;
+		grid-template-columns:300mpx 1fr;
+		background:@color_0;
+		padding:20mpx;
+		column-gap:20mpx;
+
+		padding-top:~"calc(20mpx + var(--mobile_app_statusbarheight))";
+
+		.left_logoz
+		{
+			.dd_bg(@dd_randomcolor_30);
+			background-image:url(/assets/img/logo/lovephp.logo.fff.svg);
+			background-size:100% auto;
+			background-position:center center;
+			background-repeat:no-repeat;
+		}
+		.right_searchz
+		{
+			.dd_bg(@dd_randomcolor_47);
+			background:#fff;
+
+			i
+			{
+				.ibt();
+
+				.dd_bg(@dd_randomcolor_38);
+				.iconfont_cube(80mpx);
+				font-size:60mpx;
+				color:#666;				
+			}
+			span
+			{
+				.ibt();
+				.dd_bg(@dd_randomcolor_03);
+				font-size:48mpx;
+				.hlh(80mpx);
+				color:#999;
+			}
+		
+		}
+
+		
+	}
+	.center_bodyz
+	{
+		.dd_bg(@dd_randomcolor_08);
+	}
+
+	&[indexpageframe_status=active]
+	{
+		display:grid !important;
+	}
+	
+}
+

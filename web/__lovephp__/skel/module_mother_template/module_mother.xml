@@ -1,0 +1,10 @@
+<module>
+	<name>{__MODULE_NAME__}</name>
+	<title>{__MODULE_TITLE__}</title>
+	<thumb>{__MODULE_THUMB__}</thumb>
+	<description>{__MODULE_DESCRIPTION__}</description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

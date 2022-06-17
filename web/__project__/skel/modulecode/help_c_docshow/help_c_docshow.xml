@@ -1,0 +1,10 @@
+<module>
+	<name>help_c_docshow</name>
+	<title>help/通用/docshow</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

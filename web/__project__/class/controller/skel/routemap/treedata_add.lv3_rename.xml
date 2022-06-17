@@ -1,0 +1,11 @@
+<module>
+	<name>action</name>
+	<params>
+		<group title='x'>
+			<section title='action' folded='false'>
+				<param formtype='text' label='action名称' name='name' description='必填,需符合php函数的命名规则'>
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

@@ -1,0 +1,95 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__sliderbox__=sliderbox]
+{
+
+	.dd_bg(@dd_randomcolor_13);
+
+	position:relative;
+
+	overflow:hidden;
+
+
+	[sliderbox_role=framewrap]
+	{
+		.dd_bg(@dd_randomcolor_49);
+
+		display:flex;
+		height:100%;
+		position:relative;
+
+		.willchange_transform();
+
+		>*
+		{
+			flex-grow:1;
+			display:block;
+		}
+
+	}
+
+
+	[sliderbox_role=ind]
+	{
+		position:absolute;
+		left:0;
+		bottom:20mpx;
+		right:0;
+		height:16mpx;
+		.dd_bg(@dd_randomcolor_49);
+		pointer-events:none;
+		text-align:center;
+		>*
+		{
+
+			.ibt();
+			width:16mpx;
+			height:16mpx;
+			.dd_bg(@dd_randomcolor_40);
+
+			.borderradius(50%);
+
+			.bg_alpha(#000,35);
+
+			&[sliderbox_ind_status=active]
+			{
+				.bg_alpha(#000,65);
+			}
+			&~*
+			{
+				margin-left:16mpx;
+			}
+
+		}
+
+	}
+
+	&[sliderbox_status=running]
+	{
+
+	}
+
+}
+
+<?php
+	for($i=0;$i<\Prjconfig::widget_config['sliderbox_maxframenum'];$i++)
+	{
+		echo '
+			[sliderbox_frame_index=\''.$i.'\']
+			{
+				[sliderbox_role=framewrap]
+				{
+					left:'.(-($i+1)*100).'%;
+				}
+			}';
+
+	}
+?>
+

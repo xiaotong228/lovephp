@@ -1,0 +1,135 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__splitpage__=splitpage]
+{
+	margin-top:20px;
+	text-align:left;
+	line-height:0px;
+	position:relative;
+	.dd_bg(@dd_randomcolor_44);
+	a
+	{
+		.ibt();
+		.hlh(30px);
+		outline:none;
+		background:#fff;
+		border-width:1px;
+		border-style:solid;
+		border-color:@bd_color;
+		text-align:center;
+
+		&[splitpage_role=pageitem]
+		{
+			&~[splitpage_role=pageitem]
+			{
+				margin-left:-1px;
+			}
+		}
+		&._width_fixed_
+		{
+			width:30px;
+			.dd_bg(@dd_randomcolor_27);
+		}
+		&._width_auto_
+		{
+			padding:0 5px;
+			.dd_bg(@dd_randomcolor_29);
+		}
+		&._current_
+		{
+			position:relative;
+			z-index:1;
+			border-color:@color_0 !important;
+			background:@color_0 !important;
+			color:#fff !important;
+			cursor:default !important;
+		}
+		&._prev_
+		{
+			margin-right:10px;
+			width:58px;
+		}
+		&._next_
+		{
+			margin-left:10px;
+			width:58px;
+		}
+		&._disable_
+		{
+			background:#eee !important;
+			color:#999 !important;
+			border-color:@bd_color !important;
+			cursor:default !important;
+		}
+		&:hover
+		{
+			position:relative;
+			z-index:1;
+			border-color:@color_0;
+			color:@color_0;
+			text-decoration:none;
+		}
+
+	}
+	span
+	{
+		.ibt();
+		.hlh(32px);
+		.dd_bg(@dd_randomcolor_37);
+		&[splitpage_role=totalitemnum]
+		{
+			.dd_bg(@dd_randomcolor_32);
+			margin-right:10px;
+		}
+	}
+}
+
+[__toggleshow__=toggleshow]
+{
+	[toggleshow_role=trigger]
+	{
+		cursor:pointer;
+	}
+	>[toggleshow_role=blinkzone]
+	{
+		display:none;
+		.dd_bg(@dd_randomcolor_27);
+	}
+	&[toggleshow_status=active]
+	{
+		>[toggleshow_role=blinkzone]
+		{
+			display:block;
+			.dd_bg(@dd_randomcolor_25);
+		}
+	}
+
+}
+
+[__imgvcode__=imgvcode]
+{
+	.ibt();
+	cursor:pointer;
+	width:150px;
+	height:30px;
+}
+[__tip__=tip]
+{
+	cursor:pointer;
+	font-family:iconfont !important;
+	vertical-align:middle;
+	font-size:1.2em;
+	&:before
+	{
+		content:'\f067';
+	}
+}
+
+

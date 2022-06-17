@@ -1,0 +1,149 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+
+[__uploadavatar__=uploadavatar]
+{
+
+	.dd_bg(@dd_randomcolor_39);
+
+	[uploadavatar_role=ua_selectfile]
+	{
+	}
+
+	[uploadavatar_role=ua_operpanel]
+	{
+
+		width:300px;
+		height:300px;
+		background:#000;
+		margin-top:10px;
+		background-image:url(data:image/gif;base64,R0lGODlhEAAQAKIAAAAAAP///93d3aqqqv///wAAAAAAAAAAACH5BAEAAAQALAAAAAAQABAAAAMgOLoq/o4xCOWizzYs9OCdBnqjCHIkamIpu1It/FZzpiUAOw==);
+		position:relative;
+		display: grid;
+		justify-items: center;
+		align-items: center;
+		border:1px solid #000;
+
+		.user_select_none();
+
+		[uploadavatar_role=ua_cutbox_wrap]
+		{
+
+			width:100%;
+			height:100%;
+			.dd_bg_alpha(@dd_randomcolor_28,50);
+			background-size:100% 100%;
+			position:relative;
+			overflow:hidden;
+
+
+			[uploadavatar_role=ua_cutbox]
+			{
+				position:absolute;
+				left:30px;
+				top:30px;
+				width:100px;
+				height:100px;
+				border:1px solid #fff;
+				.dd_bg_alpha(@dd_randomcolor_21,50);
+				box-sizing:border-box;
+
+
+				[uploadavatar_role=ua_cutbox_drag]
+				{
+					width:100%;
+					height:100%;
+					.dd_bg_alpha(@dd_randomcolor_53,50);
+					cursor:move;
+
+				}
+				[uploadavatar_role=ua_cutbox_point]
+				{
+					width:6px;
+					height:6px;
+
+					border-style:solid;
+					border-color:#fff;
+					position:absolute;
+					.dd_bg_alpha(@dd_randomcolor_16,50);
+
+					.bg_alpha(#000,50);
+
+					&[index='0']
+					{
+						border-width:0 1px 1px 0;
+						left:0;
+						top:0;
+						cursor:nw-resize;
+					}
+					&[index='1']
+					{
+						border-width:0 0 1px 1px;
+						right:0;
+						top:0;
+						cursor:sw-resize;
+					}
+					&[index='2']
+					{
+						border-width:1px 0 0 1px;
+						right:0;
+						bottom:0;
+						cursor:nw-resize;
+					}
+					&[index='3']
+					{
+						border-width:1px 1px 0 0;
+						left:0;
+						bottom:0;
+						cursor:sw-resize;
+					}
+				}
+				[uploadavatar_role=ua_cutbox_shadow]
+				{
+					position:absolute;
+
+					width:500px;
+					height:500px;
+					.bg_alpha(#000,50);
+					&[index='0']
+					{
+						left:-1px;
+						top:-501px;
+					}
+					&[index='1']
+					{
+						top:-1px;
+						right:-501px;
+					}
+					&[index='2']
+					{
+						right:-1px;
+						bottom:-501px;
+					}
+					&[index='3']
+					{
+						bottom:-1px;
+						left:-501px;
+					}
+				}
+
+			}
+
+			img
+			{
+				max-width:100%;
+				max-height:100%;
+
+			}
+		}
+
+	}
+
+}

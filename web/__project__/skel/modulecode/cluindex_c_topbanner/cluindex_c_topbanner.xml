@@ -1,0 +1,10 @@
+<module>
+	<name>cluindex_c_topbanner</name>
+	<title>cluindex/通用/topbanner</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

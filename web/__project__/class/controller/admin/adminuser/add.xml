@@ -1,0 +1,32 @@
+<module>
+
+	<name>管理员</name>
+
+	<params>
+
+		<group title='x'>
+
+			<section title='名称' folded='false'>
+				<param formtype='text' label='名称' name='adminuser_name' description=''>
+				</param>
+				<param formtype='text' label='登录密码' name='adminuser_password' description='编辑模式下,置空不会更改该用户的密码'>
+				</param>
+			</section>
+			<section title='操作权限' folded='false'>
+
+				<param formtype='checkbox' label='操作权限' name='adminuser_authority' description=''>
+				<?php
+					foreach(\controller\admin\super\Superadmin::authority_map as $k=>$v)
+					{
+						echo '<option value=\''.$k.'\' >'.$v.'</option>';
+					}
+				?>
+				</param>
+
+			</section>
+
+		</group>
+
+	</params>
+
+</module>

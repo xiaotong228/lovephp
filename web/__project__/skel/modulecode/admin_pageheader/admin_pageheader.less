@@ -1,0 +1,72 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__skelmodule__=skelmodule][skelmodule_name=admin_pageheader]
+{
+
+	background:#000;
+	position:relative;
+	line-height:0;
+	.after_clearboth();
+
+	a,span
+	{
+
+		.ibt();
+		.hlh(40px);
+		font-size:14px;
+		&.navitem
+		{
+			padding:0 20px;
+			color:#fff;
+			&:hover
+			{
+				background:#333;
+			}
+			&.csel
+			{
+				background:@color_0;
+				color:#fff;
+			}
+		}
+
+		&.logoz
+		{
+
+			width:200px;
+			background-image:url(/assets/img/logo/lovephp.logo.fff.svg);
+			background-size:auto 120px;
+			background-position:center center;
+			background-repeat:no-repeat;
+			.dd_bg(@dd_randomcolor_08);
+		}
+
+
+	}
+	span
+	{
+		color:#fff;
+	}
+
+	.rightoper
+	{
+		.dd_bg(@dd_randomcolor_23);
+		float:right;
+		margin-right:20px;
+	}
+	a.rightoper
+	{
+		color:@color_0;
+
+		&:hover
+		{
+			text-decoration:underline;
+		}
+	}
+
+}

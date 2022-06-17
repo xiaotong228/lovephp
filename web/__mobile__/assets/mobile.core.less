@@ -1,0 +1,317 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+<?php
+	require __prj_dir__.'/less/prj.config.less';
+	require __lp_dir__.'/less/lp.function.less';
+
+	require __lp_dir__.'/less/lp.htmltag.less';
+	require __m_dir__.'/__lovephp__/less/mobile.layout.less';
+
+?>
+
+
+.mobile_swiper_eclipse()
+{
+	position:absolute;
+
+	top:0;
+
+	bottom:0;
+
+	width:100vw;
+
+	transform:scale(0,1);
+
+	display:none;
+
+	.willchange_transform();
+
+	pointer-events:none;
+
+	&:before
+	{
+		content:'';
+		display:block;
+		top:-2%;
+		bottom:-2%;
+		position:absolute;
+		.borderradius(50%);
+		.bg_alpha(#333,10);
+		.dd_bg_alpha(@dd_randomcolor_34,50);
+	}
+
+}
+
+.mobile_swiper_eclipse_left()
+{
+	left:0;
+	transform-origin:0 50%;
+	&:before
+	{
+		.dd_bg_alpha(yellow,80);
+		right:0;
+		left:-100%;
+	}
+}
+.mobile_swiper_eclipse_right()
+{
+	right:0;
+	transform-origin:100% 50%;
+	&:before
+	{
+		.dd_bg_alpha(@dd_randomcolor_45,50);
+		left:0;
+		right:-100%;
+	}
+}
+
+<?php
+	if(1)
+	{
+		$list=fs_dir_searchfile(__m_dir__.'/class/controller/foreground',['less']);
+		echo "/*\ninlcudelist:(".count($list).")\n".impd($list,"\n")."\n*/";
+		foreach($list as $v)
+		{
+			echo "\n/*1*/".fs_file_read_php($v);
+		}
+	}
+
+	if(1)
+	{
+		foreach(\Prjconfig::mobile_config['mobile_widget_list'] as $v)
+		{
+			echo "\n";
+			include __m_dir__.'/__lovephp__/widget/widget.'.$v.'.less';
+		}
+	}
+
+?>
+
+*
+{/*xiaotong/20220129*/
+	tap-highlight-color:transparent;
+	-webkit-tap-highlight-color:transparent;
+}
+
+html,body
+{
+	background:#fff;
+	width:100%;
+	height:100%;
+	position:relative;
+	overflow:hidden;
+}
+
+body
+{
+
+	font-size:24mpx;
+
+	&[httpcode_404]
+	{
+		.dd_bg(@dd_randomcolor_57);
+		.dd_bg(@dd_randomcolor_29);
+		padding:200mpx 40mpx 0 40mpx;
+		.logoz
+		{
+			width:480mpx;
+			height:140mpx;
+			margin:0 auto;
+			background-image:url(/assets/img/logo/lovephp.logo.000.svg);
+			background-size:100% auto;
+			background-position:center center;
+			.dd_bg(@dd_randomcolor_54);
+			.opacity_opacity(75);
+		}
+		.messagez
+		{
+			font-size:48mpx;
+			text-align:center;
+			.dd_bg(@dd_randomcolor_55);
+			margin-top:80mpx;
+		}
+		[__button__]
+		{
+			display:block;
+			width:400mpx;
+			margin:80mpx auto 0 auto;
+		}
+	}
+}
+div
+{/*隐藏所有的滚动条*/
+	&::-webkit-scrollbar
+	{
+		display: none;
+		width:0;
+		height:0;
+	}
+}
+
+a,button,input
+{
+	tap-highlight-color:transparent;
+	-webkit-tap-highlight-color:transparent;
+}
+input[type=date]
+{
+	.appearance_appearance(none);
+	background:#F5F5F5;
+}
+select
+{
+	.appearance_appearance(none);
+	background:#F5F5F5;
+	box-sizing:border-box;
+	padding-left:40mpx;
+}
+
+input
+{
+	background:none;
+}
+
+[__mobileback__=mobileback]
+{
+	cursor:pointer;
+}
+
+.__bg_grey__
+{
+	background:@mobile_page_greybg_color;
+}
+
+.__bg_white__
+{
+	background:#fff;
+}
+
+label.g_checkbox_wrap
+{
+
+	.dd_bg(@dd_randomcolor_28);
+
+	position:relative;
+
+	cursor:pointer;
+
+	input[type=checkbox],input[type=radio]
+	{
+
+		position:absolute;
+		clip-path:inset(0 100% 100% 0);
+		width:0;
+		height:0;
+
+		&+u
+		{
+			.dd_bg(@dd_randomcolor_55);
+
+			.ibt();
+
+			.hlh(60mpx);
+			.dd_bg(@dd_randomcolor_44);
+			.dd_bg(@dd_randomcolor_56);
+
+			&:before
+			{
+				content:'\f070';
+				.ibt();
+				.iconfont_cube(56mpx);
+				font-size:40mpx;
+				margin-right:20mpx;
+				border-width:2mpx;
+				border-color:@bd_color;
+				border-style:solid;
+				font-family:iconfont;
+				color:#fff;
+				background:#fff;
+				font-weight:normal;
+			}
+			&:empty
+			{
+				&:before
+				{
+					margin-right:0;
+				}
+			}
+		}
+		&:checked
+		{
+			&+u
+			{
+				&:before
+				{
+					background:@color_0;
+					border-color:@color_0;
+				}
+			}
+		}
+	}
+	input[type=radio]
+	{
+		&+u
+		{
+			&:before
+			{
+				.borderradius(50%);
+			}
+		}
+	}
+
+}
+.g_emptydatabox
+{
+	.dd_bg(@dd_randomcolor_15);
+	.dd_bg(@dd_randomcolor_42);
+	padding:100mpx 0;
+	text-align:center;
+	font-size:40mpx;
+	line-height:60mpx;
+
+	&:before
+	{
+		content:'';
+		display:block;
+		width:320mpx;
+		height:320mpx;
+		background-image:url(/assets/img/empty/empty.nodata.svg);
+
+		background-position:center center;
+		background-repeat:no-repeat;
+		background-size:100%;
+		margin:0 auto 20px auto;
+		.opacity_opacity(20);
+
+	}
+	b,span,a
+	{
+
+		font-size:40mpx;
+		.dd_bg(@dd_randomcolor_10);
+	}
+	span
+	{
+		color:#999;
+	}
+	a
+	{
+		color:@color_link;
+	}
+
+	&.nonetwork
+	{
+		&:before
+		{
+			background-image:url(/assets/img/empty/empty.nonetwork_3.svg);
+		}
+	}
+
+}

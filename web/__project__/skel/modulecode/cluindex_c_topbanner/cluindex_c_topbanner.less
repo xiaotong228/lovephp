@@ -1,0 +1,94 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__skelmodule__=skelmodule][skelmodule_name=cluindex_c_topbanner]
+{
+
+	.dd_bg(@dd_randomcolor_15);
+
+	background-image:url(/assets/img/cluindex_topbanner.png);
+	background-size:cover;
+	background-position:center center;
+	.dd_bg(@dd_randomcolor_37);
+
+	padding:100px 0 20px 20px;
+
+	.after_clearboth();
+
+	.avatar
+	{
+		width:64px;
+		height:64px;
+		display:block;
+		float:left;
+		border:2px solid rgba(255,255,255,0.5);
+		.borderradius(50%);
+		cursor:pointer;
+		overflow:hidden;
+		position:relative;
+		background:#fff;
+
+		img
+		{
+			width:100%;
+			height:100%;
+		}
+		&:hover
+		{
+			&:after
+			{
+				display:block;
+				content:'更改头像';
+
+				.bg_alpha(#000,50);
+				color:#fff;
+				text-align:center;
+				line-height:64px;
+				.pos_absfullfill();
+			}
+
+		}
+
+	}
+	.p0
+	{
+		margin-left:88px;
+		.dd_bg(@dd_randomcolor_56);
+		.dd_bg(@dd_randomcolor_09);
+		padding-top:14px;
+
+		color:#fff;
+		.dd_bg(@dd_randomcolor_16);
+		.p00
+		{
+			.dd_bg(@dd_randomcolor_39);
+			span
+			{
+				.ibt();
+				.hlh(20px);
+				font-size:18px;
+				font-weight:bold;
+				.dd_bg(@dd_randomcolor_25);
+				.dd_bg(@dd_randomcolor_36);
+			}
+		}
+		.p01
+		{
+			.dd_bg(@dd_randomcolor_14);
+
+			span
+			{
+				.ibt();
+				.opacity_opacity(50);
+				.hlh(20px);
+				font-size:12px;
+				.dd_bg(@dd_randomcolor_03);
+			}
+		}
+	}
+}

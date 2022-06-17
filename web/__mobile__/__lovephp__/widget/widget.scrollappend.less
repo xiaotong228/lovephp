@@ -1,0 +1,100 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__scrollappend__=scrollappend]
+{
+
+	@scrollappend_height:180mpx;
+
+	&:not(:empty)
+	{
+
+		&:not([scrollappend_status]),
+		&[scrollappend_status=loading]
+		{
+
+			.dd_bg(@dd_randomcolor_44);
+
+			&:after
+			{
+
+
+				background-image:url(/assets/img/ring/ring.theme.loading.svg);
+				background-size:80mpx 80mpx;
+
+				display:block;
+
+				content:'';
+
+				height:@scrollappend_height;
+
+				background-position:center center;
+				background-repeat:no-repeat;
+
+				.dd_bg(@dd_randomcolor_42);
+			}
+
+		}
+
+		&[scrollappend_status=nomoredata]
+		{
+
+			.dd_bg(@dd_randomcolor_31);
+
+			&:after
+			{
+				content:'-- 没有更多数据了--';
+				text-align:center;
+				display:block;
+				.hlh(@scrollappend_height);
+				font-size:36mpx;
+				color:#999;
+				.dd_bg(@dd_randomcolor_59);
+			}
+		}
+
+	}
+	&:empty
+	{
+
+		&:before
+		{
+			content:'';
+			display:block;
+			width:300mpx;
+			height:300mpx;
+			background-image:url(/assets/img/empty/empty.nodata.svg);
+			background-position:center bottom;
+			background-repeat:no-repeat;
+			background-size:100%;
+			margin:0 auto 0 auto;
+			.opacity_opacity(30);
+			.dd_bg(@dd_randomcolor_35);
+			padding-top:200mpx;
+
+		}
+
+		&:after
+		{
+			content:'没有数据';
+			display:block;
+			.hlh(40mpx);
+			font-size:40mpx;
+			text-align:center;
+			.dd_bg(@dd_randomcolor_04);
+			color:#999;
+			margin-top:20px;
+		}
+
+	}
+
+}
+
+
+

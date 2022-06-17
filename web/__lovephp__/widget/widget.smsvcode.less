@@ -1,0 +1,64 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__smsvcode__=smsvcode]
+{
+	.ibt();
+	.dd_bg(@dd_randomcolor_08);
+	width:150px;
+	text-align:right;
+	[smsvcode_role=sendbtn]
+	{
+		.ibt();
+		.hlh(30px);
+		.dd_bg(@dd_randomcolor_12);
+		color:@color_link;
+		font-size:14px;
+		&:hover
+		{
+			text-decoration:underline;
+		}
+	}
+	[smsvcode_role=frozentime]
+	{
+		.ibt();
+		.dd_bg(@dd_randomcolor_35);
+		.hlh(30px);
+		.dd_bg(@dd_randomcolor_12);
+		color:#999;
+		display:none;
+		font-size:14px;
+		font-weight:bold;
+
+		&:before
+		{
+			content:'已发送';
+			font-weight:normal;
+		}
+		&:after
+		{
+			content:'秒';
+			font-weight:normal;
+		}
+
+	}
+	&[smsvcode_status=frozen]
+	{
+		.dd_bg(@dd_randomcolor_34);
+		[smsvcode_role=sendbtn]
+		{
+			display:none;
+		}
+		[smsvcode_role=frozentime]
+		{
+			display:inline-block;
+		}
+	}
+
+}

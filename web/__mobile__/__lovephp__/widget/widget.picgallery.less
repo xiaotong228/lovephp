@@ -1,0 +1,150 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__mobilepage__=mobilepage][__picgallery__=picgallery]
+{
+
+	.dd_bg(@dd_randomcolor_29);
+
+	counter-reset:picgallery_picnum;
+
+	[picgallery_role=viewzone]
+	{
+		.dd_bg(@dd_randomcolor_03);
+		position:relative;
+		width:100%;
+		height:100%;
+
+		background:#000;
+		[picgallery_role=framewrap]
+		{
+			.dd_bg_alpha(@dd_randomcolor_09,50);
+			height:100%;
+			display:flex;
+			position:relative;
+
+			[picgallery_role=frame]
+			{
+				width:100vw;
+				.dd_bg_alpha(@dd_randomcolor_13,50);
+
+				display:grid;
+				justify-items:center;
+				align-items:center;
+
+				position:relative;
+
+				overflow:auto;
+
+				counter-increment: picgallery_picnum;
+
+				img
+				{
+					display:block;
+					width:100%;
+					.willchange_transform();
+				}
+
+				&[picgallery_frame_multitouchdragging=multitouchdragging]
+				{
+					overflow:hidden;
+					img
+					{
+						position:absolute;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	[picgallery_role=eclipse_left],[picgallery_role=eclipse_right]
+	{
+		.mobile_swiper_eclipse();
+		&:before
+		{
+			.bg_alpha(#666,20);
+		}
+	}
+
+	[picgallery_role=eclipse_left]
+	{
+		.mobile_swiper_eclipse_left();
+	}
+	[picgallery_role=eclipse_right]
+	{
+		.mobile_swiper_eclipse_right();
+	}
+
+	[__mobileback__=mobileback]
+	{
+		position:absolute;
+		left:20mpx;
+		top:~"calc(20mpx + var(--mobile_app_statusbarheight))";
+		.iconfont_cube(100mpx);
+		font-size:56mpx;
+		color:#fff;
+		.bg_alpha(#000,50);
+
+		&:before
+		{
+			content:'\f06d';
+		}
+
+	}
+	[picgallery_role=page_ind],[picgallery_role=save]
+	{
+		position:absolute;
+		bottom:20mpx;
+		.hlh(100mpx);
+		padding:0 20mpx;
+		font-size:40mpx;
+		color:#fff;
+		.bg_alpha(#000,50);
+
+	}
+	[picgallery_role=page_ind]
+	{
+		pointer-events:none;
+		left:20mpx;
+		&:after
+		{
+			content:"/"counter(picgallery_picnum);
+		}
+	}
+
+	[picgallery_role=save]
+	{
+		right:20mpx;
+	}
+}
+
+<?php
+
+for($i=0;$i<\Prjconfig::widget_config['picgallery_maxframenum'];$i++)
+{
+
+	echo '
+		[picgallery_frame_index=\''.$i.'\']
+		{
+			[picgallery_role=framewrap]
+			{
+				left:'.(-$i*100).'vw;
+			}
+			[picgallery_role=page_ind]:before
+			{
+				content:\''.($i+1).'\';
+			}
+		}
+	';
+}
+?>
+

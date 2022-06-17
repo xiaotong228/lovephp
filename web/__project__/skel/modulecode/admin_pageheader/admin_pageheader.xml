@@ -1,0 +1,10 @@
+<module>
+	<name>admin_pageheader</name>
+	<title>admin/通用/pageheader</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

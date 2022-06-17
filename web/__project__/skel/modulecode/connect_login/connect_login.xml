@@ -1,0 +1,10 @@
+<module>
+	<name>connect_login</name>
+	<title>connect/login</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

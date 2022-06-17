@@ -1,0 +1,298 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+.input_placeholdercolor(@color)
+{
+
+	&::-webkit-input-placeholder
+	{
+		color:@color !important;
+		.opacity_opacity(100);
+	}
+	&::-moz-placeholder
+	{
+		color:@color !important;
+		.opacity_opacity(100);
+	}
+	&:-ms-input-placeholder
+	{
+		color:@color !important;
+		.opacity_opacity(100);
+	}
+}
+.rescue_ius()
+{
+
+	i
+	{
+		font-style:italic;
+	}
+	u
+	{
+		text-decoration:underline;
+	}
+	s
+	{
+		text-decoration:line-through;
+	}
+}
+
+.hlh(@height)
+{
+	height:@height;
+	line-height:@height;
+}
+.width_available()
+{
+	width:-webkit-fill-available;
+	width:-moz-available;
+}
+.iconfont_cube(@width)
+{
+	.hlh(@width);
+	width:@width;
+	font-family:iconfont;
+	text-align:center;
+	font-weight:normal !important;
+}
+/*inline-block__________________________________________________________________________________________*/
+.ibt()
+{
+	display:inline-block;
+	vertical-align:top;
+}
+.ibm()
+{
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.boxsizing_borderbox()
+{
+	box-sizing:border-box;
+}
+.pos_absfullfill()
+{
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+/*不用定死宽高,modal/bottom_to_top有问题
+	width:100%;
+	height:100%;
+*/
+}
+.opacity_opacity(@arg:1)
+{/*参数是0~100*/
+
+	opacity:@arg/100;
+	filter:~"alpha(opacity=@{arg})";
+
+}
+.user_select_none()
+{/*文本不可选择*/
+	-moz-user-select:none;/*火狐*/
+	-webkit-user-select:none;/*webkit浏览器*/
+	-ms-user-select:none;/*IE10*/
+	-khtml-user-select:none;/*早期浏览器*/
+	user-select:none;
+}
+.word_keepall()
+{
+	word-break:keep-all;
+	white-space:nowrap;
+}
+.appearance_appearance(@value)
+{
+	-webkit-appearance:@value;
+	-moz-appearance:@value;
+	appearance:@value;
+}
+.borderradius(@radius:3px)
+{
+	border-radius:@radius;
+}
+
+/*after__________________________________________________________________________________________*/
+.after_clearboth()
+{
+	&:after
+	{
+		content:'';
+		display:block;
+		height:0;
+		clear:both;
+	}
+}
+.before_clearboth()
+{
+	&:before
+	{
+		content:'';
+		display:block;
+		height:0;
+		clear:both;
+	}
+}
+.before_vam()
+{/*为dom插入一个before vertical-align:middle;便于后续inline/inline-block元素的垂直居中定位*/
+	&:before
+	{
+		content:'';
+		display:inline-block;
+		height:100%;
+		vertical-align:middle;
+		width:0;
+		.dd_bg(@dd_randomcolor_04);
+	}	
+}
+/*text__________________________________________________________________________________________*/
+.text_textellipsis()
+{
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+.text_textellipsis_unset()
+{
+	white-space:normal;
+	text-overflow:clip;
+	overflow:auto;
+}
+.text_textellipsis_multiline(@linenum)
+{
+	display:-webkit-box;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	-webkit-line-clamp:@linenum;
+	-webkit-box-orient:vertical;
+}
+
+/*shadow__________________________________________________________________________________________*/
+.shadow_boxshadow(@offset:5px 5px 5px 10px,@color:#000,@alpha:100)
+{
+/*h-shadow v-shadow blur spread color inset;*/
+/*
+alpha 0~100,数字越大颜色越重
+h-shadow 	必需。水平阴影的位置。允许负值。
+v-shadow 	必需。垂直阴影的位置。允许负值。
+blur 	可选。模糊距离。
+spread 	可选。阴影的尺寸。
+color 	可选。阴影的颜色。请参阅 CSS 颜色值。
+inset 	可选。将外部阴影 (outset) 改为内部阴影。
+*/
+	box-shadow:@offset fadeout(@color,percentage(1-@alpha/100));
+}
+.shadow_textshadow(@offset:2px 2px 2px,@color:#000,@alpha:100)
+{
+	text-shadow:@offset fadeout(@color,percentage(1-@alpha/100));
+}
+
+.shadow_textshadow(@arg:1px 1px fadeout(#000,70%))
+{
+	text-shadow:@arg;
+	-webkit-text-shadow:@arg;
+	-moz-text-shadow:@arg;
+	-ms-text-shadow:@arg;
+	-o-text-shadow:@arg;
+}
+
+/*transition__________________________________________________________________________________________*/
+.transition_transition(@arg)
+{
+	transition:@arg;
+}
+.transition_duration(@arg)
+{
+	transition-duration:@arg;
+}
+.transition_timing_function(@arg)
+{
+	transition-timing-function:@arg;
+}
+.transition_delay(@arg)
+{
+	transition-delay:@arg;
+}
+.transition_property(@arg)
+{
+	transition-property:@arg;
+}
+
+/*transform__________________________________________________________________________________________*/
+.transform_transform(@arg)
+{
+	transform:@arg;
+	-webkit-transform:@arg;
+}
+
+/*animation__________________________________________________________________________________________*/
+.animation_animation(@arg)
+{
+	animation:@arg;
+	-webkit-animation:@arg;
+}
+
+.willchange_transform()
+{
+	will-change:transform;
+	-webkit-transform-style:preserve-3d;
+	transform-style:preserve-3d;
+}
+
+/*bg__________________________________________________________________________________________*/
+
+.bg_alpha(@color,@alpha)
+{
+	background-color:fadeout(@color,percentage(1-@alpha/100));
+}
+.bg_gradientbg(@a0,@a1,@a2)
+{
+	background-image:-webkit-linear-gradient(@a0,@a1,@a2);
+	background-image:-moz-linear-gradient(@a0,@a1,@a2);
+	background-image:-ms-linear-gradient(@a0,@a1,@a2);
+	background-image:-o-linear-gradient(@a0,@a1,@a2);
+	background-image:linear-gradient(@a0,@a1,@a2);
+}
+.bg_gradientbg(@a0,@a1,@a2,@a3)
+{
+	background-image:-webkit-linear-gradient(@a0,@a1,@a2,@a3);
+	background-image:-moz-linear-gradient(@a0,@a1,@a2,@a3);
+	background-image:-ms-linear-gradient(@a0,@a1,@a2,@a3);
+	background-image:-o-linear-gradient(@a0,@a1,@a2,@a3);
+	background-image:linear-gradient(@a0,@a1,@a2,@a3);
+}
+.bg_gradientbg(@a0,@a1,@a2,@a3,@a4)
+{
+	background-image:-webkit-linear-gradient(@a0,@a1,@a2,@a3,@a4);
+	background-image:-moz-linear-gradient(@a0,@a1,@a2,@a3,@a4);
+	background-image:-ms-linear-gradient(@a0,@a1,@a2,@a3,@a4);
+	background-image:-o-linear-gradient(@a0,@a1,@a2,@a3,@a4);
+	background-image:linear-gradient(@a0,@a1,@a2,@a3,@a4);
+}
+
+<?php
+/*注册"随机颜色"其实只有60个*/
+	$map=\Prjconfig::html_randomcolors_get();
+	foreach($map as $k=>$v)
+	{
+		echo '@dd_randomcolor_'.str_pad($k,2,'0',STR_PAD_LEFT).':#'.$v.';';
+	}
+
+?>
+
+.dd_bg(@color)
+{/*打开后会显示很多跟踪元素的随机着色,便于调试*/
+//	background-color:@color;
+}
+.dd_bg_alpha(@color,@alpha/*0~100*/)
+{
+//	background-color:fadeout(@color,percentage(1-@alpha/100));
+}

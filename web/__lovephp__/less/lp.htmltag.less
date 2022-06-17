@@ -1,0 +1,217 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+*
+{
+	margin:0;
+	padding:0;
+	border:0;
+	word-break:break-all;
+	outline:none;
+}
+label
+{
+	.ibt();
+}
+html,body
+{
+	overflow-x:hidden;
+	font-family:@txt_defaultfontfamily;
+	font-size:12px;
+	background:#fff;
+	image-rendering:-webkit-optimize-contrast;/*chrome浏览器缩略图会糊*/
+}
+a
+{
+	color:@txt_defaultcolor;
+	cursor:pointer;
+	text-decoration:none;
+	&:hover
+	{
+		text-decoration:none;
+	}
+}
+i,s,u
+{
+	text-decoration:none;
+	font-style:normal;
+}
+img
+{
+	border:0;/*兼容ie浏览器*/
+}
+li
+{
+	list-style-type:none;
+}
+table
+{
+	border:none;
+	border-collapse:collapse;
+	box-sizing:border-box;
+	.width_available();
+
+/*
+	width:100%;
+*/
+
+	th
+	{
+		border-width:1px;
+		border-style:solid;
+		border-color:@bd_color;
+		font-weight:normal;
+		text-align:left;
+	}
+	td
+	{
+		border-width:1px;
+		border-style:solid;
+		border-color:@bd_color;
+	}
+}
+
+input
+{
+
+	.ibt();
+
+	font-family:@txt_defaultfontfamily;
+
+	.input_placeholdercolor(@input_placeholder_txtcolor);
+
+	&[readonly=readonly],&[disabled=disabled]
+	{
+		background:@input_readonly_bgcolor;
+	}
+
+}
+textarea
+{
+
+	display:block;
+
+	.width_available();
+
+	.input_placeholdercolor(@input_placeholder_txtcolor);
+
+	&[readonly=readonly],&[disabled=disabled]
+	{
+		background:@input_readonly_bgcolor;
+	}
+
+}
+select
+{
+	.ibt();
+	border: 1px solid @bd_color;
+	display: inline-block;
+	color:@txt_defaultcolor;
+	box-sizing:content-box;
+	background:#fff;
+	optgroup
+	{
+		font-weight:normal;
+		color:#999;
+		font-style:normal;
+	}
+	option
+	{
+		color:@txt_defaultcolor;
+	}
+}
+button
+{
+	.ibt();
+	font-family:@txt_defaultfontfamily;
+	background:none;
+	cursor:pointer;
+	box-sizing:content-box;
+	&::-moz-focus-inner
+	{
+		border:0;
+		padding:0;
+	}
+}
+input[readony=readony],input[disabled=disabled],select[disabled=disabled],button[disabled=disabled],
+{
+	background:@input_readonly_bgcolor;
+}
+hr
+{
+	border-width:1px 0 0 0;
+	border-style:solid;
+	border-color:@bd_color;
+}
+
+.__clb__
+{
+	clear:both;
+}
+
+.__ani_common__
+{
+	.transition_duration(<?php echo \Prjconfig::html_common_ani_time;?>ms);
+}
+
+.__ani_no__
+{
+	.transition_duration(0ms) !important;
+}
+
+
+/*color__________________________________________________________________________________________*/
+.__color_0__									{color:@color_0 !important;}
+.__color_1__									{color:@color_1 !important;}
+
+.__color_yellow__								{color:@color_yellow !important;}
+.__color_red__									{color:@color_red !important;}
+.__color_green__								{color:@color_green !important;}
+.__color_blue__									{color:@color_blue !important;}
+.__color_aqua__									{color:@color_aqua !important;}
+.__color_orange__								{color:@color_orange !important;}
+.__color_grey__									{color:@color_grey !important;}
+.__color_purple__								{color:@color_purple !important;}
+
+.__color_price__								{color:@color_price !important;}
+
+.__color_sns_qq__								{color:@color_sns_qq !important;}
+.__color_sns_weixin__							{color:@color_sns_weixin !important;}
+.__color_sns_weibo__							{color:@color_sns_weibo !important;}
+.__color_sns_apple__							{color:@color_sns_apple !important;}
+
+.__color_link__									{color:@color_link !important;}
+
+
+/*iconfont__________________________________________________________________________________________*/
+
+@font-face
+{
+	font-family:'iconfont';
+	src:url('//at.alicdn.com/t/<?php echo \Prjconfig::html_iconfont_key;?>.woff2') format('woff2'),
+	url('//at.alicdn.com/t/<?php echo \Prjconfig::html_iconfont_key;?>.woff') format('woff'),
+	url('//at.alicdn.com/t/<?php echo \Prjconfig::html_iconfont_key;?>.ttf') format('truetype');
+}
+
+.iconfont
+{
+
+	font-family:iconfont !important;
+	font-style:normal !important;
+	font-weight:normal !important;
+	text-decoration:none !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	&:hover
+	{
+		text-decoration:none;
+	}
+
+}
+
+

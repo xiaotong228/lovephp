@@ -1,0 +1,94 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__skelmodule__=skelmodule][skelmodule_name=admin_connectlogin]
+{
+
+	padding:100px 0 0 0;
+	height:600px;
+
+	background-image:url(/assets/img/connectlogin_bg.png);
+	background-position:center top;
+	background-color:@color_0;
+	background-blend-mode: darken;
+
+	.admin_connectlogin_boxz
+	{
+		width:400px;
+
+		.dd_bg(@dd_randomcolor_54);
+
+		background:#fff;
+
+		[ajaxform_role=field]
+		{
+
+			.dd_bg(@dd_randomcolor_56);
+			padding:10px 0 10px 10px;
+			border:1px solid @bd_color;
+			.dd_bg(@dd_randomcolor_11);
+
+			i
+			{
+				.ibt();
+				.iconfont_cube(30px);
+				font-size:22px;
+				.dd_bg(@dd_randomcolor_53);
+				border-right:1px solid @bd_color;
+				padding-right:10px;
+			}
+			input
+			{
+				.hlh(30px);
+				font-size:15px;
+				width:327px;
+				margin-left:10px;
+				.dd_bg(@dd_randomcolor_27);
+				.ibt();
+				.dd_bg(@dd_randomcolor_40);
+			}
+			&[ajaxform_status=haserror]
+			{
+				border-color:@color_red;
+			}
+
+			&~[ajaxform_role=field]
+			{
+				margin-top:10px;
+			}
+		}
+	}
+	.mainz
+	{
+		background:#fff;
+		.dd_bg(@dd_randomcolor_36);
+		padding:20px 20px;
+		width:400px;
+		margin:0 auto;
+		.ttz
+		{
+			.dd_bg(@dd_randomcolor_14);
+			padding:0 0 0 0;
+			border-bottom:1px solid @bd_color;
+			margin:0 auto;
+			span
+			{
+				.ibt();
+				.hlh(30px);
+				font-size:14px;
+				font-weight:bold;
+			}
+		}
+		.admin_connectlogin_boxz
+		{
+			margin:20px auto 0 auto;
+		}
+	}
+}
+
+

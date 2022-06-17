@@ -1,0 +1,29 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+
+
+[__mobilepage__=mobilepage][pageroute_controller=cluindex][pageroute_action=index]
+{
+
+	[__cluserdata__=user_mobile]
+	{
+		&:empty
+		{
+			color:@color_link;
+			&:before
+			{
+				content:'点击设置';
+			}
+		}
+
+	}
+
+}
+

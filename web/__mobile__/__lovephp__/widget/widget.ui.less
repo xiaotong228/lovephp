@@ -1,0 +1,103 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+<?php
+//	require __lp_dir__.'/widget/widget.ui.less';
+?>
+
+/*和pc一致__________________________________________________________________________________________*/
+[__uitoast__=uitoast]
+{
+
+	width:400px;
+
+	position:fixed;
+	color:#fff;
+	font-size:15px;
+	text-align:center;
+
+	left:50%;
+	top:30%;
+
+	margin-left:-200px;
+	z-index:@pc_ui_mask_zindex+1;
+	.opacity_opacity(0);
+	.transition_duration(<?php echo \Prjconfig::mobile_config['mobile_page_ani_time'];?>ms);
+	margin-top:50px;
+
+	visibility:hidden;
+
+	.dd_bg(@dd_randomcolor_11);
+
+	pointer-events:none;
+
+	span
+	{
+		.ibt();
+		line-height:20px;
+		.dd_bg(@dd_randomcolor_02);
+		padding:10px 20px;
+		min-width:200px;
+		.bg_alpha(@pc_ui_mask_bgcolor,70);
+		visibility:visible;
+	}
+
+	&[uitoast_status=fadein]
+	{
+		.opacity_opacity(100);
+		margin-top:0;
+	}
+
+	&[uitoast_status=fadeout]
+	{
+		.opacity_opacity(0);
+		margin-top:0;
+	}
+}
+/*mobile覆盖__________________________________________________________________________________________*/
+[__uitoast__=uitoast]
+{
+
+	width:800mpx;
+
+	font-size:32mpx;
+
+	margin-left:-400mpx;
+
+	margin-top:50mpx;
+
+	span
+	{
+		line-height:60mpx;
+		padding:20mpx 40mpx;
+		min-width:400mpx;
+	}
+
+	&[uitoast_index='1']
+	{
+		.dd_bg(@dd_randomcolor_20);
+		.transform_transform(translateY(140mpx));
+	}
+	&[uitoast_index='2']
+	{
+		.dd_bg(@dd_randomcolor_20);
+		.transform_transform(translateY(280mpx));
+	}
+
+	&[uitoast_index='3']
+	{
+		.dd_bg(@dd_randomcolor_20);
+		.transform_transform(translateY(420mpx));
+	}
+	&[uitoast_index='4']
+	{
+		.dd_bg(@dd_randomcolor_20);
+		.transform_transform(translateY(560mpx));
+	}
+}

@@ -1,0 +1,25 @@
+<module>
+	<name>编辑用户</name>
+	<params>
+		<group title='x'>
+			<section title='基础' folded='false'>
+				<param description='' formtype='text' label='用户名' name='user_name'>
+				</param>
+				<param description='' formtype='xmluploadfile' label='头像' name='user_avatar' uploadfile_file_exts='jpg,jpeg,png,gif' uploadfile_file_maxsize='<?php echo 2*datasize_1mb;?>' >
+				</param>
+				<param description='' formtype='text' label='手机号' name='user_mobile'>
+				</param>
+				<param description='' formtype='text' label='邮箱' name='user_email'>
+				</param>
+				<param description='' formtype='text' label='备注' name='user_mark'>
+				</param>
+			</section>
+			<section title='密码' folded='false'>
+				<param description='编辑模式下,置空不会更改该用户的密码' formtype='text' label='密码' name='user_password_0'>
+				</param>
+				<param description='' formtype='text' label='重复密码' name='user_password_1'>
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

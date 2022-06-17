@@ -1,0 +1,154 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__pagetabshow__=pagetabshow]
+{
+
+	display:grid;
+
+	grid-template-rows:100mpx 1fr;
+
+	overflow:hidden;
+
+	.dd_bg(@dd_randomcolor_02);
+
+	[pagetabshow_role=nav]
+	{
+
+		.dd_bg(@dd_randomcolor_09);
+		overflow-x:auto;
+		[pagetabshow_role=navitemwrap]
+		{
+
+			.ibt();
+
+			white-space:nowrap;
+
+			.dd_bg(@dd_randomcolor_31);
+
+			[pagetabshow_role=navitem]
+			{
+				.ibt();
+				padding:0 20mpx;
+				span
+				{
+					.ibt();
+					.dd_bg(@dd_randomcolor_10);
+					.hlh(100mpx);
+					border-width:0 0 8mpx 0;
+					border-color:transparent;
+					border-style:solid;
+					.boxsizing_borderbox();
+					color:#666;
+					font-size:42mpx;
+					.dd_bg(@dd_randomcolor_17);
+				}
+				&:first-child
+				{
+					padding-left:40mpx;
+					.dd_bg(@dd_randomcolor_06);
+				}
+				&:last-child
+				{
+					padding-right:40mpx;
+					.dd_bg(@dd_randomcolor_13);
+				}
+
+				&[pagetabshow_navitem_status=active_wreckage]
+				{
+					.dd_bg(@dd_randomcolor_34);
+					span
+					{
+						border-color:@color_0;
+					}
+
+				}
+			}
+
+		}
+
+	}
+
+	[pagetabshow_role=viewzone]
+	{
+		.dd_bg(@dd_randomcolor_12);
+		overflow:hidden;
+		position:relative;
+		[pagetabshow_role=framewrap]
+		{
+
+			display:flex;
+			height:100%;
+			position:relative;
+			.willchange_transform();
+
+			.dd_bg(@dd_randomcolor_46);
+
+
+			[pagetabshow_role=frame]
+			{
+
+				flex-grow:1;
+				.dd_bg(@dd_randomcolor_34);
+				.dd_bg(@dd_randomcolor_33);
+			}
+
+		}
+
+		[pagetabshow_role=eclipse_left],[pagetabshow_role=eclipse_right]
+		{
+			.mobile_swiper_eclipse();
+		}
+		[pagetabshow_role=eclipse_left]
+		{
+			.mobile_swiper_eclipse_left();
+		}
+		[pagetabshow_role=eclipse_right]
+		{
+			.mobile_swiper_eclipse_right();
+		}
+
+	}
+
+}
+
+<?php
+
+for($i=0;$i<\Prjconfig::widget_config['pagetabshow_maxframenum'];$i++)
+{
+
+	echo '
+		[pagetabshow_frame_index=\''.$i.'\']
+		{
+
+			[pagetabshow_role=nav]
+			{
+				[pagetabshow_role=navitemwrap]
+				{
+					[pagetabshow_role=navitem]:nth-child('.($i+1).')
+					{
+						span
+						{
+							color:@color_0;
+							border-color:@color_0;
+						}
+					}
+				}
+			}
+
+			[pagetabshow_role=framewrap]
+			{
+				left:'.(-$i*100).'vw;
+			}
+
+		}';
+
+}
+
+?>
+

@@ -1,0 +1,188 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__mobilepage__=mobilepage][__uploadavatar__=uploadavatar]
+{
+
+	overflow:hidden;
+
+	display:flex;
+
+	flex-direction:column;
+
+	background:#000 !important;
+
+	/*
+		background-image:url(data:image/gif;base64,R0lGODlhEAAQAKIAAAAAAP///93d3aqqqv///wAAAAAAAAAAACH5BAEAAAQALAAAAAAQABAAAAMgOLoq/o4xCOWizzYs9OCdBnqjCHIkamIpu1It/FZzpiUAOw==);
+	*/
+
+	[uploadavatar_role=ua_operpanel]
+	{
+
+		text-align:center;
+		line-height:0;
+		margin:60mpx;
+		flex-grow:1;
+
+		position:relative;
+
+		.dd_bg(@dd_randomcolor_58);
+		display: grid;
+		justify-items:center;
+		align-items:center;
+
+		[uploadavatar_role=ua_cutbox_wrap]
+		{
+			width:100%;
+			height:100%;
+			.dd_bg_alpha(@dd_randomcolor_07,50);
+			background-size:100% 100%;
+			position:relative;
+
+			[uploadavatar_role=ua_cutbox]
+			{
+
+				position:absolute;
+				left:25%;
+				top:25%;
+				width:50%;
+				height:50%;
+
+				box-sizing:border-box;
+
+				background-image:
+				linear-gradient(#fff,#fff),
+				linear-gradient(#fff,#fff),
+				linear-gradient(#fff,#fff),
+				linear-gradient(#fff,#fff)
+				;
+
+				background-position:
+				left top,
+				right top,
+				right bottom,
+				left bottom;
+
+				background-size:
+				100% 4mpx,
+				4mpx 100%,
+				100% 4mpx,
+				4mpx 100%;
+
+				background-repeat:
+				no-repeat,
+				no-repeat,
+				no-repeat,
+				no-repeat;
+
+				[uploadavatar_role=ua_cutbox_drag]
+				{
+					width:100%;
+					height:100%;
+					.dd_bg_alpha(@dd_randomcolor_53,50);
+				}
+				[uploadavatar_role=ua_cutbox_point]
+				{
+
+					position:absolute;
+					display:block;
+					width:120mpx;
+					height:120mpx;
+					.borderradius(50%);
+
+					.bg_alpha(#fff,75);
+
+					&[index='0']
+					{
+						left		:-60mpx;
+						top			:-60mpx;
+					}
+					&[index='1']
+					{
+						right		:-60mpx;
+						top			:-60mpx;
+					}
+					&[index='2']
+					{
+						right		:-60mpx;
+						bottom		:-60mpx;
+					}
+					&[index='3']
+					{
+						left		:-60mpx;
+						bottom		:-60mpx;
+					}
+
+				}
+				[uploadavatar_role=ua_cutbox_shadow]
+				{
+					position:absolute;
+
+					width:100vw;
+					height:100vh;
+					.bg_alpha(#000,50);
+
+					&[index='0']
+					{
+						left:0;
+						bottom:100%;
+					}
+
+					&[index='1']
+					{
+						top:0;
+						left:100%;
+					}
+					&[index='2']
+					{
+						right:0;
+						top:100%;
+					}
+					&[index='3']
+					{
+						bottom:0;
+						right:100%;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+	[uploadavatar_role=ua_operz]
+	{
+
+		padding:50mpx 50mpx 50mpx 50mpx;
+
+		.dd_bg(@dd_randomcolor_44);
+		display:flex;
+		justify-content:space-between;
+		position:relative;
+
+		z-index:1;
+
+		[__button__]
+		{
+			width:300mpx;
+			.dd_bg(@dd_randomcolor_35);
+		}
+
+		[uploadavatar_role=rotate_left],[uploadavatar_role=rotate_right]
+		{
+			.iconfont_cube(100mpx);
+			.dd_bg(@dd_randomcolor_09);
+			font-size:100mpx;
+			color:#fff;
+		}
+
+	}
+
+}
+

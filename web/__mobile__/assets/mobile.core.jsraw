@@ -1,0 +1,374 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+//1 mpe=mobile page event
+const mpe_create		='mpe_create_0';//创建,进入a页面,则a触发
+const mpe_destory		='mpe_destory_1';//摧毁,在a页面按返回,则a触发
+const mpe_historypush	='mpe_historypush_2';//历史栈压入,从a打开b,则a触发
+const mpe_historypop	='mpe_historypop_3';//历史栈跳出,关闭a返回了b,则b触发
+const mpe_refresh		='mpe_refresh_99';//刷新
+
+<?php
+
+	require __prj_dir__.'/js/prj.config.js';
+
+	require __lp_dir__.'/js/lp.core.js';
+
+	require __lp_dir__.'/js/lp.function.js';
+	require __lp_dir__.'/js/lp.client.js';
+	require __lp_dir__.'/js/lp.ajax.js';
+	require __lp_dir__.'/js/lp.localstorage.js';
+	require __lp_dir__.'/js/lp.file.js';
+	require __lp_dir__.'/js/lp.hash.js';
+
+	require __lp_dir__.'/js/lp.mutationobserver.js';
+
+	require __lp_dir__.'/js/lp.touchevent.js';
+
+	require __m_dir__.'/__lovephp__/js/mobile.page.js';
+	require __m_dir__.'/__lovephp__/js/mobile.app.js';
+
+	if(1)
+	{//controller
+		$list=fs_dir_searchfile(__m_dir__.'/class/controller/foreground',['js']);
+		echo "/*\ninlcudelist:(".count($list).")\n".impd($list,"\n")."\n*/";
+
+		foreach($list as $v)
+		{
+			echo "\n/*1*/".fs_file_read_php($v);
+		}
+
+	}
+
+	if(1)
+	{//widget
+		foreach(\Prjconfig::mobile_config['mobile_widget_list'] as $v)
+		{
+			echo "\n";
+			require __m_dir__.'/__lovephp__/widget/widget.'.$v.'.js';
+		}
+	}
+
+?>
+
+var _mobileroot=$('[__mobileroot_=mobileroot]');
+
+//1 route
+var mobile_route_back_callback=false;
+function mobile_route_back(callback=false)
+{
+
+	if(callback)
+	{
+		mobile_route_back_callback=callback;
+	}
+
+	if(alp_isalp())
+	{
+		mobile_page_close();
+	}
+	else
+	{
+		history.back();
+	}
+
+}
+
+//1 window route
+_window.on('hashchange',function(event)
+{//不要用popstate,hashchange是专门截取hash的			https://segmentfault.com/a/1190000004574465
+
+	var new_hash=url_get_hash(event.originalEvent.newURL);
+
+	if(mobile_history_get_currenturl()==hash_get())
+	{
+		return;
+	}
+
+	if(mobile_history_has_url(new_hash))
+	{
+		mobile_page_close();
+	}
+	else
+	{
+		mobile_page_open(new_hash);
+	}
+
+});
+
+//1 clu_connect
+function clu_connect_logout()
+{
+
+	console_log_wreckage(30,'lovephp/0128/5930');
+
+	ui_confirm('退出登录?',function()
+		{
+
+			ajax_sync('/connect/logout');
+
+		});
+
+}
+function clu_connect_updateuserdata()
+{
+
+	ajax_async('/api/clu_connect_getuserdata','',function(data)
+		{
+			__lpvar__.clu_data_js=data;
+		});
+
+}
+//1 databind
+databind_databind(__lpvar__,'clu_data_js',function(data,data_before)
+{
+
+	if(data)
+	{
+		$('[__cluserdata__=user_name]').html(data.user_name);
+		$('[__cluserdata__=user_mobile]').html(data.user_mobile);
+		$('[__cluserdata__=user_avatar]').attr('src',data.user_avatar);
+	}
+
+	if(
+		data&&!data_before||
+		!data&&data_before
+	)
+	{
+
+		var _this=$('[indexpageframe_tab=my]');
+
+		if(_this.length)
+		{
+			__lpwidget__.pullrefresh.pr_refresh_silent($('[indexpageframe_tab=my]'));
+		}
+
+	}
+	else
+	{
+
+	}
+
+	if(0)
+	{
+		if(data)
+		{
+			ui_toast('账号信息已更新');
+		}
+		else
+		{
+			ui_toast('已退出登录');
+		}
+	}
+
+});
+
+//1 document
+_document.on('click','[__mobileback__=mobileback]',function(event)
+{
+	console_log('32','lovephp/0521/2232');
+	if(mobile_page_switch_lock)
+	{
+		console_log('34','lovephp/0521/2234');
+		return;
+	}
+
+	if(1==mobile_history_get_length())
+	{
+		var referer=document.referrer;
+
+		if(referer)
+		{
+			referer=new URL(referer);
+		}
+
+		if(referer&&referer.host==location.host)
+		{//同源
+			mobile_route_back();
+		}
+		else
+		{
+			jump_jump('/');
+		}
+	}
+	else
+	{
+		mobile_route_back();
+	}
+
+	return false;
+});
+
+//1 a标签响应
+_document.on('click','a',function(event)
+{
+
+	var _this=$(this);
+
+	var url=_this.attr('href');
+
+	var target=_this.attr('target');
+
+	if(!url)
+	{
+		return true;
+	}
+
+//	if(0!==url.indexOf('/'))//不要在这里拦截,有可能,/开头的也是要用系统浏览器打开的
+//	{
+//		return true;
+//	}
+
+	if('_blank'==target)
+	{
+		return true;
+	}
+	else if('_self'==target)
+	{
+		return true;
+	}
+	else if('_external'==target)
+	{
+
+		if(client_is_app_js())
+		{
+
+			if(0===url.indexOf('/'))
+			{
+				url=location.origin+url;
+			}
+
+			plus.runtime.openURL(url);
+
+			return false;
+
+		}
+		else
+		{
+			return true;
+		}
+
+	}
+	else if('_webview'==target)
+	{
+		if(client_is_app_js())
+		{
+			swv_open(url);
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+	}
+	else
+	{
+
+	}
+
+	var hardjump_urls=<?php echo '['.impd(\Prjconfig::mobile_config['route_wap_hardjump_urls']).']'; ?>;
+
+	if(client_is_wap_js())
+	{//符合规则就硬性跳转,仅对手机浏览器模式下有效
+
+		for(var i in hardjump_urls)
+		{
+			if(hardjump_urls[i].test(url))
+			{
+				return true;
+			}
+		}
+
+	}
+
+	mobile_page_open(url);
+
+	return false;
+
+});
+
+//1 一些touch的反馈效果
+_document.on('touchstart','[__pagemenu__=menu][pm_rightarrow]',function()
+{
+
+	var _this=$(this);
+
+	_this.attr('pagemenu_status','hover');
+
+	touchevent_regist_hover(_this[0],function()
+	{
+		_this.removeAttr('pagemenu_status');
+	});
+
+});
+_document.on('touchstart','[__button__]',function()
+{
+
+	var _this=$(this);
+
+	_this.attr('button_status','hover');
+
+	touchevent_regist_hover(_this[0],function()
+	{
+		_this.removeAttr('button_status');
+	});
+
+});
+_document.on('touchstart','.g_article_articlebox',function()
+{
+
+	var _this=$(this);
+
+	_this.attr('articlebox_status','hover');
+
+	touchevent_regist_hover(_this[0],function()
+	{
+		_this.removeAttr('articlebox_status');
+	});
+
+});
+
+_document.ready(function()
+{
+
+	var defaultopen=hash_get();
+
+	if(defaultopen)
+	{
+		hash_replace('');
+	}
+
+	if(!defaultopen&&__lpvar__.indexindex_defaultopen)
+	{
+		defaultopen=__lpvar__.indexindex_defaultopen
+	}
+
+	if(defaultopen)
+	{
+		mobile_page_open(defaultopen);
+	}
+
+	$('[__mobilepage__=mobilepage]').trigger(mpe_create);
+
+});
+
+if(client_is_wap_js())
+{//有些移动端浏览器会有默认下拉刷新,左右滑动前进后退什么的,在这里屏蔽下passive:false,这样才能允许preventDefault,mdn说会影响性能,app不开
+
+	document.addEventListener('touchmove',function(event)
+	{
+
+	},
+	{
+		passive:false
+	});
+
+}
+console_log('35','lovephp/0521/4835');

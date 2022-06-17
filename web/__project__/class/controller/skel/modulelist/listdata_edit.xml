@@ -1,0 +1,11 @@
+<module>
+	<name>模块</name>
+	<params>
+		<group title='x'>
+			<section title='只能修改module文件夹,文件名,简单代码的修改,复杂情况需要自行筛选,注意可能遗漏的地方' folded='false'>
+				<param formtype='text' label='名称(name)' name='name' description='只能写英文,横线,下划线,必须是半角字符'>
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

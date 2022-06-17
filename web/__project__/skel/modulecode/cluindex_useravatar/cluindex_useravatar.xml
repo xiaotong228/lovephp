@@ -1,0 +1,10 @@
+<module>
+	<name>cluindex_useravatar</name>
+	<title>cluindex/useravatar</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

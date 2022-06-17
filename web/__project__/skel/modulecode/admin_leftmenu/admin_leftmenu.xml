@@ -1,0 +1,10 @@
+<module>
+	<name>admin_leftmenu</name>
+	<title>admin/通用/leftmenu</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

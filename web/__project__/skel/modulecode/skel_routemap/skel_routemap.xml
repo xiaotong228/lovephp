@@ -1,0 +1,10 @@
+<module>
+	<name>skel_routemap</name>
+	<title>skel/routemap</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

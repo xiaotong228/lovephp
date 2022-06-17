@@ -1,0 +1,9 @@
+<module>
+	<name>cluindex_c_leftmenu</name>
+	<title>cluindex/通用/leftmenu</title>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

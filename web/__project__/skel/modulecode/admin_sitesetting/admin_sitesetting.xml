@@ -1,0 +1,10 @@
+<module>
+	<name>admin_sitesetting</name>
+	<title>admin/sitesetting</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

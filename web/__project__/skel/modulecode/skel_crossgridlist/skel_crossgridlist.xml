@@ -1,0 +1,10 @@
+<module>
+	<name>skel_crossgridlist</name>
+	<title>skel/crossgridlist</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

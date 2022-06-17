@@ -1,0 +1,10 @@
+<module>
+	<name>skel_modulelist</name>
+	<title>skel/modulelist</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

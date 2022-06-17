@@ -1,0 +1,99 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+<?php
+	require __lp_dir__.'/widget/widget.button.less';
+?>
+
+[__button__]
+{
+
+	display:block;
+	border-width:2mpx;
+	width:auto;
+	padding-left:0;
+	padding-right:0;
+	.transition_duration(<?php echo \Prjconfig::html_common_ani_time;?>ms);
+
+	>i
+	{
+		margin-right:10mpx;
+	}
+
+	&:hover
+	{
+		.opacity_opacity(100);
+	}
+
+	&[__button__~=small]
+	{
+		font-size:24mpx;
+		.hlh(56mpx);
+		>*
+		{
+			.hlh(56mpx);
+		}
+		>i
+		{
+			font-size:30mpx;
+		}
+	}
+	&[__button__~=medium]
+	{
+		font-size:36mpx;
+		.hlh(76mpx);
+		>*
+		{
+			.hlh(76mpx);
+		}
+		>i
+		{
+			font-size:40mpx;
+		}
+	}
+	&[__button__~=big]
+	{
+		font-size:42mpx;
+		.hlh(96mpx);
+		>*
+		{
+			.hlh(96mpx);
+		}
+		>i
+		{
+			margin-right:20mpx;
+			font-size:50mpx;
+		}
+	}
+
+	&[button_status=hover]
+	{
+		.opacity_opacity(75);
+		.transition_duration(0s);
+	}
+
+}
+[__buttonwrap__]
+{
+	display:flex;
+	>*
+	{
+		width:0;
+		flex-grow:1;
+		display:block;
+		&+*
+		{
+			margin-left:40mpx;
+		}
+	}
+}
+button[__button__]
+{
+	.width_available();
+}

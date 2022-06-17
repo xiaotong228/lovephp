@@ -1,0 +1,48 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__limittextarea__=limittextarea]
+{
+
+	.dd_bg(@dd_randomcolor_32);
+	background:#fff;
+
+	[limittextarea_role=ind]
+	{
+		text-align:right;
+		.dd_bg(@dd_randomcolor_51);
+		.hlh(20px);
+		margin-top:10px;
+		color:@color_0;
+		font-size:12px;
+
+		&:before
+		{
+			content:'还可输入';
+		}
+		&:after
+		{
+			content:'字';
+		}
+
+	}
+
+	&[limittextarea_status=haserror]
+	{
+		[limittextarea_role=ind]
+		{
+			color:@color_red;
+			&:before
+			{
+				content:'已经超出';
+			}
+
+		}
+	}
+
+}

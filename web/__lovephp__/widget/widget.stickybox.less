@@ -1,0 +1,30 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__stickybox__=stickybox]
+{
+	.dd_bg(@dd_randomcolor_36);
+	.dd_bg(@dd_randomcolor_39);
+	border:none !important;
+
+	[stickybox_role=viewzone]
+	{
+		border:none !important;
+		.dd_bg_alpha(@dd_randomcolor_24,50);
+	}
+
+	&[stickybox_status=active]
+	{
+		[stickybox_role=viewzone]
+		{
+			.dd_bg(@dd_randomcolor_50);
+			position:fixed !important;
+			z-index:10;
+		}
+	}
+}

@@ -1,0 +1,24 @@
+<module>
+	<name>布局类型</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='select' label='选择布局原型' name='grid_type' description='' >
+
+				<?php
+
+					$temp=\_skel_\Skelcore::gridtype_namemap_get();
+
+					foreach($temp as $k=>$v)
+					{
+						echo '<option value=\''.$k.'\' >'.$v.'</option>';
+
+					}
+
+				?>
+
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

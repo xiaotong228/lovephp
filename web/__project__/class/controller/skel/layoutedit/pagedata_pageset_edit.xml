@@ -1,0 +1,15 @@
+<module>
+	<name>页面信息设置</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='text' label='标题(title)' name='title' description='必填' >
+				</param>
+				<param formtype='textarea' label='关键字(keywords)' name='keywords' description='可空' >
+				</param>
+				<param formtype='textarea' label='描述(description)' name='description' description='可空' >
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

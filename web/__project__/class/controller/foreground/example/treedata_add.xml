@@ -1,0 +1,11 @@
+<module>
+	<name>添加节点</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='text' label='名称' name='name' description=''>
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

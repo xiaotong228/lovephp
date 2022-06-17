@@ -1,0 +1,23 @@
+<module>
+	<name>添加跨页面布局</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='select' label='选择跨页面布局' name='crossgrid_gridid' description='' >
+
+				<?php
+
+					$temp=\ld\Skelcrossgridlist::list_select();
+
+					foreach($temp as $k=>$v)
+					{
+						echo '<option value=\''.$v['id'].'\' >'.'#'.$v['id'].'/'.$v['name'].'</option>';
+					}
+
+				?>
+
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

@@ -1,0 +1,10 @@
+<module>
+	<name>admin_smssendlog</name>
+	<title>admin/smssendlog</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

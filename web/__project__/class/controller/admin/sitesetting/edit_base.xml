@@ -1,0 +1,50 @@
+<module>
+	<name>站点设置/基础</name>
+	<params>
+
+		<group title='基础'>
+
+			<section title='x' folded='false'>
+				<param formtype='text' label='站点名称' name='base/sitename' description=''>
+				</param>
+				<param formtype='textarea' label='友情链接' name='base/friendlinks' description=''>
+				</param>
+				<param formtype='textarea' label='热搜关键字' name='base/hotsearchkeywords' description=''>
+				</param>
+				<param formtype='textarea' label='首页轮播图' name='base/indexsliderpics' description=''>
+				</param>
+			</section>
+
+		</group>
+
+
+		<group title='APP_安卓'>
+			<section title='x' folded='false'>
+				<param formtype='text' label='最新版本' name='app/android/latestversion' description=''>
+				</param>
+				<param formtype='textarea' label='更新提示' name='app/android/releasenote' description=''>
+				</param>
+				<param formtype='xmluploadfile' label='apk包' name='app/android/apkurl' uploadfile_file_exts='apk' uploadfile_file_maxsize='<?php echo 100*datasize_1mb;?>' >
+				</param>
+			</section>
+			<section title='渠道' folded='false'>
+				<param formtype="text" label="小米"		name="app/android/channelid/xiaomi" description="">
+				</param>
+				<param formtype="text" label="华为"		name="app/android/channelid/huawei" description="">
+				</param>
+			</section>
+		</group>
+
+		<group title='APP_苹果'>
+			<section title='x' folded='false'>
+				<param formtype='text' label='最新版本' name='app/iphone/latestversion' description=''>
+				</param>
+				<param formtype='textarea' label='更新提示' name='app/iphone/releasenote' description=''>
+				</param>
+				<param formtype='text' label='应用商店id' name='app/iphone/appstoreid' >
+				</param>
+			</section>
+		</group>
+
+	</params>
+</module>

@@ -1,0 +1,71 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+<?php
+	require __lp_dir__.'/widget/widget.uploadpic.less';
+?>
+
+[__uploadpic__=uploadpic]
+{
+
+	.dd_bg(@dd_randomcolor_37);
+
+	margin:0 40mpx;
+
+	[uploadpic_role=up_piclist]
+	{
+
+		.dd_bg(@dd_randomcolor_48);
+
+		display:grid;
+		grid-template-columns:repeat(3,1fr);
+		gap:20mpx;
+
+		[uploadpic_role=up_picitem]
+		{
+			display:block;
+			width:auto;
+			height:auto;
+			.dd_bg(@dd_randomcolor_24);
+			border:none;
+			margin:0;
+			height:320mpx;
+			.operz
+			{
+				height:80mpx;
+				.bg_alpha(#000,50);
+				display:none;
+				justify-content:space-between;
+				>a
+				{
+					display:block;
+
+					.iconfont_cube(80mpx);
+					.dd_bg(@dd_randomcolor_14);
+
+					font-size:60mpx;
+
+				}
+
+			}
+			&[uploadpic_status=done]
+			{
+				.operz
+				{
+					display:flex;
+				}
+			}
+		}
+		&:not(:empty)
+		{
+			margin-bottom:40mpx;
+		}
+	}
+
+}
+

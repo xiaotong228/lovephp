@@ -1,0 +1,9 @@
+<module>
+	<name>admin_connectlogin</name>
+	<title>admin/connect/login</title>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

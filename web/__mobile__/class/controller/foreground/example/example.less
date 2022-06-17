@@ -1,0 +1,160 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+
+[__mobilepage__=mobilepage][pageroute_controller=example][pageroute_action=widget_button]
+{
+
+	background:#fff;
+	.dd_bg(@dd_randomcolor_38);
+
+	[mobilepage_role=body]
+	{
+		padding:40mpx 0;
+		.sepline
+		{
+			height:10mpx;
+			margin-top:20mpx;
+			background:@bd_color;
+		}
+		[__button__]
+		{
+			margin:0 20mpx;
+			&~[__button__]
+			{
+				margin-top:20mpx;
+			}
+		}
+	}
+
+}
+[__mobilepage__=mobilepage][pageroute_controller=example][pageroute_action=widget_sliderbox],
+[__mobilepage__=mobilepage][pageroute_controller=example][pageroute_action=widget_pullrefresh]
+{
+
+
+	.dd_bg(@dd_randomcolor_38);
+
+	[mobilepage_role=body]
+	{
+		.dd_bg(@dd_randomcolor_16);
+
+		[__sliderbox__=sliderbox]
+		{
+
+
+			margin:40mpx 40mpx 0 40mpx;
+			.dd_bg(@dd_randomcolor_30);
+
+			[sliderbox_role=framewrap]
+			{
+				>*
+				{
+					.dd_bg(@dd_randomcolor_11);
+					text-align:center;
+					height:400mpx;
+
+					background-position:center center;
+					background-repeat:no-repeat;
+					background-size:160%;
+
+				}
+			}
+
+		}
+	}
+
+}
+
+
+
+
+[__mobilepage__=mobilepage][pageroute_controller=example][pageroute_action=widget_picgallery]
+{
+
+	.dd_bg(@dd_randomcolor_11);
+
+	.picsz
+	{
+		display:grid;
+
+		margin:40mpx;
+
+		grid-template-columns:repeat(3,1fr);
+
+		gap:20mpx;
+
+		.dd_bg(@dd_randomcolor_55);
+
+		.pic
+		{
+
+
+			height:320mpx;
+			.dd_bg(@dd_randomcolor_56);
+			background-repeat:no-repeat;
+			background-size:cover;
+			background-position:center center;
+
+		}
+	}
+
+}
+
+[__mobilemodal__=mobilemodal].example_openmodal
+{
+
+	[mobilemodal_role=viewzone]
+	{
+		.dd_bg(@dd_randomcolor_22);
+		width:400mpx;
+		padding:40mpx;
+		font-size:40mpx;
+		background:#fff;
+	}
+
+	&[mobilemodal_effect=bottom_to_top],
+	&[mobilemodal_effect=top_to_bottom]
+	{
+
+		[mobilemodal_role=viewzone]
+		{
+			width:auto;
+		}
+
+	}
+
+}
+
+[__mobilepage__=mobilepage][pageroute_controller=example][pageroute_action=widget_uploadfile],
+[__mobilepage__=mobilepage][pageroute_controller=example][pageroute_action=widget_uploadpic]
+{
+
+	background:#fff;
+	.dd_bg(@dd_randomcolor_52);
+
+	[mobilepage_role=body]
+	{
+		padding:40mpx 0;
+	}
+
+}
+
+[__mobilepage__=mobilepage][pageroute_controller=example][pageroute_action=widget_uploadpic]
+{
+
+	background:#fff;
+	.dd_bg(@dd_randomcolor_52);
+
+	[mobilepage_role=body]
+	{
+		padding:40mpx 0;
+	}
+
+}
+

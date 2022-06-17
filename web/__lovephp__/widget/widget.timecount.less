@@ -1,0 +1,26 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__timecount__=timecount]
+{
+	.dd_bg(@dd_randomcolor_36);
+
+	[timecount_role=day],
+	[timecount_role=hour],
+	[timecount_role=min],
+	[timecount_role=sec]
+	{
+		&:empty
+		{
+			&:before
+			{
+				content:'..';
+			}
+		}
+	}
+}

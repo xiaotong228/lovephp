@@ -1,0 +1,151 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__skelmodule__=skelmodule][skelmodule_name=article_c_list]
+{
+
+	.dd_bg(@dd_randomcolor_45);
+
+
+	.dd_bg(@dd_randomcolor_43);
+	margin-top:40px;
+
+	.mainz
+	{
+
+		.dd_bg(@dd_randomcolor_15);
+		padding:10px 30px 30px 30px;
+		background:#fff;
+		border:1px solid @bd_color;
+	}
+
+	.topcategoryz
+	{
+		.dd_bg(@dd_randomcolor_34);
+		border-bottom:1px solid @bd_color;
+		height:60px;
+		position:relative;
+		a.item
+		{
+			.ibt();
+			.hlh(60px);
+			font-size:16px;
+			padding:0 0;
+			position:relative;
+			overflow:hidden;
+			border-width:0 0 1px 0;
+			border-style:solid;
+			border-color:transparent;
+			&._csel_,&:hover
+			{
+				color:@color_0;
+				border-color:@color_0;
+			}
+			&._csel_
+			{
+				border-color:@color_0;
+				font-weight:bold;
+				&:after
+				{
+					content:'';
+					width:10px;
+					height:10px;
+					.transform_transform(rotate(45deg));
+
+					display:block;
+					left:50%;
+					margin-top:-9px;
+					margin-left:-5px;
+					bottom:-5px;
+					.dd_bg(@dd_randomcolor_33);
+					position:absolute;
+					.dd_bg(@dd_randomcolor_37);
+					background:@color_0;
+				}
+			}
+			&.rightsearchbtn
+			{
+				display:block;
+				text-align:center;
+				font-size:24px;
+				.dd_bg(@dd_randomcolor_49);
+				width:60px;
+				font-family:iconfont;
+				position:absolute;
+				right:0;
+				top:0;
+				padding:0;
+			}
+			&~a.item
+			{
+				margin-left:20px;
+			}
+		}
+		._article_cookiez_
+		{
+			padding-top:15px;
+			margin-right:80px;
+			.dd_bg(@dd_randomcolor_37);
+			a
+			{
+				.hlh(30px);
+				font-size:18px;
+			}
+			i
+			{
+				.hlh(30px);
+				font-size:20px;
+			}
+
+		}
+	}
+	.articlelistz
+	{
+		.dd_bg(@dd_randomcolor_17);
+		margin-top:20px;
+	}
+	.searchinputz
+	{
+		.dd_bg(@dd_randomcolor_43);
+		.after_clearboth();
+		margin-top:10px;
+		.ssz
+		{
+			.dd_bg(@dd_randomcolor_56);
+			text-align:right;
+			border:1px solid @color_0;
+			background:#fff;
+			overflow:hidden;
+			width:360px;
+			margin:0 auto 0 auto;
+			input
+			{
+				.hlh(40px);
+				width:300px;
+				padding-left:20px;
+				vertical-align:top;
+			}
+			button
+			{
+				width:40px;
+				height:40px;
+				line-height:38px;
+				display:inline-block;
+				vertical-align:top;
+				font-size:24px;
+				color:@color_0;
+				&:hover
+				{
+					color:#fff;
+					background:@color_0;
+				}
+			}
+		}
+	}
+
+}
