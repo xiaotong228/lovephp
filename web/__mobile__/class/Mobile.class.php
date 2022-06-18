@@ -411,7 +411,22 @@ class Mobile
 							let vConsole = new VConsole();
 						</script>';
 					}
+					if(1)
+					{
+						echo
+							'
+								<script>
+								var _hmt = _hmt || [];
+								(function() {
+								  var hm = document.createElement("script");
+								  hm.src = "https://hm.baidu.com/hm.js?f0b487f912e6846c19672a813df1ba5f";
+								  var s = document.getElementsByTagName("script")[0]; 
+								  s.parentNode.insertBefore(hm, s);
+								})();
+								</script>
 
+							';
+					}
 				echo '</body>';
 
 			echo '</html>';

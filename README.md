@@ -30,6 +30,6 @@ js,css代码有自己的组装逻辑,类似于一些前端框架的import那一�
 <a href="http://www.lovephp.com/doc/v1" target=_blank>查看文档</a>(不断完善中)
 
 # 版权声明
-> LOVEPHP的版权归`lovephp.com`所有,作者:潇桐 邮箱: xiaotong228@qq.com  
-> 采用MIT开源协议:<a href="http://opensource.org/licenses/MIT" target=_blank>http://opensource.org/licenses/MIT</a>  
-> Q群:854617887
+LOVEPHP的版权归`lovephp.com`所有,作者:潇桐 邮箱: xiaotong228@qq.com  
+采用MIT开源协议:<a href="http://opensource.org/licenses/MIT" target=_blank>http://opensource.org/licenses/MIT</a>  
+Q群:854617887
