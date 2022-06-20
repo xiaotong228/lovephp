@@ -411,7 +411,7 @@ class Mobile
 							let vConsole = new VConsole();
 						</script>';
 					}
-					if(1)
+					if(__online_isonline__)
 					{
 						echo
 							'

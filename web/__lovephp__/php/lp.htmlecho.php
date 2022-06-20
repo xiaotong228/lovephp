@@ -437,7 +437,7 @@ function htmlecho_fire($H=null)
 			echo $H;
 			echo $js_code;
 
-			if(1&&'foreground'==__route_module__)
+			if(__online_isonline__&&'foreground'==__route_module__)
 			{//百度统计
 				echo
 					'
