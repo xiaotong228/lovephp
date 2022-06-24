@@ -110,7 +110,7 @@ echo _module();
 			if(1)
 			{
 				$config=[];
-				$config['timecount_dir']='dec';//方向,倒计时或者正向及时
+				$config['timecount_dir']='dec';//方向,倒计时或者正向计时
 				$config['timecount_timeend']=strtotime((date('Y',time())+1).'-1-1');
 				$config['timecount_timeend_callback']='exampleindex_timecount_endcallback';
 

@@ -388,8 +388,8 @@ class Mobile
 							echo "\n".':root{--mobile_app_statusbarheight:'.client_app_statusbarheight().'px;}';
 							echo "\n".':root{--mobile_app_statusbarheight_neg:-'.client_app_statusbarheight().'px;}';
 
-							if(client_is_iphone())
-							{//苹果需要这个,要不bind click 不触发,按理说应该逐个把用到的元素设置这个,但是懒得去排查了,都设置了吧
+							if(__alp_access__||client_is_iphone())
+							{//苹果需要这个,要不bind click 不触发,按理说应该逐个把用到的元素设置这个,但是懒得去排查了,都设置了吧,这个设定挺奇怪的,也许现在苹果已经不需要了吧,没有测试,2022年6月24日15:23:14
 								echo "\n".'*{cursor:pointer;}';
 							}
 
