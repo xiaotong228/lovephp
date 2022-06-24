@@ -298,6 +298,11 @@ _document.on('click','[__uploadavatar__=uploadavatar] [uploadavatar_role^=rotate
 _document.on('touchstart','[__uploadavatar__=uploadavatar] [uploadavatar_role=ua_cutbox_drag]',function(event)
 {
 
+	if(event.touches.length>1)
+	{//不允许多指操作
+		return;
+	}
+
 	var _cutbox_drag=$(this);
 
 	var _cutbox_wrap=_cutbox_drag.closest('[uploadavatar_role=ua_cutbox_wrap]');
