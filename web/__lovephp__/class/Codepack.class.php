@@ -31,7 +31,7 @@ class Codepack
 
 			__codepack_compress__,
 
-			__codepack_salt__,
+//			__codepack_salt__,//开启会影响编译后的文件的文件名
 
 		]);
 
