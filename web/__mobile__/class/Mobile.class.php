@@ -23,49 +23,6 @@ class Mobile
 		'statusbarstyle_dark'=>self::statusbarstyle_dark,
 	];
 
-
-	static function widget_sliderbox($frames,$config=[],$domset=[])
-	{
-
-		R_alert('[error-3159]废弃');
-
-		$frames_num=count($frames);
-
-		$frames_1=array_merge_1([$frames[$frames_num-1]],$frames,[$frames[0]]);
-
-		$frames_1_count=count($frames_1);
-
-		$H.=_div($domset['cls'],$domset['sty'],\_widget_\Widget::domtail('sliderbox',$config).' '.$domset['tail'].' sliderbox_frame_index=0 sliderbox_frame_num='.$frames_num);
-
-			if(1)
-			{
-				$H.=_div('',_sty('width',$frames_1_count.'00%'),'sliderbox_role=framewrap');
-					foreach($frames_1 as $k=>$v)
-					{
-						$H.=$v;
-					}
-				$H.=_div_();
-			}
-
-			if(0)
-			{
-				$H.=_div__('','','sliderbox_role=prev','prev');
-				$H.=_div__('','','sliderbox_role=next','next');
-			}
-
-			$H.=_div('','','sliderbox_role=ind');
-
-				$tail='sliderbox_ind_status=active';
-				foreach($frames as $k=>$v)
-				{
-					$H.=_div__('','',$tail);
-					$tail='';
-				}
-			$H.=_div_();
-
-		$H.=_div_();
-		return $H;
-	}
 	static function articlebox_articlebox_list($__item,$cls='')
 	{
 
