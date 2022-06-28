@@ -34,26 +34,26 @@ echo _module();
 
 	echo _div('mainz');
 
-		if(1)
-		{
-			echo _div('topcategoryz');
-				echo _a__('/','item '.($_GET['article_category']||$_GET['_keyword']?'':'_csel_'),'','','全部资讯');
-				foreach(\db\Article::category_namemap as $k=>$v)
-				{
+			if(1)
+			{
+				echo _div('topcategoryz');
+					echo _a__('/','item '.($_GET['article_category']||$_GET['_keyword']?'':'_csel_'),'','','全部资讯');
+					foreach(\db\Article::category_namemap as $k=>$v)
+					{
 
-					if($_GET['article_category']==$k)
-					{
-						$cls='_csel_';
+						if($_GET['article_category']==$k)
+						{
+							$cls='_csel_';
+						}
+						else
+						{
+							$cls='';
+						}
+						echo _a__('/?article_category='.$k,'item '.$cls,'','',$v);
 					}
-					else
-					{
-						$cls='';
-					}
-					echo _a__('/?article_category='.$k,'item '.$cls,'','',$v);
-				}
-				echo _a0__('item rightsearchbtn '.'','','onclick="$(\'#articleindex_searchz_3809\').toggle();" ','&#xf0a3;');
-			echo _div_();
-		}
+					echo _a0__('item rightsearchbtn '.'','','onclick="$(\'#articleindex_searchz_3809\').toggle();" ','&#xf0a3;');
+				echo _div_();
+			}
 			echo _div('searchinputz',
 				$_GET['_keyword']?'display:block;':'display:none;',
 				'id=articleindex_searchz_3809');

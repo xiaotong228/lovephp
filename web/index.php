@@ -7,9 +7,9 @@
 	Author:Xiaotong<xiaotong228@qq.com>
 */
 
-if(0&&PHP_VERSION_ID<80000)
+if(0&&PHP_VERSION_ID<70000)
 {
-	echo '需要php8';
+	echo '需要php7+';
 	exit;
 }
 
