@@ -20,7 +20,7 @@ class Prjconfig
 
 		'project_owner'=>'lovephp有限公司',
 
-		'project_slogan'=>'Web全栈开源框架',//Do You Need Love?/We need love/用爱打造的Web全栈开源框架
+		'project_slogan'=>'Web全栈开源框架',
 
 		'project_officialsite'=>'www.lovephp.com',
 
@@ -143,7 +143,7 @@ class Prjconfig
 	[
 
 		'pc_widget_list'=>
-		[
+		[//pc端用到的widget
 
 			'core',
 
@@ -189,7 +189,7 @@ class Prjconfig
 
 //2 widget
 		'mobile_widget_list'=>
-		[
+		[//移动端用到的widget
 			'core',
 
 			'svg',
@@ -228,11 +228,13 @@ class Prjconfig
 		],
 
 //2 page
-		'mobile_page_design_px'=>1080,
-		'mobile_page_ani_time'=>300,//ms
+		'mobile_page_design_px'=>1080,//约定了移动端特有单位mpx的基准值
+		'mobile_page_ani_time'=>300,//ms,移动端通用的动画切换时长,多个地方用到
 
 //2 app
-		'mobile_app_useragent'=>'__lovephpmobileapp__',
+		'mobile_app_useragent'=>'__lovephpmobileapp__',//app打包时需要把这个加入到app本地的useragent中
+		//同时后面要跟上版本号,比如1.0,这样服务器才能感知是否为app访问和app版本号,参见:hbuilder工程中的manifest.json
+
 		'mobile_app_newestversion'=>
 		[
 

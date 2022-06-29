@@ -234,14 +234,14 @@ class Layoutedit extends \controller\admin\super\Superadmin
 					$__filelist[]=\ld\Skelcrossgridlist::__getDataFilePath();
 				}
 
-				if(\_skel_\Skelcore::griddir_vertical==$grid['grid_gridinfo']['type'])
+				if(\_skel_\Skelcore::griddir_vertical==$grid['grid_gridinfo']['dir'])
 				{
 					foreach($grid['grid_modules'] as $vv)
 					{
 						$__filelist[]=\_skel_\Skelmodule::config_filepath($vv['module_configid'],\_skel_\Skelcore::skel_dataext_edit);
 					}
 				}
-				else if(\_skel_\Skelcore::griddir_horizontal==$grid['grid_gridinfo']['type'])
+				else if(\_skel_\Skelcore::griddir_horizontal==$grid['grid_gridinfo']['dir'])
 				{
 					foreach($grid['grid_zones'] as $vv)
 					{
