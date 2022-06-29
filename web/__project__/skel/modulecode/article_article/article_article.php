@@ -70,15 +70,20 @@ echo _module();
 				$where['article_isdelete']=0;
 				$article_prev=$__db->where($where)->orderBy('id desc')->find();
 
-				if($article_next||$article_prev)
+				$article_siblings=[];
+				if($article_prev)
 				{
-
-					$temp=[];
-						$temp[]=_a__(article_articleurl($article_prev['id']),'','','','上一篇:&nbsp;&nbsp;'.$article_prev['article_title']);
-						$temp[]=_a__(article_articleurl($article_next['id']),'','','','下一篇:&nbsp;&nbsp;'.$article_next['article_title']);
-
-						echo  impd($temp,'<br>');
+					$article_siblings[]=_a__(article_articleurl($article_prev['id']),'','','','上一篇:&nbsp;&nbsp;'.$article_prev['article_title']);
 				}
+				if($article_next)
+				{
+					$article_siblings[]=_a__(article_articleurl($article_next['id']),'','','','下一篇:&nbsp;&nbsp;'.$article_next['article_title']);
+				}
+				if($article_siblings)
+				{
+					echo  impd($article_siblings,'<br>');
+				}
+
 			}
 
 		echo _div_();
