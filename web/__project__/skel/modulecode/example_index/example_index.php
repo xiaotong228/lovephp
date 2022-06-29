@@ -21,7 +21,7 @@ echo _module();
 			{
 				echo _div__('__color_0__','','','直接用Superdb提供的静态方法');
 				$temp=\db99\Example::find(2);
-				var_dump($temp);
+				dd($temp);
 			}
 
 			if(1)
@@ -29,7 +29,7 @@ echo _module();
 				echo _div__('__color_0__','margin-top:20px;','','用Superdb提供的Database对象(带缓存),此种情况依然会自动调整表结构和同步触发器,同时会自动转换db_table_serializedfileds定义的字段');
 				$__db=\db99\Example::db_instance();
 				$temp=$__db->orderby('id desc')->find();
-				var_dump($temp);
+				dd($temp);
 			}
 
 			if(1)
@@ -37,7 +37,7 @@ echo _module();
 				echo _div__('__color_0__','margin-top:20px;','','自行new一个Database对象(不带缓存),如果没有table_config参数的话,并不会自动调整表结构和同步触发器');
 				$__db=new \_lp_\datamodel\Database(\Dbconfig::db_connect_main,'example');
 				$temp=$__db->orderby('id asc')->find();
-				var_dump($temp);
+				dd($temp);
 			}
 
 			echo _div('group_tt');

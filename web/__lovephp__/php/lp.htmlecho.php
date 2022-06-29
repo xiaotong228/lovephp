@@ -221,7 +221,7 @@ function htmlecho_css_getcode()
 				}
 				else
 				{
-					$v.='?'.(__online_isonline__?__codepack_salt__:time());
+					$v.='?'.__codepack_salt__;
 				}
 
 			}
@@ -331,7 +331,7 @@ function htmlecho_js_getcode()
 				}
 				else
 				{
-					$v.='?'.(__online_isonline__?__codepack_salt__:time());
+					$v.='?'.__codepack_salt__;
 				}
 
 			}

@@ -51,6 +51,9 @@ if(__online_isonline__)
 	define('__codepack_compress__',true);//压缩js,css代码
 
 	define('__htmltag_check__',false);//检测html tag的匹配情况,是否正常关闭标签
+
+	define('__codepack_salt__','2830');//随便写,不和以前重复就行,主要用来防浏览器缓存的
+
 }
 else
 {
@@ -67,11 +70,9 @@ else
 
 	define('__htmltag_check__',true);
 
+	define('__codepack_salt__',time());
+
 }
-
-//1 codepack
-const __codepack_salt__='0950';//随便写,不和以前重复就行,主要用来防浏览器缓存的
-
 
 if(1)
 {
@@ -171,7 +172,7 @@ if(1)
 	if(__codepack_cachecorephp__)
 	{//似乎也没啥必要,毕竟现在php的即时编译已经很好了,引用文件多了可能影响更大,没有实测
 
- 		$to_filepath=__temp_dir__.'/codepack/lp.corephp_'.md5(serialize([$file_list,__codepack_salt__])).'.php';
+ 		$to_filepath=__temp_dir__.'/codepack/lp.corephp_'.md5(serialize($file_list)).'.php';
 
 		if(is_file($to_filepath))
 		{//如果存在就不生成,不检测原始内容
