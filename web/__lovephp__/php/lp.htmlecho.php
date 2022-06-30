@@ -437,7 +437,7 @@ function htmlecho_fire($H=null)
 			echo $H;
 			echo $js_code;
 
-			if(__online_isonline__&&'foreground'==__route_module__)
+			if('foreground'==__route_module__)
 			{//百度统计
 				echo
 					'
@@ -445,8 +445,8 @@ function htmlecho_fire($H=null)
 						var _hmt = _hmt || [];
 						(function() {
 						  var hm = document.createElement("script");
-						  hm.src = "https://hm.baidu.com/hm.js?f0b487f912e6846c19672a813df1ba5f";
-						  var s = document.getElementsByTagName("script")[0]; 
+						  hm.src = "https://hm.baidu.com/hm.js?cf172aefbfa777ba83ce020d6bb4d253";
+						  var s = document.getElementsByTagName("script")[0];
 						  s.parentNode.insertBefore(hm, s);
 						})();
 						</script>

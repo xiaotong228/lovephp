@@ -368,7 +368,7 @@ class Mobile
 							let vConsole = new VConsole();
 						</script>';
 					}
-					if(__online_isonline__)
+					if(1)
 					{
 						echo
 							'
@@ -376,8 +376,8 @@ class Mobile
 								var _hmt = _hmt || [];
 								(function() {
 								  var hm = document.createElement("script");
-								  hm.src = "https://hm.baidu.com/hm.js?f0b487f912e6846c19672a813df1ba5f";
-								  var s = document.getElementsByTagName("script")[0]; 
+								  hm.src = "https://hm.baidu.com/hm.js?cf172aefbfa777ba83ce020d6bb4d253";
+								  var s = document.getElementsByTagName("script")[0];
 								  s.parentNode.insertBefore(hm, s);
 								})();
 								</script>
