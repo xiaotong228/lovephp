@@ -281,9 +281,18 @@ class Layoutedit extends \controller\admin\super\Superadmin
 		}
 		if('publish'==$act)
 		{
-			$pageUrl='/'.$routedna;
+			$routedna=expd($routedna,'/');
 
-			$code='ui_alert("发布成功,你可以:<br><a target=_blank href=\''.$pageUrl.'\' >查看页面</a>");';
+			if(\Prjconfig::route_config['route_defaultmodule']==$routedna[0])
+			{
+				unset($routedna[0]);
+			}
+
+			$routedna=impd($routedna,'/');
+		
+			$pageurl='/'.$routedna;
+
+			$code='ui_alert("发布成功,你可以:<br><a target=_blank href=\''.$pageurl.'\' >查看页面</a>");';
 
 			R_jscode($code);
 		}
