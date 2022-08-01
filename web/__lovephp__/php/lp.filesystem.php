@@ -113,6 +113,7 @@ function fs_file_delete($filepath)
 }
 function fs_file_move($old_path,$new_path/*filepath|filename*/)
 {
+
 	if(
 		0===strpos($new_path,'./')||
 		0===strpos($new_path,'/')
@@ -126,6 +127,11 @@ function fs_file_move($old_path,$new_path/*filepath|filename*/)
 	}
 
 	fs_dir_create(dirname($new_path));
+
+	if(1)
+	{//如果目标文件存在会被删除
+		fs_file_delete($new_path);
+	}
 
 	return rename($old_path,$new_path);
 

@@ -86,7 +86,7 @@ echo _module();
 			}
 			else
 			{
-				echo _div('g_emptydatabox','margin-top:20px;');
+				echo _div('g_emptydatabox');
 					echo _b__('','','','没有相关数据');
 					echo '<br>'._span__('','','','请尝试输入更准确的关键词并重新搜索');
 				echo _div_();

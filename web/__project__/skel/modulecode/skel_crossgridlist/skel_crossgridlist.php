@@ -7,9 +7,7 @@
 	Author:Xiaotong<xiaotong228@qq.com>
 */
 
-
-
-echo _module();
+echo _module('c_admin_panel_template_fixed');
 
 	$__table_header=
 	[
@@ -24,7 +22,7 @@ echo _module();
 
 	$__itemlist=$____controller->listdata_dataclass::list_select();
 
-	$gridIdNameMap=\_skel_\Skelcore::gridtype_namemap_get();
+	$__gridtype_namemap=\_skel_\Skelcore::gridtype_namemap_get();
 
 	if(1)
 	{
@@ -64,7 +62,7 @@ echo _module();
 
 		$__templine[]=$item['name'];
 
-		$__templine[]=$gridIdNameMap[$item['layout_grids']['grid_gridtype']];
+		$__templine[]=$__gridtype_namemap[$item['layout_grids']['grid_gridtype']];
 
 		if(1)
 		{
@@ -96,11 +94,11 @@ echo _module();
 
 	}
 
-	echo _div('c_admin_panel_search','margin-top:0;');
-		echo _a0__('leftoperbtn','margin-left:0;','onclick="table_oper(this,\'listdata_add\')" ','添加跨页面布局');
+	echo _div('c_admin_panel_oper','margin-top:0;');
+		echo _a0__('','','__button__="small green solid" onclick="table_oper(this,\'listdata_add\')" ','添加跨页面布局');
 	echo _div_();
-
-	echo \_widget_\Tablelist::tablelist_html($__table_header,$__table_body);
-
+	echo _div('c_admin_panel_itemlist');
+		echo \_widget_\Tablelist::tablelist_html($__table_header,$__table_body);
+	echo _div_();
 echo _module_();
 

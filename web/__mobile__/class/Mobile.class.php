@@ -369,7 +369,7 @@ class Mobile
 						</script>';
 					}
 					if(1)
-					{
+					{//百度统计
 						echo
 							'
 								<script>

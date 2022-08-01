@@ -278,7 +278,7 @@ class Vcode
 		header('Cache-Control:private,max-age=0,no-store,no-cache,must-revalidate');
 		header('Cache-Control:post-check=0,pre-check=0',false);
 		header('Pragma:no-cache');
-		header("content-type:image/png");
+		header('Content-Type:image/png');
 
 		//输出图像
 		imagepng($__image);

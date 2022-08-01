@@ -243,7 +243,7 @@ class Xmlparser
 						$H.=$_label;
 						if(var_isavailable($_description))
 						{
-							$H.=_span__('','','__tip__=tip title="'.$_description.'"');
+							$H.=\_widget_\Popupbox::popup_tips($_description);
 						}
 						$H.=':';
 					$H.=_div_();

@@ -36,6 +36,15 @@ __lpwidget__.ajaxform=new function()
 _document.on('submit','[__ajaxform__=ajaxform]',function()
 {
 
+	if(
+		$('[__uploadfile__=uploadfile] [uploadfile_role=uf_fileitem][uploadfile_status=waiting]').length||
+		$('[__uploadpic__=uploadpic] [uploadpic_role=up_picitem][uploadpic_status=waiting]').length
+	)
+	{
+		ui_toast('请等待当前上传进程结束');
+		return false;
+	}
+
 	var _this=$(this);
 
 	var config=_this.data_getconfig('ajaxform');

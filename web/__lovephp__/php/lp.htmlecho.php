@@ -397,7 +397,10 @@ function htmlecho_fire($H=null)
 	}
 	else if('cloud'==__route_module__)
 	{
+		$css_urls[]='/assets/pc.core.less';
+		$css_urls[]='/assets/_admin/admin.core.less';
 
+		$js_urls[]='/assets/_admin/admin.core.jsraw';
 	}
 	else
 	{

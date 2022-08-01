@@ -12,12 +12,12 @@ namespace _lp_;
 class Validate
 {
 
-	static function lasterror_msg($msg=null)
+	static function lasterror_msg($msg=cmd_get)
 	{
 
 		static $cache=null;
 
-		if(is_null($msg))
+		if(cmd_get===$msg)
 		{
 			return $cache;
 		}
@@ -28,7 +28,7 @@ class Validate
 
 	}
 
-	static function is_email($__value)
+	static function is_email(string $__value)
 	{
 		if(filter_var($__value,FILTER_VALIDATE_EMAIL))
 		{
@@ -41,7 +41,7 @@ class Validate
 		}
 	}
 
-	static function is_mobile($__value)
+	static function is_mobile(string $__value)
 	{//只要是1开头的11位数字都算合法
 
 		if(preg_match('/^[1][0-9]{10}$/',$__value))
@@ -55,7 +55,7 @@ class Validate
 		}
 
 	}
-	static function is_password($__value)
+	static function is_password(string $__value)
 	{
 
 		$__checkstrong=false;
@@ -94,7 +94,7 @@ class Validate
 
 	}
 
-	static function is_username($__value)
+	static function is_username(string $__value)
 	{
 
 		$__value=htmlentity_decode($__value);
@@ -147,7 +147,7 @@ class Validate
 
 	}
 
-	static function is_shenfenzhengnum($__value)
+	static function is_shenfenzhengnum(string $__value)
 	{
 
 		if(preg_match('/^[\d]{17}[\dxX]{1}$/', $__value))
@@ -161,7 +161,7 @@ class Validate
 		}
 
 	}
-	static function is_functionname($__value)
+	static function is_functionname(string $__value)
 	{
 
 		if(preg_match('/^[a-zA-Z_][a-zA-Z_\d]*$/',$__value))
@@ -171,6 +171,21 @@ class Validate
 		else
 		{
 			self::lasterror_msg('不是合法的函数/类名称');
+			return false;
+		}
+
+	}
+
+	static function is_ints(string $__value)
+	{
+
+		if(preg_match('/^\d+(,\d+)+$|^\d+$/',$__value))
+		{
+			return true;
+		}
+		else
+		{
+			self::lasterror_msg('不是正确的整数集合字符串');
 			return false;
 		}
 

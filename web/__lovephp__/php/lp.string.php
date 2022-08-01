@@ -15,6 +15,10 @@ function string_strlen_cn($str)
 {
 	return mb_strlen($str,'utf-8');
 }
+function string_strpos_cn($str,$needle,$offset=0)
+{
+	return mb_strpos($str,$needle,$offset,'utf-8');
+}
 function string_utf8_to_gbk($str)
 {
 	return iconv("UTF-8","GBK//IGNORE",$str);

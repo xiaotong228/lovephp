@@ -58,10 +58,6 @@
 	border:1px solid @bd_color_dark;
 	margin-top:20px;
 
-	.c_admin_panel_search
-	{
-		margin-top:0;
-	}
 	&~.c_admin_panel_group
 	{
 		margin-top:20px;
@@ -104,81 +100,131 @@
 	}
 
 }
-.c_admin_panel_search
+
+.c_admin_panel_oper
 {
 
 	.dd_bg(@dd_randomcolor_34);
 	margin-top:0;
 	line-height:0;
-	&:after
+	.dd_bg(@dd_randomcolor_22);
+	.dd_bg(@dd_randomcolor_25);
+
+	margin-bottom:-10px;
+
+	.gap0
 	{
-		content:'';
-		display:block;
-		height:0;
-		clear:right;
+		margin-right:20px;
 	}
-	select
+	.gap1
 	{
-		.hlh(28px);
+		margin-right:40px;
 	}
-	input
+
+	>form
+	{
+		.ibt();
+	}
+
+	>:not(form),>form>*
+	{
+		margin:0 10px 10px 0;
+	}
+	
+	>[__button__],>form>[__button__]
+	{
+		min-width:100px;
+
+	}
+	>input,>form>input
 	{
 		.dd_bg(@dd_randomcolor_30);
-
 		padding:6px;
 		height:16px;
 		line-height:16px;
-		border:1px solid @bd_color;
+		border:1px solid #999;
 		.ibt();
 		&[type=text]
 		{
 			width:150px;
 		}
 	}
+	select
+	{
+		.ibt();
+		.hlh(28px);
+		border-color:#999;
+	}
 	span,b
 	{
 		.ibt();
 		.hlh(30px);
-		margin:0 0;
-		.dd_bg(@dd_randomcolor_37);
+		.dd_bg(@dd_randomcolor_52);
 	}
-	button,a.leftoperbtn,a.rightoperbtn
+}
+
+.c_admin_panel_itemlist
+{
+
+	overflow:auto;
+
+	border-width:1px 0 1px 0;
+	border-style:solid;
+	border-color:@bd_color;
+
+	th
 	{
-		.ibt();
-		height:28px;
-		width:40px;
-		border:1px solid @bd_color;
-		line-height:28px;
-		text-align:center;
+		border-width:0 1px 1px 1px !important;
+		position:sticky;
+		top:0;
+		z-index:1;
 
-		margin-left:20px;
-
-		background:#f7f7f7;
-
-		&:hover
-		{
-			color:#fff;
-			background:@color_0;
-			border:1px solid @color_0;
-		}
 	}
-	a
+	tr
 	{
-		&.leftoperbtn
+		&:last-child
 		{
-			width:auto;
-			padding:0 10px;
-			.dd_bg(@dd_randomcolor_08);
-			margin-left:20px;
-		}
-		&.rightoperbtn
-		{
-			width:auto;
-			padding:0 10px;
-			float:right;
-			.dd_bg(@dd_randomcolor_08);
-			margin-right:20px;
-			margin-left:0;
+			td
+			{
+				border-width:1px 1px 0 1px !important;				
+			}
 		}
 	}
+	td
+	{
+		&:last-child
+		{
+			.word_keepall();
+		}
+	}
+
+}
+.c_admin_panel_template_fixed
+{
+	.dd_bg(@dd_randomcolor_33);
+	max-height:100%;
+	display:flex;
+	flex-direction: column;
+	padding-right:10px;
+	>*~*
+	{
+		margin-top:20px;
+	}
+	>*
+	{
+		flex:0;
+	}
+	.c_admin_panel_itemlist
+	{
+		flex:1 !important;
+	}
+}
+.c_admin_panel_template_scroll
+{
+	padding-right:10px;
+	>*~*
+	{
+		margin-top:20px;
+	}
+	.dd_bg(@dd_randomcolor_22);
 }

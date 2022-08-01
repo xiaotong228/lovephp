@@ -24,16 +24,29 @@ class Tablelist
 					foreach($header as $th_name=>$th_width)
 					{
 
-						$sty=$th_width?'width:'.$th_width:'';
+						if($th_width)
+						{
+							$sty='width:'.$th_width.';min-width:'.$th_width.';';
+						}
+						else
+						{
+							$sty='';
+						}
+
 						$H.=_th('',$sty);
 							if($first&&$showcheckbox)
 							{
+
 								$H.=_checkbox_1('','',0,['tail'=>'tablelist_role=checkid_checkall'],$th_name);
+
+								$H.=\_widget_\Popupbox::popup_tips('左侧选框可以全选/取消全选<br>按住CTRL并勾选下方选框可以范围选择');
+
 							}
 							else
 							{
 								$H.=$th_name;
 							}
+
 						$H.=_th_();
 						$first=0;
 					}

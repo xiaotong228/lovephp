@@ -10,7 +10,7 @@
 
 
 
-echo _module();
+echo _module('c_admin_panel_template_fixed');
 
 	$__table_header=
 	[
@@ -142,13 +142,15 @@ echo _module();
 
 	}
 
-	echo _div__('c_warnbox','','','删除后果:&emsp;&emsp;页面布局(包括跨页面布局)中的对应模块都会被删除');
+	echo _div__('g_warnbox','','','删除后果:&emsp;&emsp;页面布局(包括跨页面布局)中的对应模块都会被删除');
 
-	echo _div('c_admin_panel_search');
-		echo _a0__('leftoperbtn','margin-left:0;','onclick="table_oper(this,\'listdata_add\')" ','添加模块');
+	echo _div('c_admin_panel_oper');
+		echo _a0__('','','__button__="small green solid" onclick="table_oper(this,\'listdata_add\')" ','添加模块');
 	echo _div_();
 
-	echo \_widget_\Tablelist::tablelist_html($__table_header,$__table_body);
+	echo _div('c_admin_panel_itemlist');
+		echo \_widget_\Tablelist::tablelist_html($__table_header,$__table_body);
+	echo _div_();
 
 echo _module_();
 

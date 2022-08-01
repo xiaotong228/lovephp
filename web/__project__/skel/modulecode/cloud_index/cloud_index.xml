@@ -1,0 +1,10 @@
+<module>
+	<name>cloud_index</name>
+	<title>cloud/index</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

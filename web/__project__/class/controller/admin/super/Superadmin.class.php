@@ -49,7 +49,8 @@ class Superadmin extends \_lp_\controller\Supercontroller
 
 	const leftmenu_cloud=
 	[
-
+		'index'=>'文件列表',
+		'recycle'=>'回收站',
 	];
 
 	public $leftmenu_menumap=false;

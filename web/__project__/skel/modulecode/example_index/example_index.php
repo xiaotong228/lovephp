@@ -9,7 +9,7 @@
 
 echo _module();
 
-	echo _div('c_warnbox','margin-bottom:40px;');
+	echo _div('g_warnbox','margin-bottom:40px;');
 		echo _span__('__color_orange__','','','本页所有的演示数据都会在关闭浏览器后丢失,上传的图片和文件也会隔天删除');
 	echo _div_();
 

@@ -14,7 +14,7 @@ function m_cluindex_usermobile()
 
 	if(0)
 	{
-		$H.=_div__('c_warnbox','','','新增记录去列表尾部查看.&emsp;&emsp;删除后果:&emsp;&emsp;相关的商品品牌属性被清零;');
+		$H.=_div__('g_warnbox','','','新增记录去列表尾部查看.&emsp;&emsp;删除后果:&emsp;&emsp;相关的商品品牌属性被清零;');
 	}
 
 	$H.=_div('g_module_header');
@@ -86,7 +86,7 @@ function m_cluindex_userpassword()
 
 		if(1)
 		{
-			$H.=_div('c_warnbox');
+			$H.=_div('g_warnbox');
 			$H.=_span__('__color_orange__','','','我们将向您在本站绑定的手机&nbsp;'.\_lp_\Mask::mobile_num($__cludata['user_mobile']).'&nbsp;发送一条短信以验证您的身份');
 			$H.=_div_();
 		}
@@ -229,7 +229,7 @@ function m_cluindex_username()
 
 	if(1)
 	{
-		$H.=_div__('c_warnbox','','','用户名2~16字之间,只能含有中英文数字下划线,不能以数字或下划线开头,每'.\Prjconfig::clu_config['clu_editusername_firewall_day'].'天只能更改一次,请慎重');
+		$H.=_div__('g_warnbox','','','用户名2~16字之间,只能含有中英文数字下划线,不能以数字或下划线开头,每'.\Prjconfig::clu_config['clu_editusername_firewall_day'].'天只能更改一次,请慎重');
 	}
 
 	$H.=\_widget_\Ajaxform::jswidget_ajaxform_begin(url_build('username_1'));

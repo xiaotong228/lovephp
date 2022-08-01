@@ -71,4 +71,25 @@ class Popupbox
 
 	}
 
+	static function popup_tips($txt)
+	{
+
+		$trigger=[];
+		$layer=[];
+		$config=[];
+
+		$trigger['tag']='i';
+		$trigger['cls']='g_tips';
+
+		$layer['cls']='g_tips_popuplayer';
+		$layer['inhtml']=$txt;
+
+		$config['popupbox_triggertype']='mouse';
+		$config['popupbox_aligntype']='lt,lb';
+		$config['popupbox_alignoffset']='-17,-6';
+
+		return \_widget_\Popupbox::popupbox_html($trigger,$layer,$config);
+
+	}
+
 }

@@ -172,7 +172,7 @@ if(!$__tab)
 	$__tab=array_key_first($__tabmap);
 }
 
-echo _module();
+echo _module('c_admin_panel_template_scroll');
 
 	echo _div('g_module_header');
 		foreach($__tabmap as $k=>$v)

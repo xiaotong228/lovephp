@@ -192,7 +192,6 @@ function clu_admin_id()
 {
 
 	$data=clu_admin_data();
-
 	return intval($data['id']);
 
 }

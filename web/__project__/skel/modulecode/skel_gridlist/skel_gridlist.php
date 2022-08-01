@@ -77,9 +77,9 @@ foreach($__itemlist as $k=>$item)
 
 }
 
-echo _module();
+echo _module('c_admin_panel_template_scroll');
 
-	echo _div__('c_warnbox','','','配置路径:&emsp;&emsp;\_skel_\Skelcore::gridtype_infomap');
+	echo _div__('g_warnbox','','','配置路径:&emsp;&emsp;\_skel_\Skelcore::gridtype_infomap');
 
 	echo \_widget_\Tablelist::tablelist_html($__table_header,$__table_body);
 

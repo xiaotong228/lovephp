@@ -76,20 +76,20 @@ foreach($__itemlist as $item)
 
 }
 
-echo _module();
+echo _module('c_admin_panel_template_fixed');
 
-	echo _div('c_admin_panel_search');
+	echo _div('c_admin_panel_oper');
 
 		echo _form(url_build());
 
 			echo _input('_keyword',$_GET['_keyword'],'ID/手机号/参数/详情');
 
-			echo _input('uid',$_GET['uid'],'UID','','margin-left:20px;');
+			echo _input('uid',$_GET['uid'],'UID');
 
 			if(1)
 			{
 
-				echo _span__('','margin-left:20px;','','分类:');
+				echo _span__('','','','分类:');
 
 				echo _select('smssendlog_type',$_GET['smssendlog_type']);
 					echo _option('','全部');
@@ -101,9 +101,9 @@ echo _module();
 			}
 
 
-			echo _span__('','margin-left:30px;','','创建时间:');
+			echo _span__('','','','创建时间:');
 			echo _input_date('_datebegin/smssendlog_createtime',$_GET['_datebegin/smssendlog_createtime'],'起始时间');
-			echo _span__('','margin:0 5px;','','-');
+			echo _span__('','','','-');
 			echo _input_date('_dateend/smssendlog_createtime',$_GET['_dateend/smssendlog_createtime'],'结束时间');
 
 			if(1)
@@ -112,8 +112,8 @@ echo _module();
 				$options[]=['id desc','ID↘'];
 				$options[]=['id asc','ID↗'];
 
-				echo _span__('','margin-left:20px;','','排序:');
-				echo _select('_order',$_GET['_order']);
+				echo _span__('','','','排序:');
+				echo _select('_order',$_GET['_order'],'gap1');
 					foreach($options as $v)
 					{
 						echo _option($v[0],$v[1]);
@@ -121,15 +121,29 @@ echo _module();
 				echo _select_();
 			}
 
-			echo _button('submit','搜索');
+			echo _button('submit','搜索','','','__button__="small black" ');
 
 		echo _form_();
 
 	echo _div_();
 
-	echo htmlcache_replace(\_widget_\Tablelist::tablelist_html($table_thlist,$table_trlist,1));
+	if($__itemlist)
+	{
 
-	echo $__splitpage_html;
+		echo _div('c_admin_panel_itemlist');
+			echo htmlcache_replace(\_widget_\Tablelist::tablelist_html($table_thlist,$table_trlist,1));
+		echo _div_();
+
+		echo $__splitpage_html;
+	}
+	else
+	{
+		echo _div('g_emptydatabox');
+			echo _b__('','','','没有相关数据');
+		echo _div_();
+	}
+
+
 
 echo _module_();
 

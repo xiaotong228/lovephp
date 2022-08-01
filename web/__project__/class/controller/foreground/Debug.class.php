@@ -101,7 +101,7 @@ class Debug extends super\Superforeground
 		phpinfo();
 	}
 	function test()
-	{
+	{//如果需要放些测试代码啥的
 		R_alert('[error-3123]');
 	}
 

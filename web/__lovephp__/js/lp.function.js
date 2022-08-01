@@ -272,7 +272,7 @@ function jump_jump(url)
 	}
 
 }
-function jump_newwindow(url)
+function jump_opennewwindow(url)
 {
 	window.open(url);
 }
@@ -599,7 +599,7 @@ function document_events()
 
 }
 //1 copy
-function copy_copytext(text)
+function copy_copytext(text,showcontent)
 {
     var _input=document.createElement('input')
 
@@ -615,7 +615,15 @@ function copy_copytext(text)
 
 	if(result)
 	{
-		ui_toast('复制成功');
+		if(showcontent)
+		{
+			ui_toast('复制成功:<br>'+text);
+		}
+		else
+		{
+			ui_toast('复制成功');
+		}
+
 	}
 	else
 	{

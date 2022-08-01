@@ -221,6 +221,7 @@ class Example extends super\Superforeground
 		$H.=_div__('','','uiwindow_role=close');
 
 		$domset=[];
+
 		$domset['cls']='exampleindex_uiwindow';
 
 		R_window($H,$domset);

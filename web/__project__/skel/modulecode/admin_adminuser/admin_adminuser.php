@@ -8,7 +8,7 @@
 */
 
 
-echo _module();
+echo _module('c_admin_panel_template_fixed');
 
 	$__table_header=
 	[
@@ -93,14 +93,16 @@ echo _module();
 
 	if(0)
 	{
-		echo _div__('c_warnbox','','','预留提示信息');
+		echo _div__('g_warnbox','','','预留提示信息');
 	}
 
-	echo _div('c_admin_panel_search');
-		echo _a0__('leftoperbtn','margin-left:0;','onclick="table_oper(this,\'add\')" ','添加管理员');
+	echo _div('c_admin_panel_oper');
+		echo _a0__('','','__button__="small green solid" onclick="table_oper(this,\'add\')" ','添加管理员');
 	echo _div_();
 
-	echo \_widget_\Tablelist::tablelist_html($__table_header,$__table_body,1);
+	echo _div('c_admin_panel_itemlist');
+		echo \_widget_\Tablelist::tablelist_html($__table_header,$__table_body,1);
+	echo _div_();
 
 echo _module_();
 

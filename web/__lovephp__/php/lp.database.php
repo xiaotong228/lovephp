@@ -9,7 +9,7 @@
 
 
 
-function db_buildwhere($keywordfields,$requestdata=false)
+function db_buildwhere($keywordfields='',$requestdata=false)
 {
 
 	if(!$requestdata)
@@ -26,7 +26,7 @@ function db_buildwhere($keywordfields,$requestdata=false)
 			continue;
 		}
 
-		if('_keyword'==$k)
+		if('_keyword'==$k&&$keywordfields)
 		{
 			$where[$keywordfields]=array(db_like,"%{$v}%");
 		}

@@ -8,7 +8,8 @@
 
 
 //ajax
-const cmd_ajax_nodefaulterrortips='<>cmd_ajax_nodefaulterrortips.1';
+const cmd_default='<>cmd_default.1';
+const cmd_ajax_nodefaulterrortips='<>cmd_ajax_nodefaulterrortips.2';
 
 //slider
 const cmd_slider_prev='<>cmd_slider_prev.10';

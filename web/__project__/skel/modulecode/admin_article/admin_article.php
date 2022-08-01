@@ -94,9 +94,9 @@ foreach($__itemlist as $item)
 
 }
 
-echo _module();
+echo _module('c_admin_panel_template_fixed');
 
-	echo _div('c_admin_panel_search');
+	echo _div('c_admin_panel_oper');
 
 		echo _form(url_build());
 
@@ -105,7 +105,7 @@ echo _module();
 			if(1)
 			{
 
-				echo _span__('','margin-left:20px;','','分类:');
+				echo _span__('','','','分类:');
 
 				echo _select('article_category',$_GET['article_category']);
 					echo _option('','全部');
@@ -125,7 +125,7 @@ echo _module();
 
 				$options[]=[1,'已删'];
 
-				echo _span__('','margin-left:20px;','','状态:');
+				echo _span__('','','','状态:');
 				echo _select('article_isdelete',$_GET['article_isdelete']);
 					foreach($options as $v)
 					{
@@ -134,9 +134,9 @@ echo _module();
 				echo _select_();
 			}
 
-			echo _span__('','margin-left:30px;','','创建时间:');
+			echo _span__('','','','创建时间:');
 			echo _input_date('_datebegin/article_createtime',$_GET['_datebegin/article_createtime'],'起始时间');
-			echo _span__('','margin:0 5px;','','-');
+			echo _span__('','','','-');
 			echo _input_date('_dateend/article_createtime',$_GET['_dateend/article_createtime'],'结束时间');
 
 			if(1)
@@ -145,7 +145,7 @@ echo _module();
 				$options[]=['id desc','ID↘'];
 				$options[]=['id asc','ID↗'];
 
-				echo _span__('','margin-left:20px;','','排序:');
+				echo _span__('','','','排序:');
 				echo _select('_order',$_GET['_order']);
 					foreach($options as $v)
 					{
@@ -154,17 +154,29 @@ echo _module();
 				echo _select_();
 			}
 
-			echo _button('submit','搜索');
+			echo _button('submit','搜索','gap1','','__button__="small black" ');
 
-			echo _a__(url_build('edit'),'leftoperbtn','margin-left:20px;','','添加文章');
+			echo _a__(url_build('edit'),'','','__button__="small green solid" ','添加文章');
 
 		echo _form_();
 
 	echo _div_();
 
-	echo \_widget_\Tablelist::tablelist_html($table_thlist,$table_trlist,1);
+	if($__itemlist)
+	{
 
-	echo $__splitpage_html;
+		echo _div('c_admin_panel_itemlist');
+			echo \_widget_\Tablelist::tablelist_html($table_thlist,$table_trlist,1);
+		echo _div_();
+
+		echo $__splitpage_html;
+	}
+	else
+	{
+		echo _div('g_emptydatabox');
+			echo _b__('','','','没有相关数据');
+		echo _div_();
+	}
 
 echo _module_();
 

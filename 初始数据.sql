@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-06-15 15:50:50
+Date: 2022-08-01 11:16:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -193,6 +193,35 @@ INSERT INTO `article` VALUES ('10249', '1', '3', '', '销售，到底卖的是�
 INSERT INTO `article` VALUES ('10250', '1', '4', '', '2021年企业热点网络营销事件案例盘点', 'http://www.lovephp.com/example/article/thumb/10250.jpg', '2021已成过去式，每年的企业热点营销事件、营销经典案例也成为大家颇为关注的年终选题。下面为大家盘点盘点去年有哪些企业经典营销案例。', '&lt;p style&#x3d;&quot;margin-top: 0px&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;2021已成过去式，每年的企业热点营销事件、营销经典案例也成为大家颇为关注的年终选题。下面为大家盘点盘点去年有哪些企业经典营销案例。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;一月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;合成大西瓜游戏走红&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：年初一款名为《合成大西瓜》的小游戏突然火爆朋友圈，其火爆势头太过突然，不少网友至今仍对其火爆原因摸不着头脑。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;根据识微商情此前对此事件的分析来看，原因之一是年初娱乐圈爆料不断，前头郑爽代孕事件还没落下，后脚华晨宇与张碧晨就未婚先孕立人设，整个网络都处于一种微妙的“找瓜”局面中，一切与“瓜”沾点东西的事物都能引导流量关注，而《合成大西瓜》也是在22日借助这股东风扶摇直上。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;原因之二是游戏本身玩法简洁解压。大西瓜如此前的“跳一跳”小游戏，玩法简洁，上手快还解压，借着娱乐圈这股东风赢得第一波关注度后自然就顺势传遍整个朋友圈甚至其他社交平台。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;福特中国错把牛年当马年事件&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：1月28日，福特中国官方发具博文:“中国，我们来了”，并配上了一张以马为主体的海报图。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;博文发出后，网友立刻意识到了这张海报的不寻常之处，“2021中国·马年”这一标语明晃晃的立在了上面。随即事件发酵，话题#福特中国广告错把牛年当马年# 登上热搜。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;从识微商情情绪分析指数来看，网友对福特的好感度从此次事件前的71.2&#x25;下降到42.3&#x25;，负面情绪上升至30.1&#x25;。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;二月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;微信定制红包封面上线&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：2月1日，微信官方宣布，将在2月1日至14日定点限量放出超5000万个微信红包定制封面，包含顶流明星和热门游戏等主题。这让无数品牌看到了营销时机，有品牌独自发布品牌定制红包吸引用户关注，也有品牌之间联名合作发布定制红包封面，无论是那种形式的营销活动，都引爆了用户热情。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;为了抢到品牌定制发行的红包，更有网友做好了封面领取时间表，提前定好闹钟准点蹲守。尽管如此，但定制红包封面的稀少，依旧让许多网友抢不到红包封面。网友的讨论，品牌之间顺应用户再次营销都让定制红包封面的话题热度快速飞涨，微信定制红包封面风靡一时。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;乐视视频APP图标“欠122亿”&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：春节将近，各品牌也开始了对自家场地的新年“装点”， 向来会凑热闹的互联网公司们自然不会缺席，首先就在自家门脸——应用图标上下起了功夫。支付宝“过福年”、社交媒体“让红包分”、淘宝“不打烊”、美团“年货节”，还有的直接财大气粗将新年活动金额标在了图标上，拼多多“分28亿”。反正大家怎么直接怎么来，都希望能乘着春节这股风，吸引到更多的客户。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;这时，乐视视频也随之带着自己“欠122亿”的登场了，在一众富豪的衬托之下，成功逗笑了一众网友，也为自家平台赢得了长时间不曾有过的网络热度。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;三月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;盒马“开涮”企鹅事件&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：3月9日11时，盒马官方账号发布一条博文，“天又冷了，来一起吃个火锅？先涮个企鹅778。请加菜”，配图是企鹅造型的墨鱼滑和下入火锅的动图。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;随后，热度第一的评论问“这个企鹅滑是夹心芝士的吗”，盒马回应“不是不是，这个企鹅没有心的”。疑似内涵和马退赛一事。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;和马是腾讯视频自制、正在热播的选秀网综《创造营2021》的人气选手，当时正因退赛被不少网友质疑背后是否存在黑幕。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;12时，创造营官方账号在评论中回应，“生鲜蹭热了容易变质，本海星鹅闻到味儿有点恶心”。显然在指对方蹭热度。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;盒马和创造营背后是阿里和腾讯这两大一线互联网大厂，双方互怼除了引发了和马粉丝的关注，还吸引了一大波吃瓜群众围观。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;四月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;综艺：反叛的利路修走红分析&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：创造营2021结束了，11人的成团名单已出，除了关心成团情况外，利路修是否顺利下班大概就是当晚网友们最关心的话题了。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;作为当初被节目组临时拉来“充数”的选手，利路修却因自我消极营业、丧气满满的特质意外走红，这种另类走红值得各大营销总监琢磨琢磨。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;五月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;网易云发布人格主导色活动&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：5月26日，大家的朋友圈又被网易云给刷屏了，起因是网易云音乐和合作伙伴推出了一项测试，用户通过听音乐、做选择，可测试出自己性格的颜色。&lt;/p&gt;&lt;p class&#x3d;&quot;ztext-empty-paragraph&quot; style&#x3d;&quot;margin-top: -0.8em&#x3b; margin-bottom: -0.8em&#x3b;&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p class&#x3d;&quot;ztext-empty-paragraph&quot; style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;活动上线不久，#网易云人格主导色#就上了热搜，用户在社交平台上分享自己的测试结果，还有网友开始基于测试结果玩梗，全网热度快速攀升。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;六月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;蜜雪冰城洗脑主题曲走红&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：6月11日，蜜雪冰城官方发布了一则“蜜雪冰城主题曲14国20种语言合集”的动画MV，这段长达8分21秒的MV不但歌词一样、旋律一样，连画面都一模一样。此等魔性特质使网友们纷纷沦陷，被成功洗脑，甚至引发大量UP主的二次创作，火爆整个互联网。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;七月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;咪咕视频奥运会营销&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：2020东京奥运会作为盛大的体育赛事，赛事直播权在视频平台中，除了央视频，就只有咪咕视频。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;当网友发现央视频绝大多数的奥运会项目都得开通会员才能享用，而咪咕视频&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;所有的直播、回放都能免费观看，甚至首开连续包月会员前三个月每个月只要六元，费用还可以从话费里扣后，咪咕视频以“黑马”姿态成为2020奥运会的另类“冠军”&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;火出圈的鸿星尔克&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：7月17日，河南遭遇极端强降雨灾害，几十家国内知名企业陆续宣布驰援河南。其中鸿星尔克也宣布向河南灾区捐赠5000万元物资，当时此条官微下也只有一百多条评论。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;可能是鸿星尔克营收28.43亿，净利润-2.2亿还捐这么多的举动感动了网友，也可能是捐赠物资金额之大与评论区的冷清对比过于强烈，总之，鸿星尔克后续火出圈，甚至在线下掀起抢购潮。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;八月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;小度智能巨屏电视&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;小度智能巨屏电视V86产品发布后，官方推出了一系列“注意！别XXX我的广告”等不同场景的海报，引发全网6000多万的阅读。此次营销官方放弃了一般数码产品在推广时会使用的宣传性能、参数等方式，而是用生活中一系列常见的产品，比如卷帘门、床、公交广告牌、足球门框等场景来类比出86英寸的小度智能巨屏电视，给了用户一个最直观的参照物。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;九月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;《鱿鱼游戏》IP引爆全球&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;Netflix出品的《鱿鱼游戏》自9月17日开播后，持续高居亚太、北美等多个地区Netflix剧集的热度榜首，在国内也接连登上20+次的热搜。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;除了周边外，消费者们还深陷于剧中的游戏体验。国际沙盒游戏平台Roblox将电视剧中的游戏内容以“1:1”的比例还原到自己的游戏社区。不光是游戏平台，Tiktok、国内抖音等社交平台上也上架了例如“抠椪糖大挑战”游戏、“木头人”特效等，使用的用户近20万。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;十月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;Prada菜市场联动营销事件&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：为开展2021秋冬系列的宣传，Prada近期启动了一场全球性的快闪项目，其中活动地点之一的上海则是选择了乌中市集、荣宅两处进行联动，其中乌中集市以菜市场＋奢侈品牌的“反差萌”获得了更大的反响。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;十一月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;网易云摸鱼计算器营销&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;受国美通报批评员工上班“摸鱼”灵感启发，11月18日下午，网易云音乐在应用首页上线了一个“摸鱼计算器”。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;进入活动后，网友可以自主设置自己的上班时段，网易云将根据“上班工作时间/day/÷工作时间/day×全年工作时间×听歌流量”的公式计算出个人的摸鱼流量。依据摸鱼流量的大小，用户得到自己对应的鱼，估算出的流量越大则鱼越大。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;此活动趁着国美热点和有趣的营销角度又一次获得不少网友的关注度。&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;&lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;十二月&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;l &lt;span style&#x3d;&quot;font-weight: 600&#x3b; font-synthesis: style&#x3b;&quot;&gt;三只松鼠海报争议事件&lt;/span&gt;&lt;/p&gt;&lt;p style&#x3d;&quot;margin-top: 1.4em&#x3b; margin-bottom: 1.4em&#x3b;&quot;&gt;事件回顾：2021年12月25日，有网友晒出零食品牌“三只松鼠”产品宣传海报，海报中的“眯眯眼”妆容被部分网友认为是在故意丑化国人形象，引起较大争议。&lt;/p&gt;&lt;p class&#x3d;&quot;ztext-empty-paragraph&quot; style&#x3d;&quot;margin-top: -0.8em&#x3b; margin-bottom: -0.8em&#x3b;&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;', '5', '1642043688', '0');
 
 -- ----------------------------
+-- Table structure for `cloud`
+-- ----------------------------
+DROP TABLE IF EXISTS `cloud`;
+CREATE TABLE `cloud` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cloud_adminid` int(11) unsigned NOT NULL DEFAULT 0,
+  `cloud_type` tinyint(4) unsigned NOT NULL DEFAULT 0,
+  `cloud_name` varchar(255) NOT NULL DEFAULT '',
+  `cloud_folder_dad` int(11) unsigned NOT NULL DEFAULT 0,
+  `____file____` tinyint(4) unsigned NOT NULL DEFAULT 0,
+  `cloud_file_url` varchar(255) NOT NULL DEFAULT '',
+  `cloud_file_size` int(11) unsigned NOT NULL DEFAULT 0,
+  `cloud_file_ext` varchar(255) NOT NULL DEFAULT '',
+  `cloud_file_pic_width` int(11) unsigned NOT NULL DEFAULT 0,
+  `cloud_file_pic_height` int(11) unsigned NOT NULL DEFAULT 0,
+  `cloud_file_pic_pixels` int(11) unsigned NOT NULL DEFAULT 0,
+  `____time____` tinyint(4) unsigned NOT NULL DEFAULT 0,
+  `cloud_isdelete` tinyint(4) unsigned NOT NULL DEFAULT 0,
+  `cloud_createtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `cloud_updatetime` int(11) unsigned NOT NULL DEFAULT 0,
+  `cloud_deletetime` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cloud
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `example`
 -- ----------------------------
 DROP TABLE IF EXISTS `example`;
@@ -232,7 +261,7 @@ CREATE TABLE `sitedata` (
   `sitedata_smssendlog_total` int(11) unsigned NOT NULL DEFAULT 0,
   `sitedata_createtime` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20220615 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sitedata
@@ -318,6 +347,63 @@ CREATE TRIGGER `adminuser_update_before` BEFORE UPDATE ON `adminuser` FOR EACH R
 					SET NEW.adminuser_version=NEW.adminuser_version+1;
 
 				END IF;
+
+			END
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `cloud_insert_before`;
+DELIMITER ;;
+CREATE TRIGGER `cloud_insert_before` BEFORE INSERT ON `cloud` FOR EACH ROW BEGIN
+#lovephp.com
+#packdna=8d60c3c5567a1220483dc202785611cc
+#packtime=2022-07-28 15:52:18
+
+				SET NEW.cloud_createtime=unix_timestamp();
+
+				SET NEW.cloud_updatetime=NEW.cloud_createtime;
+
+			END
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `cloud_update_before`;
+DELIMITER ;;
+CREATE TRIGGER `cloud_update_before` BEFORE UPDATE ON `cloud` FOR EACH ROW BEGIN
+#lovephp.com
+#packdna=40af78ada14cabf39014faa7567cde91
+#packtime=2022-07-28 15:52:18
+
+				IF
+
+					OLD.cloud_isdelete=0 AND
+					NEW.cloud_isdelete=1
+
+					THEN
+					SET NEW.cloud_deletetime=unix_timestamp();
+
+				ELSEIF
+
+					OLD.cloud_isdelete=1 AND
+					NEW.cloud_isdelete=0
+
+					THEN
+					SET NEW.cloud_deletetime=0;
+
+				END IF;
+
+				IF
+
+					OLD.cloud_name!=NEW.cloud_name OR
+
+					OLD.cloud_folder_dad!=NEW.cloud_folder_dad OR
+
+					OLD.cloud_isdelete!=NEW.cloud_isdelete
+
+					THEN
+
+					SET NEW.cloud_updatetime=unix_timestamp();
+
+				END IF;
+
 
 			END
 ;;

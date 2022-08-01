@@ -16,7 +16,7 @@ class Upload extends super\Superforeground
 
 	const uploadconfig_maxnum=100;//应该用不了这么多吧
 
-	const uploadedfile_info_maxnum=100;
+	const uploadedfile_info_maxnum=999;
 
 	function uploadfile($token,$scene=false)
 	{
@@ -58,7 +58,7 @@ class Upload extends super\Superforeground
 
 				if(!$v||0==$v['size'])
 				{
-					R_false('[error-3521]没有上传文件或文件为空');
+					R_false('[error-3521]没有上传文件或文件为0字节');
 				}
 				if($v['size']>$__config['file_maxsize'])
 				{
@@ -84,13 +84,19 @@ class Upload extends super\Superforeground
 
 			if(1)
 			{
-				while(1)
-				{//生成存储文件路径
-					$filepath=__upload_dir__.$__config['file_savedir'].'/'.math_salt().'.'.$__file_ext;
-					if(!is_file($filepath))
+
+				$filepath=self::savefile_genfilepath($__config['file_savedir'],$__file_ext);
+
+
+				if(in_array($__file_ext,\Prjconfig::file_pic_exts))
+				{
+
+					$imagesize=getimagesize($v['tmp_name']);
+					if(!$imagesize)
 					{
-						break;
+						R_false('[error-2843]解析图片尺寸错误');
 					}
+
 				}
 
 				if('xxx'==$scene)
@@ -166,7 +172,18 @@ class Upload extends super\Superforeground
 	}
 
 //1 uploadtoken
-	static function uploadtoken_set(array $file_exts,int $file_maxsize,$subdir=false,$savefileinfo=false/*上传文件到服务器时,服务器是否保留文件信息(文件名,文件大小)备用*/)
+	static function uploadtoken_set
+	(
+
+		array $file_exts,
+
+		int $file_maxsize,
+
+		$upload_savetodir=false,
+
+		$upload_keepfileinfo=false/*上传文件到服务器时,服务器是否保留文件信息(文件名,文件大小)备用*/
+
+	)
 	{
 
 		if(!$file_exts||!$file_maxsize)
@@ -189,34 +206,44 @@ class Upload extends super\Superforeground
 
 		$temp['file_maxsize']=intval($file_maxsize);
 
-		if(1)
-		{//存储路径
+		if($upload_savetodir)
+		{
 
-			if('foreground'==__route_module__)
+			if(0===strpos($upload_savetodir,'./'))
 			{
-				$subdir=$subdir?$subdir:'f';
-				$userid='u'.clu_id();//记录用户信息备查
-			}
-			else if('admin'==__route_module__)
-			{
-				$subdir=$subdir?$subdir:'a';
-				$userid='a'.clu_admin_id('admin');
-			}
-			else if('skel'==__route_module__)
-			{
-				$subdir=$subdir?$subdir:'s';
-				$userid='s'.clu_admin_id('skel');
+
 			}
 			else
 			{
-				R_alert('[error-3023]');
+				$upload_savetodir=__upload_dir__.'/'.$upload_savetodir;
 			}
-
-			$temp['file_savedir']='/'.$subdir.'/'.date_str_num().'/'.$userid;
-
+		}
+		else
+		{
+			$upload_savetodir=__upload_dir__;
 		}
 
-		$temp['upload_savefileinfo']=$savefileinfo?true:false;
+		if('foreground'==__route_module__)
+		{
+			$upload_savetodir.='/'.date_str_num().'/u'.clu_id();
+		}
+		else if
+		(
+			'admin'==__route_module__||
+			'skel'==__route_module__||
+			'cloud'==__route_module__
+		)
+		{
+			$upload_savetodir.='/'.date_str_num().'/a'.clu_admin_id();
+		}
+		else
+		{
+			R_alert('[error-3023]');
+		}
+
+		$temp['file_savedir']=$upload_savetodir;
+
+		$temp['upload_savefileinfo']=$upload_keepfileinfo?true:false;
 
 		if(1)
 		{
@@ -239,6 +266,7 @@ class Upload extends super\Superforeground
 		return $temp;
 
 	}
+
 	static function uploadtoken_get($token)
 	{
 		$upload_config=session_get('upload_config');
@@ -249,10 +277,14 @@ class Upload extends super\Superforeground
 	static function uploadedfile_info_set($fileurl,$fileinfo)
 	{
 
+		$fileinfo['file_name']=path_ext_tolowercase($fileinfo['file_name']);
+
 		$data=session_get('upload_fileinfo_map');
 
 		$data=array_pipe_push($data,[$fileurl=>$fileinfo],self::uploadedfile_info_maxnum);
+
 		$data[$fileurl]=$fileinfo;
+
 		session_set('upload_fileinfo_map',$data);
 
 	}
@@ -263,5 +295,40 @@ class Upload extends super\Superforeground
 		return $data[$fileurl];
 
 	}
+
+//1 savefile
+	static function savefile_genfilepath($dirpath,$ext)
+	{
+
+		while(1)
+		{//生成存储文件路径
+			$filepath=$dirpath.'/'.math_salt().'.'.$ext;
+			if(!is_file($filepath))
+			{
+				break;
+			}
+		}
+
+		return $filepath;
+
+	}
+	static function savefile_movetodir($from_filepath,$to_dirpath)
+	{
+
+		$to_filepath=self::savefile_genfilepath($to_dirpath,path_ext($from_filepath));
+
+		$result=fs_file_move($from_filepath,$to_filepath);
+
+		if($result)
+		{
+			return $to_filepath;
+		}
+		else
+		{
+			R_alert('[error-5042]移动文件失败');
+		}
+
+	}
+
 
 }

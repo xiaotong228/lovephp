@@ -1,0 +1,10 @@
+<module>
+	<name>cloud_recycle</name>
+	<title>cloud/recycle</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

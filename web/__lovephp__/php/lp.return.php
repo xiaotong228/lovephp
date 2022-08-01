@@ -318,6 +318,11 @@ function R_http_404($code=404,$message=null,$backurl='/')
 function R_window($inhtml,array $domset=[])
 {
 
+	if(__htmltag_check__)
+	{
+		htmltag_check();
+	}
+
 	if(__m_access__)
 	{
 		R_alert('[error-1037]不能mobile调用');
@@ -380,10 +385,7 @@ function R_window_xml($__xmlfile,$__submiturl/*url|js_function_name(string)*/,$_
 	if(1)
 	{
 
-		$H.=_form('','','onsubmit="
-					$(this).closest(\'[__xmlwindow__=xmlwindow]\').find(\'[xmlwindow_role=save]\').click();
-					return false;
-					"');
+		$H.=_form('','','onsubmit="$(this).closest(\'[__xmlwindow__=xmlwindow]\').find(\'[xmlwindow_role=save]\').click();return false;"');
 			$H.=_div('','','xmlwindow_role=body __tabshow__=tabshow');
 				$H.=$inner_html;
 			$H.=_div_();
@@ -432,24 +434,40 @@ function R_needlogin($continue=false)
 
 }
 
-function R_filedownload($filepath,$filename=false)
+function R_echofile($filepath,$filename=false)
 {
+
+	$file_size=filesize($filepath);
+
+	if(false===$file_size)
+	{
+		R_alert('[error-2510]输出文件不存在或不能读取');
+	}
+	if($file_size>\Prjconfig::file_echofile_maxsize)
+	{
+		R_alert('[error-2542]输出文件不能超过'.datasize_oralstring(\Prjconfig::file_echofile_maxsize));
+	}
 
 	$info=path_info($filepath);
 
-	if(!$filename)
+	if($filename)
+	{
+		$filename=htmlentity_decode($filename);
+	}
+	else
 	{
 		$filename=$info[1];
 	}
 
+	$filename=addslashes($filename);
+
 	$data=fs_file_read($filepath);
 
 	header('content-type:application/'.$info[3]);
-	header('Content-Disposition: attachment; filename="'.$filename.'"');
+	header('Content-Disposition:attachment; filename="'.$filename.'"');
 
 	echo $data;
 
 	exit;
 
 }
-

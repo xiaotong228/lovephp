@@ -551,6 +551,11 @@ function path_info($filepath)
 
 	$data=pathinfo($filepath);
 
+	if('\\'==$data['dirname'])
+	{
+		$data['dirname']='/';
+	}
+
 	return [$data['dirname'],$data['basename'],$data['filename'],strtolower($data['extension'])];
 
 }
@@ -573,12 +578,55 @@ function path_ext($path)
 	return $temp[3];
 
 }
+function path_ext_tolowercase($path)
+{
+
+	$path=expd($path,'.');
+
+	$path_count=count($path);
+
+	if($path_count<=1)
+	{
+		R_alert('[error-5217]错误的路径');
+	}
+
+	$path[$path_count-1]=strtolower($path[$path_count-1]);
+
+	return impd($path,'.');
+
+}
 function path_ext_change($path,$ext)
 {
+
+	$path=expd($path,'.');
+
+	$path_count=count($path);
+
+	if($path_count<=1)
+	{
+		R_alert('[error-4931]错误的路径');
+	}
+
+	if(cmd_clear===$ext)
+	{
+		unset($path[$path_count-1]);
+	}
+	else
+	{
+		$path[$path_count-1]=$ext;
+	}
+
+	return impd($path,'.');
+
+/*
+	$path=expd($path,'.');
+	$path[count($path)-1]=strtolower($path[count($path)-1]);
+	return impd($path,'.');
 
 	$info=path_info($path);
 
 	return $info[0].'/'.$info[2].(cmd_clear===$ext?'':'.'.$ext);
+*/
 
 }
 function path_isdir_ignorecase($dirpath)

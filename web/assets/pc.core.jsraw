@@ -34,7 +34,7 @@ function clu_connect_logout()
 }
 
 //1 table
-function table_oper(_this,action,needconfirm=false)
+function table_oper(_this,action,__confirmbefore=false)
 {
 
 	_this=$(_this);
@@ -42,14 +42,11 @@ function table_oper(_this,action,needconfirm=false)
 	var id;
 
 	id=int_intval(_this.closest('tr').attr('managetable_value'));
-//	id=int_intval($(_this).closest('tr').find('td').eq(0).find('input[type=checkbox]').val());
 
 	if(!id)
 	{
 		id='';
 	}
-
-	var cmdstring=_this.html();
 
 	var url='';
 
@@ -97,22 +94,31 @@ function table_oper(_this,action,needconfirm=false)
 
 	}
 
-	if(needconfirm)
+	if(__confirmbefore)
 	{
-		ui_confirm('确定['+cmdstring+']'+id+'?',function()
+		var msg='';
+		if(cmd_default===__confirmbefore)
+		{
+			msg='确定['+_this.html()+']'+(id?'#'+id:'')+'?';
+		}
+		else
+		{
+			msg=__confirmbefore;
+		}
+		ui_confirm(msg,function()
 		{
 			ajax_async(url);
-
 		});
+
 	}
 	else
 	{
 		ajax_async(url);
 	}
 }
-function table_oper_confirm(_this,action)
+function table_oper_confirm(_this,action,__confirmbefore=cmd_default)
 {
-	return table_oper(_this,action,true)
+	return table_oper(_this,action,__confirmbefore)
 }
 //1 tree
 function tree_oper(action,dna,confirmtxt=false)

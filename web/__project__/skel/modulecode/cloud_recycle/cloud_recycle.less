@@ -1,0 +1,136 @@
+
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+[__skelmodule__=skelmodule][skelmodule_name=cloud_recycle]
+{
+
+	.dd_bg(@dd_randomcolor_48);
+
+	table
+	{
+		.itemicon
+		{
+			.ibm();
+			width:32px;
+			height:32px;
+			padding:8px;
+			.dd_bg(@dd_randomcolor_10);
+		}
+		.itempicthumb
+		{
+			.ibm();
+			width:48px;
+			height:48px;
+			.dd_bg(@dd_randomcolor_10);
+		}
+		.itemname
+		{
+			.ibm();
+			line-height:16px;
+			.dd_bg(@dd_randomcolor_15);
+			margin-left:10px;
+			max-width:240px;
+			font-size:14px;
+		}
+	}
+
+	.folderpathz
+	{
+		.dd_bg(@dd_randomcolor_18);
+		span
+		{
+			.ibt();
+			.hlh(20px);
+		}
+		a
+		{
+			.ibt();
+			.hlh(20px);
+			color:@color_link;
+			.dd_bg(@dd_randomcolor_18);
+				font-size:14px;
+			&:hover
+			{
+				text-decoration:underline;
+
+			}
+		}
+		i
+		{
+			.ibt();
+			.iconfont_cube(20px);
+			.dd_bg_alpha(@dd_randomcolor_21,50);
+			color:#999;
+			font-size:14px;
+			margin:0 5px;
+			&:before
+			{
+				content:'\f056';
+			}
+		}
+	}
+}
+
+.cloudindex_file_upload
+{
+
+	.dd_bg(@dd_randomcolor_31);
+	padding:40px 20px;
+	background:#fff;
+
+	width:800px;
+
+	.uploadz
+	{
+		.dd_bg(@dd_randomcolor_18);
+		min-height:300px;
+
+		[__uploadfile__=uploadfile]
+		{
+			[uploadfile_role=uf_filelist]
+			{
+				max-height:600px;
+				overflow-y:auto;
+				margin-bottom:20px;
+				&:empty
+				{
+					margin-bottom:0;
+				}
+
+			}
+			.operz
+			{
+				.move_up,.move_down
+				{
+					display:none;
+				}
+
+			}
+
+		}
+	}
+	>*~*
+	{
+		margin-top:20px;
+	}
+	[uiwindow_role=close]
+	{
+		position:absolute;
+		top:0;
+		right:0;
+		margin-top:0 !important;
+		.iconfont_cube(40px);
+		.dd_bg(@dd_randomcolor_36);
+		font-size:28px;
+		&:before
+		{
+			content:'\f06d';
+		}
+
+	}
+}

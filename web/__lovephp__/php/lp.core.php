@@ -233,6 +233,14 @@ class Lovephp
 					$_GET['id']=intval($_GET['id']);
 				}
 
+				if(var_isavailable($_GET['ids']))
+				{
+					if(!\_lp_\Validate::is_ints($_GET['ids']))
+					{
+						R_alert('[error-1405]'.\_lp_\Validate::lasterror_msg());
+					}
+				}
+
 				if(isset($_GET['_p']))
 				{//分页/当前页数,从0计数
 					$_GET['_p']=intval($_GET['_p']);
@@ -254,7 +262,13 @@ class Lovephp
 				{
 					$_POST['id']=intval($_POST['id']);
 				}
-
+				if(var_isavailable($_POST['ids']))
+				{
+					if(!\_lp_\Validate::is_ints($_POST['ids']))
+					{
+						R_alert('[error-1417]'.\_lp_\Validate::lasterror_msg());
+					}
+				}
 			}
 
 		}

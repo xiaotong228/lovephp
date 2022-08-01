@@ -34,6 +34,8 @@ class Prjconfig
 
 //1 file
 	const file_pic_exts=['jpg','jpeg','png','gif'];
+	const file_echofile_maxsize=10*datasize_1mb;
+
 	const file_avatar_final_maxwidth=400;
 	const file_avatar_preselect_maxpixels=1600*1200;//如果预选择的原始图片超过这个尺寸,会被缩放再处理,避免卡顿
 

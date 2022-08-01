@@ -38,7 +38,7 @@ date_default_timezone_set('PRC');
 define('__online_isonline__',false);//确定是开发(debug)模式还是线上(release)模式
 
 if(__online_isonline__)
-{
+{//线上模式
 
 	define('__error_pageshow__',false);//在页面报出错误详情
 
@@ -56,13 +56,13 @@ if(__online_isonline__)
 
 }
 else
-{
+{//开发模式
 
 	define('__error_pageshow__',true);
 
 	define('__error_recordlog__',true);
 
-	define('__db_recordsqllog__',false);
+	define('__db_recordsqllog__',true);
 
 	define('__codepack_cachecorephp__',false);
 

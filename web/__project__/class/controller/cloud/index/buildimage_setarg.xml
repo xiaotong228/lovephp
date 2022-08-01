@@ -1,0 +1,43 @@
+<module>
+	<name>图片参数访问</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='readonly' label='原图链接' name='cloud_file_url' description=''>
+				</param>
+
+				<param formtype='select' name='width' label='宽度' description='' >
+					<option value='0' >不指定</option>;
+					<?php
+						foreach(\controller\cloud\Buildimage::buildarg_width_map as $k=>$v)
+						{
+							echo '<option value=\''.$v.'\' >'.$v.'像素</option>';
+						}
+					?>
+				</param>
+
+				<param formtype='select' name='height' label='高度' description='' >
+					<option value='0' >不指定</option>;
+					<?php
+						foreach(\controller\cloud\Buildimage::buildarg_height_map as $k=>$v)
+						{
+							echo '<option value=\''.$v.'\' >'.$v.'像素</option>';
+						}
+					?>
+				</param>
+
+				<param formtype='select' name='rotate' label='旋转(顺时针)' description='' >
+					<option value='0' >不指定</option>;
+					<?php
+						foreach(\controller\cloud\Buildimage::buildarg_rotate_map as $k=>$v)
+						{
+							echo '<option value=\''.$v.'\' >'.$v.'度</option>';
+						}
+					?>
+				</param>
+
+
+			</section>
+		</group>
+	</params>
+</module>

@@ -582,7 +582,7 @@ label.g_checkbox_wrap
 		}
 	}
 }
-.c_warnbox
+.g_warnbox
 {
 
 	border:1px solid @color_0_light;
@@ -620,4 +620,47 @@ label.g_checkbox_wrap
 		.dd_bg(@dd_randomcolor_12);
 	}
 
+}
+.g_tips
+{
+
+
+	.iconfont_cube(20px);
+	font-size:1.2em;
+	float:right;
+	.dd_bg(@dd_randomcolor_56);
+
+	cursor:pointer;
+
+	&:before
+	{
+		content:'\f067';
+	}
+	
+}
+.g_tips_popuplayer
+{
+	.dd_bg(@dd_randomcolor_37);
+	.shadow_boxshadow(2px 2px 2px,#000,10);
+	border:1px solid @bd_color;
+	padding:10px;
+	max-width:300px;
+	min-width:100px;
+	background:#fff;
+	z-index:@pc_ui_mask_zindex+100;
+
+	&:after
+	{
+		content:'';
+		background:#fff;
+		width:10px;
+		height:10px;
+		border-width:1px;
+		border-style:solid;
+		border-color:transparent @bd_color @bd_color transparent;
+		position:absolute;
+		left:20px;
+		bottom:-7px;
+		transform:rotate(45deg);
+	}
 }

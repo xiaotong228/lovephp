@@ -40,9 +40,9 @@ function m_base()
 
 	}
 
-	$H.=_div('c_admin_panel_search');
-		$H.=_b__('','margin-left:0;','','基础设置(只是演示并不生效)');
-		$H.=_a0__('leftoperbtn','margin-left:20px;','onclick="table_oper(this,\'edit_base\')" ','设置');
+	$H.=_div('c_admin_panel_oper');
+		$H.=_b__('','','','基础设置(只是演示并不生效)');
+		$H.=_a0__('','','__button__="small green solid" onclick="table_oper(this,\'edit_base\')" ','设置');
 	$H.=_div_();
 
 	foreach($table_trlist_list as $v)
@@ -76,7 +76,7 @@ if(!$__tab)
 	$__tab=array_key_first($__tabmap);
 }
 
-echo _module();
+echo _module('c_admin_panel_template_scroll');
 
 	echo _div('c_admin_panel_nav');
 		foreach($__tabmap as $k=>$v)
@@ -84,13 +84,6 @@ echo _module();
 			echo _a__(url_build('',['_tab'=>$k]),$k==$__tab?'_csel_':'','','',$v);
 		}
 	echo _div_();
-
-	if(0)
-	{
-		echo _div('c_admin_panel_search');
-			echo _a0__('leftoperbtn','margin-left:0;','onclick="table_oper(this,\'edit\')" ','设置');
-		echo _div_();
-	}
 
 	if('base'==$__tab)
 	{
