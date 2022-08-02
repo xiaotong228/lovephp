@@ -16,8 +16,6 @@ class Upload extends super\Superforeground
 
 	const uploadconfig_maxnum=100;//应该用不了这么多吧
 
-	const uploadedfile_info_maxnum=999;
-
 	function uploadfile($token,$scene=false)
 	{
 
@@ -115,7 +113,7 @@ class Upload extends super\Superforeground
 
 					if($__config['upload_savefileinfo'])
 					{//如果想保留文件名和文件大小的信息的话
-						self::uploadedfile_info_set(ltrim($filepath,'.'),
+						self::uploaded_fileinfo_set(ltrim($filepath,'.'),
 							[
 								'file_name'=>htmlentity_encode($v['name']),//防注入
 								'file_size'=>$v['size']
@@ -274,25 +272,16 @@ class Upload extends super\Superforeground
 	}
 
 //1 uploadedfile
-	static function uploadedfile_info_set($fileurl,$fileinfo)
+	static function uploaded_fileinfo_set($fileurl,$fileinfo)
 	{
 
-		$fileinfo['file_name']=path_ext_tolowercase($fileinfo['file_name']);
-
-		$data=session_get('upload_fileinfo_map');
-
-		$data=array_pipe_push($data,[$fileurl=>$fileinfo],self::uploadedfile_info_maxnum);
-
-		$data[$fileurl]=$fileinfo;
-
-		session_set('upload_fileinfo_map',$data);
+		fs_file_save_data(__temp_dir__.'/uploaded_fileinfo'.$fileurl.'.data',$fileinfo);
 
 	}
-	static function uploadedfile_info_get($fileurl)
+	static function uploaded_fileinfo_get($fileurl)
 	{//如果想获取上传文件的原始文件名,大小什么的到这里取值
 
-		$data=session_get('upload_fileinfo_map');
-		return $data[$fileurl];
+		return fs_file_read_data(__temp_dir__.'/uploaded_fileinfo'.$fileurl.'.data');
 
 	}
 

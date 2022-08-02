@@ -14,10 +14,6 @@ class Cloud
 
 	use \_lp_\datamodel\Superdb;
 
-	const cloud_folder_maxlv=10;
-
-	const cloud_file_maxsize=100*datasize_1mb;
-
 //1 file_type
 	const file_type_pic=1;
 

@@ -12,6 +12,11 @@ namespace controller\cloud;
 class Index extends \controller\admin\super\Superadmin
 {
 
+//1 upload
+
+	const upload_file_maxsize=100*datasize_1mb;
+	const upload_file_maxnum=9999;
+
 //1 recycle
 
 	const recycle_prefix='cloudrecycle_';//需要在nginx配置里面根据cloudrecycle_配置好禁止访问
@@ -20,7 +25,7 @@ class Index extends \controller\admin\super\Superadmin
 	const recycle_cmd_rescue=2;
 
 	const recycle_cmd_realdelete=10;
-	const recycle_cmd_realdelete_all=11;//不用了,放在Recycle.class.php里面去处理
+	const recycle_cmd_realdelete_all=11;
 
 	static function recycle_filepath_to_recycle($filepath)
 	{
@@ -55,7 +60,7 @@ class Index extends \controller\admin\super\Superadmin
 			$__isdelete=1;
 		}
 		else if(self::recycle_cmd_realdelete_all==$__cmd)
-		{
+		{//不用了,放在Recycle.class.php里面去处理
 			R_alert('[error-1753]');
 		}
 		else
@@ -405,14 +410,14 @@ class Index extends \controller\admin\super\Superadmin
 			$config['@upload_config']=\controller\foreground\Upload::uploadtoken_set
 				(
 					\db\Cloud::file_type_allexts(),
-					\db\Cloud::cloud_file_maxsize,
+					self::upload_file_maxsize,
 					__temp_dir__.'/cloud',
 					1
 				);
 
 			$config['@upload_config']['upload_url'].='&scene=cloud';
 
-			$config['uploadfile_filemaxnum']=\controller\foreground\Upload::uploadedfile_info_maxnum;
+			$config['uploadfile_filemaxnum']=self::upload_file_maxnum;
 
 			$config['uploadfile_inputname']='filelist';
 
@@ -448,7 +453,7 @@ class Index extends \controller\admin\super\Superadmin
 		foreach($filelist as $v)
 		{
 
-			$file_info=\controller\foreground\Upload::uploadedfile_info_get($v);
+			$file_info=\controller\foreground\Upload::uploaded_fileinfo_get($v);
 
 			if(!$file_info)
 			{
@@ -596,7 +601,7 @@ class Index extends \controller\admin\super\Superadmin
 			$config['@upload_config']=\controller\foreground\Upload::uploadtoken_set
 				(
 					[$item['cloud_file_ext']],
-					\db\Cloud::cloud_file_maxsize,
+					self::upload_file_maxsize,
 					__temp_dir__.'/cloud',
 					1
 				);
@@ -641,7 +646,7 @@ class Index extends \controller\admin\super\Superadmin
 
 		$newfile_url=$_POST['filelist'];
 		$newfile_path='.'.$newfile_url;
-		$newfile_info=\controller\foreground\Upload::uploadedfile_info_get($newfile_url);
+		$newfile_info=\controller\foreground\Upload::uploaded_fileinfo_get($newfile_url);
 		$newfile_ext=path_ext($newfile_url);
 
 		if(!$newfile_info)
