@@ -80,7 +80,7 @@ trait Supercontroller_listdata
 //1 postdata
 	function listdata_postdataassert($exceptid=0)
 	{
-	
+
 		if(1)
 		{//如果允许大写,关闭,或者做区分
 			$_POST['name']=strtolower($_POST['name']);

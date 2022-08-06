@@ -37,7 +37,7 @@ class Index extends super\Superadmin
 
 		if($_POST['password_new_0']!==$_POST['password_new_1'])
 		{
-			R_error('password_new_1','重复密码不一致');			
+			R_error('password_new_1','重复密码不一致');
 		}
 
 		if(!\_lp_\Validate::is_password($_POST['password_new_0']))

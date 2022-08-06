@@ -289,7 +289,7 @@ class Layoutedit extends \controller\admin\super\Superadmin
 			}
 
 			$routedna=impd($routedna,'/');
-		
+
 			$pageurl='/'.$routedna;
 
 			$code='ui_alert("发布成功,你可以:<br><a target=_blank href=\''.$pageurl.'\' >查看页面</a>");';

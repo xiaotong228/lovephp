@@ -14,7 +14,7 @@ class Smssendlog
 
 	use \_lp_\datamodel\Superdb;
 
-	
+
 	const type_vcode=1;
 	const type_other=99;
 

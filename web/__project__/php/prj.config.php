@@ -327,7 +327,7 @@ class Dbconfig
 
 				'db_table_triggers'=>false,//false会把数据库中原来的触发器删掉,cmd_ignore则不会同步触发器
 
-			],			
+			],
 
 		],
 
@@ -367,7 +367,7 @@ class Dbconfig
 
 				'db_table_triggers'=>false,
 
-			],			
+			],
 
 		]
 

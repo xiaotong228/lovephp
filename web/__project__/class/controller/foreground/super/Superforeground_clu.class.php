@@ -53,7 +53,7 @@ class Superforeground_clu extends Superforeground
 		if(0)
 		{//如果涉及到限制登录设备数量啥的预留,
 		//登录时可以记录到user_currentlogin_sessionids里面,同时记录设备种类,如pc,移动端,安卓苹果啥的,然后判断,也可以用触发器在登录时写到xxx_login_index字段,不匹配或者差值大于一定数量(最大允许设备数)踢出去
-			
+
 		}
 
 		$__clu_id=clu_id();

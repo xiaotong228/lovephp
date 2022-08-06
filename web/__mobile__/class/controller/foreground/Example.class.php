@@ -346,7 +346,7 @@ class Example extends \controller\foreground\Example
 
 		$jscode='ui_confirm("[error-4935]是否现在查看?<br>'.$_POST['@uploadavatar_resultimgurl'].'",function()
 		{
-		
+
 			__lpwidget__.picgallery.pg_open("'.$_POST['@uploadavatar_resultimgurl'].'");
 
 		})';

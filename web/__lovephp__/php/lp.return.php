@@ -135,7 +135,7 @@ function R_jump($url=false,$msg=false)
 			}
 			exit;
 		}
-	
+
 
 	}
 
