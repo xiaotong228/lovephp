@@ -187,6 +187,8 @@ class Cloud
 
 				SET NEW.cloud_updatetime=NEW.cloud_createtime;
 
+				SET NEW.cloud_file_pic_pixels=NEW.cloud_file_pic_width*NEW.cloud_file_pic_height;
+
 			END
 		';
 
@@ -226,6 +228,7 @@ class Cloud
 
 				END IF;
 
+				SET NEW.cloud_file_pic_pixels=NEW.cloud_file_pic_width*NEW.cloud_file_pic_height;
 
 			END
 

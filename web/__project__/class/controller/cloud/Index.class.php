@@ -489,7 +489,7 @@ class Index extends \controller\admin\super\Superadmin
 
 				$add['cloud_file_pic_width']=$imagesize[0];
 				$add['cloud_file_pic_height']=$imagesize[1];
-				$add['cloud_file_pic_pixels']=$imagesize[0]*$imagesize[1];
+//				$add['cloud_file_pic_pixels']=$imagesize[0]*$imagesize[1];
 
 			}
 
@@ -684,7 +684,7 @@ class Index extends \controller\admin\super\Superadmin
 
 						$__savedata['cloud_file_pic_width']=$newfile_imagesize[0];
 						$__savedata['cloud_file_pic_height']=$newfile_imagesize[1];
-						$__savedata['cloud_file_pic_pixels']=$newfile_imagesize[0]*$newfile_imagesize[1];
+//						$__savedata['cloud_file_pic_pixels']=$newfile_imagesize[0]*$newfile_imagesize[1];
 
 					}
 					else

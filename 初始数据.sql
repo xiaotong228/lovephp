@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-08-01 11:16:39
+Date: 2022-08-08 16:13:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -355,12 +355,14 @@ DROP TRIGGER IF EXISTS `cloud_insert_before`;
 DELIMITER ;;
 CREATE TRIGGER `cloud_insert_before` BEFORE INSERT ON `cloud` FOR EACH ROW BEGIN
 #lovephp.com
-#packdna=8d60c3c5567a1220483dc202785611cc
-#packtime=2022-07-28 15:52:18
+#packdna=608cee6da8ee205eaa34fc38e118fae7
+#packtime=2022-08-08 16:10:12
 
 				SET NEW.cloud_createtime=unix_timestamp();
 
 				SET NEW.cloud_updatetime=NEW.cloud_createtime;
+
+				SET NEW.cloud_file_pic_pixels=NEW.cloud_file_pic_width*NEW.cloud_file_pic_height;
 
 			END
 ;;
@@ -369,8 +371,8 @@ DROP TRIGGER IF EXISTS `cloud_update_before`;
 DELIMITER ;;
 CREATE TRIGGER `cloud_update_before` BEFORE UPDATE ON `cloud` FOR EACH ROW BEGIN
 #lovephp.com
-#packdna=40af78ada14cabf39014faa7567cde91
-#packtime=2022-07-28 15:52:18
+#packdna=6a90b4e078b09a43e9dbcf197bed7df3
+#packtime=2022-08-08 16:10:12
 
 				IF
 
@@ -404,6 +406,7 @@ CREATE TRIGGER `cloud_update_before` BEFORE UPDATE ON `cloud` FOR EACH ROW BEGIN
 
 				END IF;
 
+				SET NEW.cloud_file_pic_pixels=NEW.cloud_file_pic_width*NEW.cloud_file_pic_height;
 
 			END
 ;;
