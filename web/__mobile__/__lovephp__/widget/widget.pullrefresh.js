@@ -80,10 +80,22 @@ _document.on('touchstart','[__pullrefresh__=pullrefresh] [pullrefresh_role=dragb
 
 	var _indbox_close=function()
 	{
+
 		_widget.ani_attr({'pullrefresh_status':'close'},function()
 		{
-			_widget.removeAttr('pullrefresh_status');
+
+			if('refreshing'==_widget.attr('pullrefresh_status'))
+			{//正在刷新时不关闭,避免卡屏,虽然概率很低,实测chrome内核下2%左右
+				console_log_wreckage('17','lovephp/0809/3917/不关闭');
+			}
+			else
+			{
+				console_log_wreckage('14','lovephp/0809/3914/关闭');
+				_widget.removeAttr('pullrefresh_status');
+			}
+
 			_dragbox.css('transform','');
+
 			if(_indbox)
 			{
 				_indbox.remove();
@@ -99,7 +111,7 @@ _document.on('touchstart','[__pullrefresh__=pullrefresh] [pullrefresh_role=dragb
 		if(!_indbox)
 		{
 			if(1)
-			{//按理说是和其他的pullrefresh不冲突的,但是实测或破图,可能和svg clipPath的id有关系吧,直接全部移除吧
+			{//按理说是和其他的pullrefresh不冲突的,但是实测svg可能出现破图,可能和svg clipPath的id有关系吧,直接全部移除吧
 				$('[pullrefresh_role=indbox]').remove();
 			}
 			else
