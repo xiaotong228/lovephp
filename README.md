@@ -6,7 +6,7 @@
 > 运行环境要求:`PHP7/PHP8`,`java`  
 > 官网:<a href="http://www.lovephp.com" target=_blank>http://www.lovephp.com</a>  
 > 文档:<a href="http://www.lovephp.com/doc" target=_blank>lovephp开发文档</a>  
-> B站视频教程:<a href="https://space.bilibili.com/4466712" target=_blank>潇桐228的个人空间</a>  
+> B站视频教程:<a href="https://space.bilibili.com/4466712" target=_blank>lovephp全栈框架的个人空间</a>  
 > 作者:潇桐(xiaotong228@qq.com)  
 > Q群:854617887
 
@@ -25,7 +25,8 @@
 > <a target=_blank href="http://www.lovephp.com/doc/demo">在线演示,APP下载</a>
 
 # 云空间
-> `lovephp`自带了一个在线文件资源管理系统(类似于七牛云存,淘宝图片空间),开箱即用
+> `lovephp`自带了一个在线文件资源管理系统(类似于七牛云存,淘宝图片空间),开箱即用  
+> 视频介绍: <a href="https://www.bilibili.com/video/BV1EB4y1r7Ep" target=_blank>lovephp全栈框架-云空间,云盘,在线文件存储管理功能</a>
 
 # 前端组件(widget)
 > 提供常用的组件:比如上传文件,设置头像,轮播,树状结构,弹出框,计时器等,不依赖第三方插件,代码统一,配置方便  

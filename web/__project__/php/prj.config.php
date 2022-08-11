@@ -325,7 +325,7 @@ class Dbconfig
 
 				'db_table_adjuststruct_maxrownum'=>1000000,//数据量太多的表不能自动调整表结构
 
-				'db_table_triggers'=>false,//false会把数据库中原来的触发器删掉,cmd_ignore则不会同步触发器
+				'db_table_triggers'=>false,//false会把数据库中原来的触发器删掉,cmd_ignore则不会同步触发器,同步触发器失败的话可能是mysql配置中的:log_bin_trust_function_creators未开启
 
 			],
 
