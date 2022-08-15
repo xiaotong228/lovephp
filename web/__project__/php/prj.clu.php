@@ -128,7 +128,7 @@ function clu_autologin_gentoken($userid)
 
 	$__salt=md5(math_salt());
 
-	$__hash=md5($userid.$__salt);
+	$__hash=md5($userid.'/'.$__user['user_version'].'/'.$__salt);
 
 	$__currentdata=$__user['user_autologin_tokens'];
 
@@ -160,14 +160,21 @@ function clu_autologin_checktoken($token)
 	{
 		return false;
 	}
+
 	$__currentdata=$__user['user_autologin_tokens'];
+	if(!$__currentdata)
+	{
+		$__currentdata=[];
+	}
 
 	$match=false;
 
 	foreach($__currentdata as $k=>$v)
 	{
+
 		$v=expd($v,'/');
-		if(md5($userid.$token)==$v[0]&&$v[1]>time())
+
+		if(md5($userid.'/'.$__user['user_version'].'/'.$token)==$v[0]&&$v[1]>time())
 		{
 
 			$match=true;
@@ -175,6 +182,7 @@ function clu_autologin_checktoken($token)
 			$__currentdata=array_values($__currentdata);
 			break;
 		}
+
 	}
 
 	if($match)
