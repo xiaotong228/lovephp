@@ -1,0 +1,10 @@
+<module>
+	<name>debug_trace</name>
+	<title>debug/trace</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

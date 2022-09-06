@@ -1,0 +1,11 @@
+<module>
+	<name>强制登录用户</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param formtype='text' label='用户uid' name='hacklogin_userid' description=''>
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

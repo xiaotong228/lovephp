@@ -1,0 +1,19 @@
+<module>
+	<name>添加</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+
+				<param description='必填' formtype='text' label='key' name='data_key'>
+				</param>
+				<param description='字符串' formtype='text' label='value' name='data_value'>
+				</param>
+
+				<param description='秒,不填为关闭浏览器时失效' formtype='text' label='有效时间' name='data_time'>
+				</param>
+
+			</section>
+
+		</group>
+	</params>
+</module>

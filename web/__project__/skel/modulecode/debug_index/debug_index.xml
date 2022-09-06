@@ -1,0 +1,10 @@
+<module>
+	<name>debug_index</name>
+	<title>debug/index</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

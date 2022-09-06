@@ -1,0 +1,15 @@
+<module>
+	<name>重命名</name>
+	<params>
+		<group title='x'>
+
+			<section title='x' folded='false'>
+
+				<param description='' formtype='text' label='名称' name='name'>
+				</param>
+
+			</section>
+
+		</group>
+	</params>
+</module>

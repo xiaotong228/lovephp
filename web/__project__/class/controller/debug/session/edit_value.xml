@@ -1,0 +1,25 @@
+<module>
+	<name>编辑/value</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+
+				<param description='如类型是数组会以,为分隔爆破' formtype='text' label='value' name='data_value'>
+				</param>
+				<param formtype='select' name='data_type' label='类型' description='特定类型会强制转换忽略value字段' >
+
+					<?php
+
+						foreach(\controller\debug\Session::datatype_namemap as $k=>$v)
+						{
+							echo '<option value=\''.$k.'\' >'.$v.'</option>';
+						}
+
+					?>
+				</param>
+
+			</section>
+
+		</group>
+	</params>
+</module>

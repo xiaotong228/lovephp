@@ -1,0 +1,15 @@
+<module>
+	<name>编辑/key</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+
+				<param description='' formtype='text' label='key' name='data_key'>
+
+				</param>
+
+			</section>
+
+		</group>
+	</params>
+</module>

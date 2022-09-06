@@ -1,0 +1,11 @@
+<module>
+	<name>封号/解封</name>
+	<params>
+		<group title='x'>
+			<section title='x' folded='false'>
+				<param description='' formtype='text' label='操作原因' name='message'>
+				</param>
+			</section>
+		</group>
+	</params>
+</module>

@@ -1,0 +1,10 @@
+<module>
+	<name>debug_session</name>
+	<title>debug/session</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>
