@@ -33,7 +33,7 @@ class Prjconfig
 	const admin_accesstoken='lovephp_changeme';//线上模式访问后台需要提供访问码才可访问	/admin?accesscode
 
 //1 baidu
-	const baidu_statistics_key=__online_isonline__?'cf172aefbfa777ba83ce020d6bb4d253':false;//百度统计,为false时不统计
+	const baidu_statistics_key='cf172aefbfa777ba83ce020d6bb4d253';//百度统计,为false时不统计
 
 //1 file
 	const file_pic_exts=['jpg','jpeg','png','gif'];
