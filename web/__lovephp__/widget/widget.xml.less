@@ -242,14 +242,14 @@
 				display:inline-block;
 				line-height:28px;
 			}
-			input[type=text],input[type=password],input[type=file]
+			input:not([type=checkbox]):not([type=radio])
 			{
 				height:28px;
 				line-height:28px;
 				width:@xml_input_width;
 				padding:0 5px;
 				text-indent:0px;
-				border:1px solid #bbb;
+				border:1px solid #bbb !important;
 			}
 			textarea
 			{

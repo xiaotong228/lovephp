@@ -381,7 +381,7 @@ class Index extends \controller\admin\super\Superadmin
 	function add_folder_1($id)
 	{
 
-		if(!var_isavailable($_POST['name']))
+		if(!check_isavailable($_POST['name']))
 		{
 			R_alert('[error-0714]请输入名称');
 		}
@@ -504,10 +504,10 @@ class Index extends \controller\admin\super\Superadmin
 	}
 
 //1 delete
-	function delete($ids)
+	function delete()
 	{
 
-		$ids=expd($ids);
+		$ids=expd($_POST['ids']);
 
 		$ids=array_unique($ids);
 
@@ -549,7 +549,7 @@ class Index extends \controller\admin\super\Superadmin
 	function rename_1($id)
 	{
 
-		if(!var_isavailable($_POST['name']))
+		if(!check_isavailable($_POST['name']))
 		{
 			R_alert('[error-5802]请输入有效的名称');
 		}
@@ -718,8 +718,10 @@ class Index extends \controller\admin\super\Superadmin
 
 	}
 //1 move
-	function move($ids)
+	function move()
 	{
+
+		$ids=$_POST['ids'];
 
 		if(!$ids)
 		{

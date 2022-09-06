@@ -21,8 +21,7 @@ class Upload extends super\Superforeground
 
 		if(0)
 		{//test
-			dd_trace('0050',$_FILES);
-			R_false('[error-4849]');
+			debug_trace('0050',$_FILES);
 		}
 
 		set_time_limit(self::uploadfile_timeout);

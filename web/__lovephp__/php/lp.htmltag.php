@@ -272,7 +272,7 @@ function _form_()
 function _input($name=null,$value=null,$plh=null,$cls=null,$sty=null,$tail=null,$type='text')
 {
 
-	var_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
+	check_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
 
 	isset($value)?$tail.=' value=\''.htmlentity_encode($value).'\'':0;
 
@@ -314,7 +314,7 @@ function _input_hidden($name=null,$value=null,$tail=null)
 function _textarea($name=null,$value=null,$plh=null,$cls=null,$sty=null,$tail=null)
 {
 
-	var_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
+	check_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
 
 	$plh?$tail.=' placeholder=\''.$plh.'\'':0;
 
@@ -335,7 +335,7 @@ function _select($name=null,$currentvalue=null,$cls=null,$sty=null,$tail=null)
 		return $currentvalue_cache;
 	}
 
-	if(var_isavailable($currentvalue))
+	if(check_isavailable($currentvalue))
 	{
 		$currentvalue_cache=$currentvalue;
 	}
@@ -344,7 +344,7 @@ function _select($name=null,$currentvalue=null,$cls=null,$sty=null,$tail=null)
 		$currentvalue_cache=null;
 	}
 
-	var_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
+	check_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
 
 	$cls?$tail.=' class=\''.$cls.'\'':0;
 	$sty?$tail.=' style=\''.$sty.'\'':0;
@@ -380,7 +380,7 @@ function _checkbox($name=null,$value=null,$checked=false,$domset=[])
 {
 	$tail=$domset['tail'];
 
-	var_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
+	check_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
 	isset($value)?$tail.=' value=\''.$value.'\'':0;
 
 	$domset['cls']?$tail.=' class=\''.$domset['cls'].'\'':0;
@@ -409,7 +409,7 @@ function _radio($name=null,$value=null,$checked=false,$domset=[])
 {
 	$tail=$domset['tail'];
 
-	var_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
+	check_isavailable($name)?$tail.=' name=\''.$name.'\'':0;
 	isset($value)?$tail.=' value=\''.$value.'\'':0;
 
 	$domset['cls']?$tail.=' class=\''.$domset['cls'].'\'':0;

@@ -395,14 +395,14 @@ class Database
 			return '';
 		}
 
-		if(isint_isint($where))
+		if(check_isint($where))
 		{
 			$where=
 			[
 				$this->__table_config['db_table_prikey']=>$where
 			];
 		}
-		else if(array_is_allint($where))
+		else if(check_isint_array($where))
 		{
 			$where=
 			[
@@ -1197,7 +1197,7 @@ class Database
 
 					if(self::fieldtype_int==$this->__table_struct[$k])
 					{
-						if(!isint_isint($v))
+						if(!check_isint($v))
 						{
 							R_exception('[error-2832]字段错误/'.$this->__table_name.'/'.$k);
 						}
@@ -1205,7 +1205,7 @@ class Database
 					}
 					else if(self::fieldtype_float==$this->__table_struct[$k])
 					{
-						if(!isfloat_isfloat($v))
+						if(!check_isfloat($v))
 						{
 							R_exception('[error-2833]字段错误/'.$this->__table_name.'/'.$k);
 						}

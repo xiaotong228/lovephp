@@ -27,7 +27,9 @@ class Article extends super\Superforeground
 	}
 	function article_countviewnum($id)
 	{
+
 		$currentdata=session_get('article_countviewnum_session');
+
 		if($currentdata&&in_array_1($id,$currentdata))
 		{
 		}
@@ -37,11 +39,15 @@ class Article extends super\Superforeground
 			\db\Article::save_fieldplus($id,'article_viewnum',1);
 			session_set('article_countviewnum_session',$currentdata);
 		}
+
 		R_true();
+
 	}
 	static function article_countviewnum_hascount($id)
 	{
+
 		$currentdata=session_get('article_countviewnum_session');
+
 		if($currentdata&&in_array_1($id,$currentdata))
 		{
 			return true;

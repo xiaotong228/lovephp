@@ -48,7 +48,9 @@ class User extends super\Superadmin
 			}
 		}
 
-		\db\User::createuser_createuser($__adddata);
+		$userid=\db\User::createuser_createuser($__adddata);
+
+		\db\Adminlog::adminlog_addlog('业务后台/用户/添加',$userid);
 
 		R_jump();
 
@@ -144,20 +146,50 @@ class User extends super\Superadmin
 
 		\db\User::save($id,$__savedata);
 
+		\db\Adminlog::adminlog_addlog('业务后台/用户/编辑',$id);
+
 		R_jump();
 
 	}
+
 	function ban_yes($id)
 	{
+		R_window_xml(xml_getxmlfilepath(),url_build('ban_yes_1?id='.$id),'','ID:'.$id);
+	}
+
+	function ban_yes_1($id)
+	{
+
+		if(!$_POST['message'])
+		{
+			R_alert('[error-4236]请输入操作原因');
+		}
 
 		\db\User::save_fieldset($id,'user_isban',1);
+
+		\db\Adminlog::adminlog_addlog('业务后台/用户/封号',$id,'原因:'.$_POST['message']);
+
 		R_jump();
 
 	}
 	function ban_no($id)
 	{
 
+		R_window_xml(xml_getxmlfilepath('ban_yes'),url_build('ban_no_1?id='.$id),'','ID:'.$id);
+
+	}
+	function ban_no_1($id)
+	{
+
+		if(!$_POST['message'])
+		{
+			R_alert('[error-5316]请输入操作原因');
+		}
+
 		\db\User::save_fieldset($id,'user_isban',0);
+
+		\db\Adminlog::adminlog_addlog('业务后台/用户/解封',$id,'原因:'.$_POST['message']);
+
 		R_jump();
 
 	}

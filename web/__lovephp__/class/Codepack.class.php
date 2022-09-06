@@ -334,6 +334,7 @@ class Codepack
 		else
 		{//使用php的丑化引擎,不支持es6,性能差
 
+/*
 			require __vendor_dir__.'/phpuglifyjs/parse-js.php';
 			require __vendor_dir__.'/phpuglifyjs/process.php';
 
@@ -344,6 +345,7 @@ class Codepack
 			$finalcode_content=$strip_lines($gen_code($ast));		// compressed code here
 
 			return $finalcode_content;
+*/
 
 		}
 

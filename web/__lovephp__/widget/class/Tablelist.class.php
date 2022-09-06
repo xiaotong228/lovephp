@@ -13,7 +13,7 @@ class Tablelist
 {
 
 	static function tablelist_html($header,$body,$showcheckbox=false,array $domset=[])
-	{
+	{//$body中的每组第一个item如果是数组的话,则数组第一个表示label,第二个表示checkbox的value
 
 		$H.=_table($domset['cls'],$domset['sty'],'__tablelist__=tablelist '.$domset['tail']);
 
@@ -34,6 +34,7 @@ class Tablelist
 						}
 
 						$H.=_th('',$sty);
+
 							if($first&&$showcheckbox)
 							{
 
@@ -64,7 +65,15 @@ class Tablelist
 						{
 							if($showcheckbox&&0==$kk)
 							{
-								$vv=_checkbox_1('',$vv,'',['tail'=>'tablelist_role=checkid_checksingle'],$vv);
+								if(is_array($vv))
+								{//如果是数组进来的,第一个表示label,第二个表示checkbox的value
+									$vv=_checkbox_1('',$vv[1],'',['tail'=>'tablelist_role=checkid_checksingle'],$vv[0]);
+								}
+								else
+								{
+									$vv=_checkbox_1('',$vv,'',['tail'=>'tablelist_role=checkid_checksingle'],$vv);
+								}
+
 							}
 							$H.=_td__('','','',$vv);
 						}

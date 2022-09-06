@@ -44,17 +44,33 @@ class Mysql
 
 		if(__db_recordsqllog__)
 		{
-			dd_time_ms();
+			debug_checkpointtime();
 		}
+
 		if(0)
 		{//test
 			echo _pre__('','','',$sql);
 		}
-		$__result=$this->__pdo->query($sql);
+
+		if(1)
+		{//改成附带原始sql语句的形式,便于直观看到sql的问题
+			try
+			{
+				$__result=$this->__pdo->query($sql);
+			}
+			catch(\Exception $e)
+			{
+				R_exception('[error-4705]'.$e->getMessage()."\n\n".$sql,$e->getCode());
+			}
+		}
+		else
+		{
+			$__result=$this->__pdo->query($sql);
+		}
 
 		if(__db_recordsqllog__)
 		{
-			dd_log('mysql',dd_time_ms()."ms\n".$sql,0/*,1,如果想记录调用堆栈的话*/);
+			debug_log('mysql',debug_checkpointtime()."ms\n".$sql,0/*,1,如果想记录调用堆栈的话*/);
 		}
 
 		if(!$__result)

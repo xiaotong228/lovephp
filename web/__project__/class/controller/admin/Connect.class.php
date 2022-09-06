@@ -20,6 +20,8 @@ class Connect extends super\Superadmin
 	function login_1()
 	{
 
+		\db\Adminlog::adminlog_addlog('后台/登录/尝试');
+
 		postdata_assert(
 		[
 			'user_name'=>'用户名',

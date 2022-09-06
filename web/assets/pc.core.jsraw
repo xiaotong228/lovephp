@@ -94,9 +94,17 @@ function table_oper(_this,action,__confirmbefore=false)
 
 	}
 
+	var postdata=
+	{
+		id:id,
+		ids:id,
+	};
+
 	if(__confirmbefore)
 	{
+
 		var msg='';
+
 		if(cmd_default===__confirmbefore)
 		{
 			msg='确定['+_this.html()+']'+(id?'#'+id:'')+'?';
@@ -107,13 +115,13 @@ function table_oper(_this,action,__confirmbefore=false)
 		}
 		ui_confirm(msg,function()
 		{
-			ajax_async(url);
+			ajax_async(url,postdata);
 		});
 
 	}
 	else
 	{
-		ajax_async(url);
+		ajax_async(url,postdata);
 	}
 }
 function table_oper_confirm(_this,action,__confirmbefore=cmd_default)
@@ -139,4 +147,35 @@ function tree_oper(action,dna,confirmtxt=false)
 	}
 
 }
+
+/*需要编译再打开
+
+	function lpdd_expand_toggle(_this)
+	{
+
+		if('no'===_this.parentElement.getAttribute('lpdd_expand'))
+		{
+			_this.parentElement.setAttribute('lpdd_expand','yes');
+		}
+		else
+		{
+			_this.parentElement.setAttribute('lpdd_expand','no');
+		}
+
+	}
+	function lpdd_showblank_toggle(_this)
+	{
+
+		if('yes'===_this.parentElement.getAttribute('lpdd_showblank_status'))
+		{
+			_this.parentElement.setAttribute('lpdd_showblank_status','no');
+		}
+		else
+		{
+			_this.parentElement.setAttribute('lpdd_showblank_status','yes');
+		}
+
+	}
+
+*/
 

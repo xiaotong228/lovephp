@@ -395,7 +395,11 @@ function htmlecho_fire($H=null)
 		}
 
 	}
-	else if('cloud'==__route_module__)
+	else if
+	(
+		'cloud'==__route_module__||
+		'debug'==__route_module__
+	)
 	{
 		$css_urls[]='/assets/pc.core.less';
 		$css_urls[]='/assets/_admin/admin.core.less';
@@ -404,7 +408,7 @@ function htmlecho_fire($H=null)
 	}
 	else
 	{
-
+		R_alert('[error-3420]');
 	}
 
 	htmlecho_css_addurl($css_urls,true);
@@ -440,7 +444,7 @@ function htmlecho_fire($H=null)
 			echo $H;
 			echo $js_code;
 
-			if('foreground'==__route_module__)
+			if(\Prjconfig::baidu_statistics_key&&'foreground'==__route_module__)
 			{//百度统计
 				echo
 					'
@@ -448,7 +452,7 @@ function htmlecho_fire($H=null)
 						var _hmt = _hmt || [];
 						(function() {
 						  var hm = document.createElement("script");
-						  hm.src = "https://hm.baidu.com/hm.js?cf172aefbfa777ba83ce020d6bb4d253";
+						  hm.src = "https://hm.baidu.com/hm.js?'.\Prjconfig::baidu_statistics_key.'";
 						  var s = document.getElementsByTagName("script")[0];
 						  s.parentNode.insertBefore(hm, s);
 						})();

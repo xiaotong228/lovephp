@@ -49,8 +49,6 @@ class Adminuser
 			'db_table_serializedfileds'=>
 			[
 				'adminuser_authority',
-				'adminuser_cloud_filetree',
-				'adminuser_loginhistory',
 			],
 
 			'db_table_triggers'=>$triggers,

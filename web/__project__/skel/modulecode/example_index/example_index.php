@@ -21,7 +21,8 @@ echo _module();
 			{
 				echo _div__('__color_0__','','','直接用Superdb提供的静态方法');
 				$temp=\db99\Example::find(2);
-				dd($temp);
+				echo _sep(10);
+				echo debug_dump($temp);
 			}
 
 			if(1)
@@ -29,7 +30,8 @@ echo _module();
 				echo _div__('__color_0__','margin-top:20px;','','用Superdb提供的Database对象(带缓存),此种情况依然会自动调整表结构和同步触发器,同时会自动转换db_table_serializedfileds定义的字段');
 				$__db=\db99\Example::db_instance();
 				$temp=$__db->orderby('id desc')->find();
-				dd($temp);
+				echo _sep(10);
+				echo debug_dump($temp);
 			}
 
 			if(1)
@@ -37,7 +39,8 @@ echo _module();
 				echo _div__('__color_0__','margin-top:20px;','','自行new一个Database对象(不带缓存),如果没有table_config参数的话,并不会自动调整表结构和同步触发器');
 				$__db=new \_lp_\datamodel\Database(\Dbconfig::db_connect_main,'example');
 				$temp=$__db->orderby('id asc')->find();
-				dd($temp);
+				echo _sep(10);
+				echo debug_dump($temp);
 			}
 
 			echo _div('group_tt');
@@ -47,6 +50,61 @@ echo _module();
 		echo _div_();
 	}
 
+	if(1)
+	{//1 xml
+		echo _div('floorz floor_button');
+
+			echo _a0__('','','__button__="small color0 solid" onclick="ajax_async(\'/example/ui_window_xml\');"','ui_window_xml(通用xml配置)');
+				echo _div__('__color_0__','margin-bottom:10px;','','当前配置数据:');
+			if(1)
+			{
+				$data=fs_file_read_data($____controller->uiwindowxml_filepath,fs_loose);
+				
+				echo debug_dump($data);
+			}
+
+
+			echo _div('group_tt');
+				echo 'XML通用配置弹窗';
+			echo _div_();
+
+		echo _div_();
+	}
+
+	if(1)
+	{//1 ui
+		echo _div('floorz floor_button');
+
+			echo _a0__('','','__button__="small color0 solid" onclick="ajax_async(\'/example/ui_window\');"','ui_window(普通弹窗,内嵌其他widget时会自动初始化)');
+
+			echo _a0__('','','__button__="small color0 w150" onclick="
+
+				ui_alert(\'[error-2144]\',function()
+				{
+					ui_toast(\'点击了确定\');
+				});
+
+				"','ui_alert');
+
+			echo _a0__('','','__button__="small color0 w150" onclick="
+				ui_confirm(\'[error-2416]\',function()
+				{
+					ui_toast(\'点击了确定\');
+				});
+				"','ui_confirm');
+
+			echo _a0__('','','__button__="small color0 w150" onclick="
+
+				ui_toast(\'[error-4036]\');
+
+				"','ui_toast');
+
+			echo _div('group_tt');
+				echo 'ui交互(ui)';
+			echo _div_();
+
+		echo _div_();
+	}
 	if(1)
 	{//1 tablelist
 		$__table_header=
@@ -694,43 +752,6 @@ echo _module();
 
 		echo _div_();
 
-	}
-
-	if(1)
-	{
-		echo _div('floorz floor_button');
-
-			echo _a0__('','','__button__="small color0 solid" onclick="ajax_async(\'/example/ui_window\');"','ui_window(内嵌其他widget时会自动初始化)');
-
-			echo _a0__('','','__button__="small color0 solid" onclick="ajax_async(\'/example/ui_window_xml\');"','ui_window_xml(通用xml配置)');
-
-			echo _a0__('','','__button__="small color0 w150" onclick="
-
-				ui_alert(\'[error-2144]\',function()
-				{
-					ui_toast(\'点击了确定\');
-				});
-
-				"','ui_alert');
-
-			echo _a0__('','','__button__="small color0 w150" onclick="
-				ui_confirm(\'[error-2416]\',function()
-				{
-					ui_toast(\'点击了确定\');
-				});
-				"','ui_confirm');
-
-			echo _a0__('','','__button__="small color0 w150" onclick="
-
-				ui_toast(\'[error-4036]\');
-
-				"','ui_toast');
-
-			echo _div('group_tt');
-				echo 'ui交互(ui)';
-			echo _div_();
-
-		echo _div_();
 	}
 
 	if(1)

@@ -276,7 +276,7 @@ class Layoutedit extends \controller\admin\super\Superadmin
 			}
 			else
 			{
-				R_alert("err-[1857]");
+				R_alert('[error-2041]');
 			}
 		}
 		if('publish'==$act)

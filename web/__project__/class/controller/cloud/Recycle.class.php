@@ -50,8 +50,10 @@ class Recycle extends \controller\admin\super\Superadmin
 	}
 
 //1 realdelete
-	function realdelete($ids)
+	function realdelete()
 	{
+
+		$ids=$_POST['ids'];
 
 		$ids=expd($ids);
 
@@ -106,8 +108,10 @@ class Recycle extends \controller\admin\super\Superadmin
 
 	}
 //1 rescue
-	function rescue($ids)
+	function rescue()
 	{
+
+		$ids=$_POST['ids'];
 
 		$ids=expd($ids);
 

@@ -321,7 +321,7 @@ function url_build_js(_url,_args=false)
 
 	for(var i in _args)
 	{
-		if(var_isavailable_js(_args[i]))
+		if(check_isavailable_js(_args[i]))
 		{
 			_url+=sep+i+'='+encodeURIComponent(_args[i]);
 			sep='&';
@@ -528,9 +528,13 @@ function css_object_append_px(pos)
 
 }
 //1 var
-function var_isavailable_js(data)
-{
-	if(null===data||''===data||'undefined'===typeof(data))
+function check_isavailable_js(data)
+{//null,空字符串,undefined无效
+	if(
+		null===data||
+		''===data||
+		'undefined'===typeof(data)
+	)
 	{
 		return false;
 	}

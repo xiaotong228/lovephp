@@ -36,7 +36,7 @@ echo _module('c_admin_panel_template_fixed');
 			$__templine[]='[超管]';
 			$__templine[]='/';
 			$__templine[]='';
-			$__templine[]=_a0__('','','onclick="table_oper(this,\'loginhistory_loginhistory\')"','登录历史');
+			$__templine[]='';
 		}
 		else
 		{
@@ -78,8 +78,6 @@ echo _module('c_admin_panel_template_fixed');
 				{
 					$temptd[]=_a0__('','','onclick="table_oper_confirm(this,\'ban_yes\')"','封号');
 				}
-
-				$temptd[]=_a0__('','','onclick="table_oper(this,\'loginhistory_loginhistory\')"','登录历史');
 
 				$__templine[]=impd($temptd,'/');
 

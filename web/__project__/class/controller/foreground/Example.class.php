@@ -232,7 +232,7 @@ class Example extends super\Superforeground
 
 		$data=fs_file_read_data($this->uiwindowxml_filepath,fs_loose);
 
-		R_window_xml('./example/example.xml',url_build('ui_window_xml_1'),$data,math_salt());
+		R_window_xml('./example/example.xml',url_build('ui_window_xml_1'),$data);
 
 	}
 	function ui_window_xml_1()

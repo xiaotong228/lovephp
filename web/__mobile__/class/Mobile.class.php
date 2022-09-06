@@ -368,7 +368,7 @@ class Mobile
 							let vConsole = new VConsole();
 						</script>';
 					}
-					if(1)
+					if(\Prjconfig::baidu_statistics_key)
 					{//百度统计
 						echo
 							'
@@ -376,7 +376,7 @@ class Mobile
 								var _hmt = _hmt || [];
 								(function() {
 								  var hm = document.createElement("script");
-								  hm.src = "https://hm.baidu.com/hm.js?cf172aefbfa777ba83ce020d6bb4d253";
+								  hm.src = "https://hm.baidu.com/hm.js?'.\Prjconfig::baidu_statistics_key.'";
 								  var s = document.getElementsByTagName("script")[0];
 								  s.parentNode.insertBefore(hm, s);
 								})();

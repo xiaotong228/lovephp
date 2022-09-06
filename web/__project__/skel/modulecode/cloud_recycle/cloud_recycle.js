@@ -18,7 +18,7 @@ function cloudrecycle_realdelete(ids,name)
 
 	ui_confirm(msg,function()
 	{
-		ajax_async('/cloud/recycle/realdelete?ids='+ids);
+		ajax_async('/cloud/recycle/realdelete',{ids:ids});
 	});
 
 }
@@ -37,7 +37,7 @@ function cloudrecycle_realdelete_bat(_this)
 
 		ui_confirm(msg,function()
 		{
-			ajax_async('/cloud/recycle/realdelete?ids='+ids.toString());
+			ajax_async('/cloud/recycle/realdelete',{ids:ids.toString()});
 		});
 	}
 	else
@@ -69,7 +69,7 @@ function cloudrecycle_rescue_bat(_this)
 
 		ui_confirm(msg,function()
 		{
-			ajax_async('/cloud/recycle/rescue?ids='+ids.toString());
+			ajax_async('/cloud/recycle/rescue',{ids:ids.toString()});
 		});
 	}
 	else

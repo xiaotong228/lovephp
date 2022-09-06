@@ -21,7 +21,7 @@ function db_buildwhere($keywordfields='',$requestdata=false)
 
 	foreach($requestdata as $k=>$v)
 	{
-		if(!var_isavailable($v))
+		if(!check_isavailable($v))
 		{
 			continue;
 		}

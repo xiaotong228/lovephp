@@ -9,6 +9,7 @@
 
 
 namespace _lp_;
+
 class Validate
 {
 
@@ -171,21 +172,6 @@ class Validate
 		else
 		{
 			self::lasterror_msg('不是合法的函数/类名称');
-			return false;
-		}
-
-	}
-
-	static function is_ints(string $__value)
-	{
-
-		if(preg_match('/^\d+(,\d+)+$|^\d+$/',$__value))
-		{
-			return true;
-		}
-		else
-		{
-			self::lasterror_msg('不是正确的整数集合字符串');
 			return false;
 		}
 

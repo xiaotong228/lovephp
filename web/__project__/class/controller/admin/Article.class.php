@@ -21,12 +21,16 @@ class Article extends super\Superadmin
 
 		\db\Article::save_fieldset($id,'article_isdelete',1);
 
+		\db\Adminlog::adminlog_addlog('业务后台/文章/删除',$id);
+
 		R_jump();
 	}
 	function delete_no($id)
 	{
 
 		\db\Article::save_fieldset($id,'article_isdelete',0);
+
+		\db\Adminlog::adminlog_addlog('业务后台/文章/还原',$id);
 
 		R_jump();
 
@@ -62,12 +66,21 @@ class Article extends super\Superadmin
 
 		if($id)
 		{
+
 			\db\Article::save($id,$data);
+
+			\db\Adminlog::adminlog_addlog('业务后台/文章/编辑',$id);
+
 		}
 		else
 		{
+
 			$data['article_createtime']=time();
-			\db\Article::add($data);
+
+			$id=\db\Article::add($data);
+
+			\db\Adminlog::adminlog_addlog('业务后台/文章/添加',$id);
+
 		}
 
 		R_jump_module('/article','完成');

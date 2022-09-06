@@ -103,9 +103,12 @@ class Routemap extends \controller\admin\super\Superadmin
 			}
 
 			$H.=_a0__('','','popupmenu_role=menu onclick="tree_oper(\'treedata_edit\',\''.$dna.'\');"','编辑');
-			$H.=_a0__('','','popupmenu_role=menu onclick="tree_oper(\'treedata_moveup\',\''.$dna.'\');"','上移一位');
-			$H.=_a0__('','','popupmenu_role=menu onclick="tree_oper(\'treedata_movedown\',\''.$dna.'\');"','下移一位');
 			$H.=_a0__('','','popupmenu_role=menu onclick="tree_oper(\'treedata_delete\',\''.$dna.'\',\'删除\');"','删除');
+
+			$H.=_div__('','','popupmenu_role=sepline');
+
+			$H.=_a0__('','','popupmenu_role=menu onclick="tree_oper(\'treedata_moveup\',\''.$dna.'\');"','上移一位↑');
+			$H.=_a0__('','','popupmenu_role=menu onclick="tree_oper(\'treedata_movedown\',\''.$dna.'\');"','下移一位↓');
 
 		}
 

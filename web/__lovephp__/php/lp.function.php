@@ -115,6 +115,20 @@ function count_1($a)
 	return count($a);
 
 }
+function gettype_1($value)
+{
+
+	$type=strtolower(gettype($value));
+	if(
+		'double'==$type||
+		'real'==$type
+	)
+	{
+		$type='float';
+	}
+	return $type;
+}
+
 //1 skel页面框架输出
 function _skel()
 {
@@ -234,16 +248,12 @@ function datasize_oralstring($size)
 	}
 
 }
-//1 var
-function var_isavailable($v)
-{
-	return (isset($v)&&(''!==$v))?true:false;
-}
+
 //1 expd
 function expd($str=null,$sepLv0=',',$sepLv1=null,$sepLv2=null)
 {//默认以逗号对字符串爆破
 
-	if(!var_isavailable($str))
+	if(!check_isavailable($str))
 	{
 		return [];
 	}
@@ -255,7 +265,7 @@ function expd($str=null,$sepLv0=',',$sepLv1=null,$sepLv2=null)
 	}
 	unset($v);
 
-	if(!var_isavailable(end($__result)))
+	if(!check_isavailable(end($__result)))
 	{
 		array_pop($__result);
 	}
@@ -447,7 +457,7 @@ function url_build($__baseurl=null,array $__args=null,$__fakestatic=false)
 	{
 		foreach($__args as $k=>$v)
 		{
-			if(var_isavailable($v))
+			if(check_isavailable($v))
 			{
 				$__baseurl.='/'.$k.'/'.$v;
 			}
@@ -485,14 +495,6 @@ function unserialize_safe($data)
 function md5_md5()
 {//参数可以是数组或者标量,参数数量可以任意
 	return md5(serialize(func_get_args()));
-}
-function isint_isint($value)
-{
-	return is_numeric($value)&&false===strpos($value,'.');
-}
-function isfloat_isfloat($value)
-{
-	return is_numeric($value);
 }
 //1 xml
 function xml_getxmlfilepath($corename=__route_action__)
@@ -638,11 +640,13 @@ function path_isdir_ignorecase($dirpath)
 	}
 
 	$pathinfo=path_info($dirpath);
+
 	$basename=strtolower($pathinfo[1]);
 
 	$dad_dir=dirname($dirpath);
 
 	$list=fs_dir_list($dad_dir);
+
 	foreach($list['dir'] as $v)
 	{
 		if(strtolower($v)==$basename)
@@ -654,121 +658,132 @@ function path_isdir_ignorecase($dirpath)
 	return false;
 
 }
-//1 dd=debug dump调试用函数
-function dd($data,$return=false)
+
+//1 check
+function check_isint($value)
 {
-
-	if($return)
-	{
-		ob_start();
-	}
-
-	if(1)
-	{//显示调用信息
-		$temp=debug_backtrace();
-		echo $temp[0]['file'].'(line:'.$temp[0]['line'].')';
-	}
-
-	require_once __vendor_dir__.'/krumo/class.krumo.php';
-
-	\_vendor_krumo_\krumo::dump($data);
-
-	if($return)
-	{
-		return ob_get_clean();
-	}
-
+	return is_numeric($value)&&false===strpos($value,'.');
 }
-function dd_time_ms()
-{
+function check_isint_string(string $value)
+{//判断是否1,2,3,4这种形式的字符串
 
-	static $last_time=null;
+	return preg_match('/^\d+(,\d+)+$|^\d+$/',$value);
 
-	$current_time=time_ms();
-
-	if(is_null($last_time))
-	{
-		$last_time=$current_time;
-	}
-
-	return nf_2($current_time-$last_time);
-
-}
-function dd_log($subdir,$message,$record_backtrace=0)
-{//记录log
-
-	$__date=date_str_num();
-
-	$__salt=math_salt();
-
-	$sep=str_repeat('█',160);
-
-	$filepath=__temp_dir__.'/log/'.$subdir.'/'.$__date.'.log';
-
-	if(is_array($message))
-	{
-		$message=json_encode_1($message);
-	}
-
-	$message=explode("\n",$message);//不能用expd($message,"\n");会被trim
-
-	foreach($message as &$v)
-	{
-		$v="█\t".$v;
-	}
-	unset($v);
-
-	$message=array_merge_1(['█'],$message,['█']);
-
-	if($record_backtrace)
-	{
-
-		$message[]=$sep;
-		$temp=debug_backtrace();
-		unset($temp[0]);
-
-		$message[]='█';
-		foreach($temp as $v)
+	/*
+		static function is_ints(string $__value)
 		{
-			$temp=[];
-			if($v['file'])
-			{
-				$temp[]=$v['file'].'('.$v['line'].')';
-			}
 
-			if($v['class'])
+			if(preg_match('/^\d+(,\d+)+$|^\d+$/',$__value))
 			{
-				$temp[]=$v['class'].'::'.$v['function'];
+				return true;
 			}
 			else
 			{
-				$temp[]=$v['function'];
+				self::lasterror_msg('不是正确的整数集合字符串');
+				return false;
 			}
 
-			$message[]="█\t".impd($temp,"\t");
-
 		}
-		$message[]='█';
-
-	}
-
-	$message=array_merge_1([time_str().'/'.client_ip().'/'.$__salt."\t".server_url_current(1)."\t".client_useragent(),$sep],$message,[$sep]);
-	$message=impd($message,"\n");
-
-	fs_file_append($filepath,"\n\n\n\n".$message);
-
-	return $__date.'-'.$__salt;
+	*/
 
 }
-function dd_trace($key,$data)
-{//记录data
+function check_isint_array($ary)
+{//判断array中的所有值是不是全是int,同时key也是0,1,2...顺序排的
 
-	static $count=0;
+	if(!$ary)
+	{
+		return false;
+	}
 
-	$basename=time_str_num();
+	if(!array_is_list($ary))
+	{
+		return false;
+	}
 
-	fs_file_save_data(__temp_dir__.'/trace/'.$basename.'_'.str_pad($count,6,'0',STR_PAD_LEFT).'_'.$key.'.data',$data);
+	foreach($ary as $v)
+	{
+		if(!check_isint($v))
+		{
+			return false;
+		}
+	}
 
-	$count++;
+	return true;
+
+}
+function check_isfloat($value)
+{
+	return is_numeric($value);
+}
+function check_isavailable($v)
+{//null,空字符串无效
+	return (isset($v)&&(''!==$v))?true:false;
+}
+function check_hasdangerchar(string $string)
+{//检测一些危险的字符串,考虑:注入,数组key,文件系统路径等
+
+	static $dangerchars=
+	[
+		' ',//空白字符放在最前面,外围调用时方便trim
+		"\n",
+		"\t",
+//		'~',
+//		'!',
+//		'@',
+		'#',
+		'$',
+//		'%',
+//		'^',
+		'&',
+		'*',
+//		'(',
+//		')',
+//		'_',
+		'+',
+//		'{',
+//		'}',
+		'|',
+		':',
+		'"',
+		'<',
+		'>',
+		'?',
+		'`',
+//		'-',
+		'=',
+//		'[',
+//		']',
+		'\\',
+		';',
+		'\'',
+//		',',
+//		'.',
+		'/',
+	];
+
+	if(cmd_get===$string)
+	{
+		return $dangerchars;
+	}
+
+	foreach($dangerchars as $v)
+	{
+		if(false!==strpos($string,$v))
+		{
+			return true;
+		}
+	}
+
+	return false;
+
+}
+function check_hasdangerchar_plaintext()
+{//检测一些危险的字符串,考虑:注入,数组key,文件系统路径等
+
+	$temp=check_hasdangerchar(cmd_get);
+
+	$temp=trim(impd($temp,'')).'及空白字符';
+
+	return $temp;
 
 }

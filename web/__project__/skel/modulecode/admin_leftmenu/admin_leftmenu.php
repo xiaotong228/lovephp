@@ -74,7 +74,17 @@ echo _module();
 					$cls='';
 				}
 
-				echo _a__('/'.__route_module__.'/'.$k,$cls,'','',$v);
+				$url='/'.__route_module__.'/'.$k;
+
+				if('/debug/test'==$url)
+				{
+					echo _an__($url,$cls,'','',$v);
+				}
+				else
+				{
+					echo _a__($url,$cls,'','',$v);
+				}
+
 
 			}
 

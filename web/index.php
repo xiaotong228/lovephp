@@ -147,6 +147,7 @@ if(1)
 		__lp_dir__.'/php/lp.return.php',
 
 		__lp_dir__.'/php/lp.function.php',
+
 		__lp_dir__.'/php/lp.class.php',
 		__lp_dir__.'/php/lp.filesystem.php',
 		__lp_dir__.'/php/lp.time.php',
@@ -163,6 +164,8 @@ if(1)
 		__lp_dir__.'/php/lp.htmlecho.php',
 
 		__lp_dir__.'/php/lp.database.php',
+
+		__lp_dir__.'/php/lp.debug.php',
 
 		__prj_dir__.'/php/prj.function.php',
 		__prj_dir__.'/php/prj.clu.php',
@@ -270,7 +273,7 @@ if(1)
 if(1)
 {//1 session
 
-	define('__session_root__','lpsession');
+	define('__session_root__','__lpsession__');
 
 	if(__cli_iscli__)
 	{//命令行启动就别管session了

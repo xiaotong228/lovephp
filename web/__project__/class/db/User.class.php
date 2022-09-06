@@ -7,8 +7,8 @@
 	Author:Xiaotong<xiaotong228@qq.com>
 */
 
-
 namespace db;
+
 class User
 {
 

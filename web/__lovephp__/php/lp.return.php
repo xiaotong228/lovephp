@@ -443,6 +443,7 @@ function R_echofile($filepath,$filename=false)
 	{
 		R_alert('[error-2510]输出文件不存在或不能读取');
 	}
+
 	if($file_size>\Prjconfig::file_echofile_maxsize)
 	{
 		R_alert('[error-2542]输出文件不能超过'.datasize_oralstring(\Prjconfig::file_echofile_maxsize));
@@ -464,7 +465,7 @@ function R_echofile($filepath,$filename=false)
 	$data=fs_file_read($filepath);
 
 	header('content-type:application/'.$info[3]);
-	header('Content-Disposition:attachment; filename="'.$filename.'"');
+	header('Content-Disposition:attachment;filename="'.$filename.'"');
 
 	echo $data;
 

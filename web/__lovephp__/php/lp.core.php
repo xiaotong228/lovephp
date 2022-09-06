@@ -208,7 +208,7 @@ class Lovephp
 					$temp=array_chunk($temp,2);
 					foreach($temp as $v)
 					{
-						if(var_isavailable($v[0])&&var_isavailable($v[1]))
+						if(check_isavailable($v[0])&&check_isavailable($v[1]))
 						{
 							$_GET[$v[0]]=$v[1];
 						}
@@ -221,6 +221,49 @@ class Lovephp
 		if(1)
 		{//处理从外部来的输入的get和post数据
 
+			$__checkint=function(&$outdata)
+			{//特定标识的字段必须为整数
+
+				if(array_key_exists('id',$outdata))
+				{
+
+					$outdata['id']=intval($outdata['id']);
+
+				}
+
+				if(array_key_exists('ids',$outdata))
+				{
+
+					if(check_isavailable($outdata['ids']))
+					{
+						if(!check_isint_string($outdata['ids']))
+						{
+							R_alert('[error-2733]格式错误');
+						}
+					}
+					else
+					{
+						unset($outdata['ids']);
+					}
+
+				}
+
+				if(array_key_exists('_p',$outdata))
+				{//分页/当前页数,从0计数
+
+					$outdata['_p']=intval($outdata['_p']);
+
+				}
+
+				if(array_key_exists('_npp',$outdata))
+				{//分页/每页数量
+
+					$outdata['_npp']=intval($outdata['_npp']);
+
+				}
+
+			};
+
 			if($_GET)
 			{
 				array_walk($_GET,function(&$item)
@@ -228,47 +271,19 @@ class Lovephp
 					$item=htmlentity_encode(trim($item));
 				});
 
-				if(isset($_GET['id']))
-				{
-					$_GET['id']=intval($_GET['id']);
-				}
-
-				if(var_isavailable($_GET['ids']))
-				{
-					if(!\_lp_\Validate::is_ints($_GET['ids']))
-					{
-						R_alert('[error-1405]'.\_lp_\Validate::lasterror_msg());
-					}
-				}
-
-				if(isset($_GET['_p']))
-				{//分页/当前页数,从0计数
-					$_GET['_p']=intval($_GET['_p']);
-				}
-
-				if(isset($_GET['_npp']))
-				{//分页/每页数量
-					$_GET['_npp']=intval($_GET['_npp']);
-				}
+				$__checkint($_GET);
 
 			}
 			if($_POST)
 			{
+
 				array_walk_recursive($_POST,function(&$item)
 				{
 					$item=htmlentity_encode(trim($item));
 				});
-				if(isset($_POST['id']))
-				{
-					$_POST['id']=intval($_POST['id']);
-				}
-				if(var_isavailable($_POST['ids']))
-				{
-					if(!\_lp_\Validate::is_ints($_POST['ids']))
-					{
-						R_alert('[error-1417]'.\_lp_\Validate::lasterror_msg());
-					}
-				}
+
+				$__checkint($_POST);
+
 			}
 
 		}
@@ -535,7 +550,7 @@ class Lovephp
 
 		if(__error_recordlog__)
 		{
-			$__logdna=dd_log('error',"{$message}\r\n{$file}({$line})");
+			$__logdna=debug_log('error',$message."\n".$file.'('.$line.')');
 		}
 
 		if(!__error_pageshow__)

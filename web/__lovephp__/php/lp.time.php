@@ -13,7 +13,8 @@ function time_ms()
 {//毫秒
 
 	$temp=microtime(true);
-	return $temp*1000;
+
+	return $temp*1000;//可能为小数
 
 }
 function time_str($time=cmd_default,$datesep='-',$onlydate=false)

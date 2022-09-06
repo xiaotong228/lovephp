@@ -21,10 +21,13 @@ class Superadmin extends \_lp_\controller\Supercontroller
 		'admin/sitedata'=>'业务后台/站点数据',
 		'admin/user'=>'业务后台/用户列表',
 		'admin/article'=>'业务后台/文章列表',
+		'admin/adminlog'=>'业务后台/操作记录',
 
 		'skel'=>'页面编辑/全部',
 
 		'cloud'=>'云空间/全部',
+
+		'debug'=>'调试/全部',
 
 	];
 
@@ -34,6 +37,8 @@ class Superadmin extends \_lp_\controller\Supercontroller
 		'sitedata'=>'站点数据',
 		'user'=>'用户列表',
 		'article'=>'文章列表',
+		'adminlog'=>'操作记录',
+
 		'adminuser'=>'超管功能/[超管]管理员列表',
 		'sitesetting'=>'超管功能/[超管]站点设置',
 		'smssendlog'=>'超管功能/[超管]短信记录',
@@ -51,6 +56,18 @@ class Superadmin extends \_lp_\controller\Supercontroller
 	[
 		'index'=>'文件列表',
 		'recycle'=>'回收站',
+	];
+
+	const leftmenu_debug=
+	[
+
+		'index'=>'调试功能',
+		'session'=>'SESSION',
+		'cookie'=>'COOKIE',
+		'trace'=>'TRACE',
+		'log'=>'LOG',
+		'test'=>'TEST',
+
 	];
 
 	public $leftmenu_menumap=false;
@@ -103,8 +120,21 @@ class Superadmin extends \_lp_\controller\Supercontroller
 		{
 
 		}
+		else if(route_judge('debug')&&!__online_isonline__)
+		{//开发模式下调试功能不检测管理员权限
+
+			$this->leftmenu_menumap=self::leftmenu_debug;
+
+		}
 		else
 		{
+
+			if(route_judge('debug')&&__online_isonline__)
+			{//删除这行代码开启线上模式的调试功能
+
+				R_alert('[error-1131]线上模式默认不开启调试功能');
+
+			}
 
 			if($clu_admin_id)
 			{
@@ -207,6 +237,10 @@ class Superadmin extends \_lp_\controller\Supercontroller
 				{
 					$__menus=self::leftmenu_cloud;
 				}
+				else if('debug'==__route_module__)
+				{
+					$__menus=self::leftmenu_debug;
+				}
 				else
 				{
 
@@ -223,7 +257,6 @@ class Superadmin extends \_lp_\controller\Supercontroller
 			}
 
 		}
-
 
 	}
 

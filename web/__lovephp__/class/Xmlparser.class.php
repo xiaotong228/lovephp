@@ -158,7 +158,7 @@ class Xmlparser
 			$data=get_object_vars($xmlObj);
 			$son_tag=[];
 			$string=trim($xmlObj->__toString());
-			if(var_isavailable($string))
+			if(check_isavailable($string))
 			{
 				$return['@string']=$string;
 			}
@@ -241,7 +241,7 @@ class Xmlparser
 
 					$H.=_div('p_left');
 						$H.=$_label;
-						if(var_isavailable($_description))
+						if(check_isavailable($_description))
 						{
 							$H.=\_widget_\Popupbox::popup_tips($_description);
 						}
@@ -250,21 +250,34 @@ class Xmlparser
 
 					$H.=_div('p_right');
 
-						switch($_formtype)
-						{
-							case 'text':
-								$H.=_input($_name,$_value,$_description);
-								break;
-							case 'password':
-								$H.=_input_password($_name,$_value,$_description);
-								break;
-							case 'readonly':
+						if(1)
+						{//根据类型输出单行的输入框
+//1 input
+							if(in_array($_formtype,
+							[
+								'text',
+								'password',
+								'date',
+								'number',
+								'time',
+								'datetime',
+								'datetime-local',
+							]))
+							{
+								$H.=_input($_name,$_value,$_description,'','','',$_formtype);
+							}
+							else if('readonly'==$_formtype)
+							{
 								$H.=_input($_name,$_value,$_description,'','','readonly=readonly');
-								break;
-							case 'textarea':
+							}
+//1 textarea
+							else if('textarea'==$_formtype)
+							{
 								$H.=_textarea($_name,$_value,$_description);
-								break;
-							case 'radio':
+							}
+//1 radio,select,checkbox
+							else if('radio'==$_formtype)
+							{
 								foreach($__param['option'] as $option)
 								{
 									$H.=_label();
@@ -272,11 +285,23 @@ class Xmlparser
 										$H.=$option['@string'];
 									$H.=_label_();
 								}
-								break;
-							case 'checkbox':
+							}
+							else if('select'==$_formtype)
+							{
+								$H.=_select($_name,$_value);
+									foreach($__param['option'] as $option)
+									{
+										$H.=_option($option['@attributes']['value'],$option['@string']);
+									}
+								$H.=_select_();
+							}
+							else if('checkbox'==$_formtype)
+							{
+
 								foreach($__param['option'] as $option)
 								{
-									if(is_string($_value))
+
+									if(!is_array($_value))
 									{
 										$_value=expd($_value);
 									}
@@ -287,16 +312,11 @@ class Xmlparser
 									$H.=_label_();
 
 								}
-								break;
-							case 'select':
-								$H.=_select($_name,$_value);
-									foreach($__param['option'] as $option)
-									{
-										$H.=_option($option['@attributes']['value'],$option['@string']);
-									}
-								$H.=_select_();
-								break;
-							case 'xmluploadfile':
+
+							}
+//1 xmluploadfile
+							else if('xmluploadfile'==$_formtype)
+							{
 
 								$H.=_input($_name,$_value,$_description,'','width:620px;','');
 
@@ -320,19 +340,11 @@ class Xmlparser
 
 								$H.=_input_file('','','','','display:none;','accept="'.$xmluploadconfig['@upload_config']['file_exts_acceptstr'].'"');
 
-								break;
-
-							default:
-
-								if(0)
-								{
-								}
-								else
-								{
-									R_alert("err-[0618]不支持的xml配置formType:{$_formtype}");
-								}
-								break;
-
+							}
+							else
+							{
+								R_alert('[error-0909]不支持的xml配置formtype:'.$_formtype);
+							}
 						}
 
 					$H.=_div_();

@@ -115,11 +115,11 @@ foreach($__itemlist as $item)
 
 		if($item['user_isban'])
 		{
-			$temptd[]=_a0__('','','onclick="table_oper_confirm(this,\'ban_no\')"','解封');
+			$temptd[]=_a0__('','','onclick="table_oper(this,\'ban_no\')"','解封');
 		}
 		else
 		{
-			$temptd[]=_a0__('','','onclick="table_oper_confirm(this,\'ban_yes\')"','封号');
+			$temptd[]=_a0__('','','onclick="table_oper(this,\'ban_yes\')"','封号');
 		}
 
 		$__templine[]=impd($temptd,'/');

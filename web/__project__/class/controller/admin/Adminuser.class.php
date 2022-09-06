@@ -43,7 +43,9 @@ class Adminuser extends super\Superadmin
 
 		$data['adminuser_createtime']=time();
 
-		\db\Adminuser::add($data);
+		$id=\db\Adminuser::add($data);
+
+		\db\Adminlog::adminlog_addlog('业务后台/管理员/添加',$id);
 
 		R_jump();
 
@@ -81,6 +83,8 @@ class Adminuser extends super\Superadmin
 
 		\db\Adminuser::save($id,$save);
 
+		\db\Adminlog::adminlog_addlog('业务后台/管理员/编辑',$id);
+
 		R_jump();
 
 	}
@@ -93,6 +97,8 @@ class Adminuser extends super\Superadmin
 
 		\db\Adminuser::save($id,$save);
 
+		\db\Adminlog::adminlog_addlog('业务后台/管理员/封号',$id);
+
 		R_jump();
 
 	}
@@ -103,49 +109,10 @@ class Adminuser extends super\Superadmin
 
 		\db\Adminuser::save($id,$save);
 
+		\db\Adminlog::adminlog_addlog('业务后台/管理员/解封',$id);
+
 		R_jump();
 
-	}
-	function loginhistory_loginhistory($id)
-	{
-
-		$user=\db\Adminuser::find($id,['adminuser_loginhistory']);
-
-		$__table_header=
-		[
-			'时间'=>'200px',
-			'useragent'=>'200px',
-			'ip'=>0,
-		];
-
-		$__table_body=[];
-
-		foreach($user['adminuser_loginhistory'] as $v)
-		{
-		$__table_body[]=
-			[
-				time_str($v['login_time']),
-				$v['login_useragent'],
-				ip_ipbox($v['login_ip']),
-
-			];
-		}
-
-		$H='';
-
-		$H.=_div('','','xmlwindow=head');
-			$H.=_b__('','border-right:0;','','登录历史');
-			$H.=_a0__('','','uiwindow_role=close');
-		$H.=_div_();
-
-		$H.=_div('','','xmlwindow_role=body');
-			$H.=\_widget_\Tablelist::tablelist_html($__table_header,$__table_body);
-		$H.=_div_();
-
-		$domset=[];
-		$domset['tail']='__xmlwindow__=xmlwindow';
-
-		R_window($H,$domset);
 	}
 
 }

@@ -218,13 +218,14 @@ function clu_admin_login(int $adminid)
 
 	$sessiondata=$__db->where($adminid)->field(
 	[
+
 		'id',
 		'adminuser_name',
 		'adminuser_isban',
 		'adminuser_isdelete',
 		'adminuser_createtime',
 		'adminuser_version',
-		'adminuser_loginhistory',
+
 	])->find();
 
 	if(!$sessiondata||$sessiondata['adminuser_isban']||$sessiondata['adminuser_isdelete'])
@@ -237,29 +238,24 @@ function clu_admin_login(int $adminid)
 	if(1)
 	{
 		$save=[];
-		$save['adminuser_loginhistory']=array_pipe_prepend($sessiondata['adminuser_loginhistory'],
-			[
-				[
-					'login_time'=>time(),
-					'login_useragent'=>client_useragent(),
-					'login_ip'=>client_ip()
-
-				]
-			],\db\Adminuser::loginhistory_recordnum);
 
 		$save['adminuser_version']=$sessiondata['adminuser_version'];
 	}
 
 	$__db->where($adminid)->save($save);
 
-	unset($sessiondata['adminuser_loginhistory']);
-
 	session_set(\Prjconfig::clu_config['clu_admin_sessionkey'],$sessiondata);
+
+	\db\Adminlog::adminlog_addlog('后台/登录/成功');
 
 }
 function clu_admin_logout()
 {
+
+	\db\Adminlog::adminlog_addlog('后台/退出');
+
 	return session_delete(\Prjconfig::clu_config['clu_admin_sessionkey']);
+
 }
 //1 authority
 function clu_admin_issuperadmin()

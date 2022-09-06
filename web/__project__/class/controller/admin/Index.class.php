@@ -27,6 +27,8 @@ class Index extends super\Superadmin
 	function password_changepassword_1()
 	{
 
+		\db\Adminlog::adminlog_addlog('后台/更改密码/尝试');
+
 		$currentuser=\db\Adminuser::assertfind(clu_admin_id());
 
 		postdata_assert([
@@ -60,6 +62,8 @@ class Index extends super\Superadmin
 		\db\Adminuser::save(clu_admin_id(),$data);
 
 		clu_admin_login(clu_admin_id());//再登录下防止被踢出去
+
+		\db\Adminlog::adminlog_addlog('后台/更改密码/成功');
 
 		R_jump('','修改登录密码完成');
 

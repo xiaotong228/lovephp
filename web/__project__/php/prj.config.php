@@ -32,9 +32,12 @@ class Prjconfig
 //1 admin
 	const admin_accesstoken='lovephp_changeme';//线上模式访问后台需要提供访问码才可访问	/admin?accesscode
 
+//1 baidu
+	const baidu_statistics_key=__online_isonline__?'cf172aefbfa777ba83ce020d6bb4d253':false;//百度统计,为false时不统计
+
 //1 file
 	const file_pic_exts=['jpg','jpeg','png','gif'];
-	const file_echofile_maxsize=10*datasize_1mb;
+	const file_echofile_maxsize=100*datasize_1mb;
 
 	const file_avatar_final_maxwidth=400;
 	const file_avatar_preselect_maxpixels=1600*1200;//如果预选择的原始图片超过这个尺寸,会被缩放再处理,避免卡顿
@@ -112,7 +115,8 @@ class Prjconfig
 			'foreground',
 			'admin',
 			'skel',
-			'cloud'
+			'cloud',
+			'debug',
 		],
 		'route_defaultmodule'=>'foreground',
 	];

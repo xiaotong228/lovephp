@@ -84,7 +84,8 @@ label.g_checkbox_wrap
 
 			.ibt();
 
-			.hlh(20px);
+			line-height:20px;
+
 			.dd_bg(@dd_randomcolor_44);
 			.dd_bg(@dd_randomcolor_56);
 
@@ -636,7 +637,7 @@ label.g_checkbox_wrap
 	{
 		content:'\f067';
 	}
-	
+
 }
 .g_tips_popuplayer
 {
@@ -664,3 +665,425 @@ label.g_checkbox_wrap
 		transform:rotate(45deg);
 	}
 }
+
+
+
+/*需要编译再打开
+
+	[__lpdd__=lpdd]
+	{
+
+		border:1px solid #000;
+
+		.dd_bg(@dd_randomcolor_19);
+
+		font-size:12px;
+
+		.dd_bg(@dd_randomcolor_04);
+		.dd_bg(@dd_randomcolor_22);
+
+		padding:10px;
+
+		background:#fff;
+
+		font-family:'宋体';
+		word-break:break-all;
+		white-space:break-spaces;
+
+		i,s,u
+		{
+			text-decoration:none;
+			font-style:normal;
+		}
+		a
+		{
+			cursor:pointer;
+		}
+
+		[lpdd_role=callinfo]
+		{
+			.dd_bg(@dd_randomcolor_47);
+			line-height:20px;
+			border-bottom:1px solid @bd_color;
+			padding-bottom:5px;
+		}
+
+		[lpdd_role=subtree]
+		{
+
+			>[lpdd_role=header]
+			{
+				padding-top:5px;
+				padding-bottom:5px;
+				padding-right:10px;
+				position:relative;
+
+				>b,>span,>s,>i,>a
+				{
+					.dd_bg(@dd_randomcolor_45);
+					.ibt();
+					line-height:20px;
+					>u
+					{
+						.ibt();
+						line-height:20px;
+						.dd_bg(@dd_randomcolor_43);
+						background:#999;
+						color:#fff;
+						font-weight:normal !important;
+						padding:0 5px;
+					}
+				}
+				>i
+				{
+					font-weight:bold;
+					color:#000;
+				}
+				>b
+				{
+					color:#fff;
+					font-weight:normal;
+					padding:0 5px;
+					background:#000;
+				}
+				>s
+				{
+
+					.dd_bg(@dd_randomcolor_45);
+					padding:0 5px;
+					color:#000;
+					background:#eee;
+					font-weight:bold;
+
+				}
+				>*
+				{
+					margin-right:10px;
+				}
+				&:hover
+				{
+					background:mix(#000,#fff,15%)
+				}
+
+				>a[lpdd_showblank=trigger]
+				{
+					width:20px;
+					height:20px;
+					.dd_bg(@dd_randomcolor_17);
+					position:relative;
+					background:#f0f;
+
+					&:before,&:after
+					{
+						content:'';
+						position:absolute;
+
+						top:5px;
+						width:0;
+						height:0;
+						border-width:5px;
+						border-style:solid;
+
+					}
+					&:before
+					{
+						left:-2px;
+						border-color:transparent #fff transparent transparent;
+					}
+					&:after
+					{
+						right:-2px;
+						border-color:transparent transparent transparent #fff;
+					}
+
+				}
+
+				>i[lpdd_showblank=content]
+				{
+					display:none;
+				}
+
+				&[lpdd_showblank_status=yes]
+				{
+
+					>i:not([lpdd_showblank=content])
+					{
+						display:none;
+					}
+
+					>i[lpdd_showblank=content]
+					{
+						display:inline-block;
+					}
+
+					>a[lpdd_showblank=trigger]
+					{
+
+						&:before
+						{
+							left:4px;
+							border-color:transparent transparent transparent #fff;
+						}
+						&:after
+						{
+							right:4px;
+							border-color:transparent #fff transparent transparent;
+						}
+
+					}
+
+				}
+				&[lpdd_showblank_status=no]
+				{
+
+				}
+
+			}
+
+			&[lpdd_type=array]
+			{
+				.dd_bg(@dd_randomcolor_01);
+				.dd_bg(@dd_randomcolor_41);
+				>[lpdd_role=header]
+				{
+
+					padding-left:20px;
+
+					&:after
+					{
+						content:'';
+						position:absolute;
+						left:5px;
+						top:12px;
+						width:0;
+						height:0;
+						border-width:5px;
+						border-style:solid;
+						border-color:#000 transparent transparent transparent;
+					}
+
+				}
+
+			}
+
+			>[lpdd_role=subtree]
+			{
+				margin-left:20px;
+			}
+
+			>[lpdd_role=subtree]:not([lpdd_type=array])
+			{
+
+				.dd_bg(@dd_randomcolor_25);
+
+				>[lpdd_role=header]
+				{
+
+					padding-left:20px;
+
+					&:after
+					{
+						content:'';
+						position:absolute;
+						left:8px;
+						top:10px;
+						width:0;
+						height:0;
+						border-width:5px;
+						border-style:solid;
+						border-color:transparent transparent transparent #aaa;
+
+					}
+
+				}
+
+			}
+
+			&[lpdd_type=array]
+			{
+
+				>[lpdd_role=header]
+				{
+
+					cursor:pointer;
+
+					>b
+					{
+						background:#c08;
+					}
+
+					&:hover
+					{
+						background:mix(#c08,#fff,15%)
+					}
+				}
+
+			}
+
+			&[lpdd_type=integer]
+			{
+
+				>[lpdd_role=header]
+				{
+					>b
+					{
+						background:#4c0;
+					}
+					&:hover
+					{
+						background:mix(#4c0,#fff,15%)
+					}
+				}
+
+			}
+
+			&[lpdd_type=string]
+			{
+				>[lpdd_role=header]
+				{
+					>b
+					{
+						background:#44c;
+					}
+					>i:not([lpdd_emptystring])
+					{
+						&:before,&:after
+						{
+							.ibt();
+							content:'';
+							width:2px;
+							height:20px;
+							border-width:0 0 0 2px;
+							border-style:dashed;
+							border-color:#f0f;
+						}
+						&:after
+						{
+							border-width:0 2px 0 0;
+						}
+					}
+					&:hover
+					{
+						background:mix(#44c,#fff,15%)
+					}
+				}
+			}
+			&[lpdd_type=float]
+			{
+				>[lpdd_role=header]
+				{
+					>b
+					{
+						background:#4c8;
+					}
+					&:hover
+					{
+						background:mix(#4c8,#fff,15%)
+					}
+				}
+			}
+			&[lpdd_type=boolean]
+			{
+				>[lpdd_role=header]
+				{
+					>b
+					{
+						background:#08c;
+					}
+					&:hover
+					{
+						background:mix(#08c,#fff,15%)
+					}
+				}
+			}
+			&[lpdd_type=null]
+			{
+				>[lpdd_role=header]
+				{
+					>b
+					{
+						background:#88c;
+					}
+					&:hover
+					{
+						background:mix(#88c,#fff,15%)
+					}
+				}
+			}
+			&[lpdd_type=object]
+			{
+				>[lpdd_role=header]
+				{
+					>b
+					{
+						background:#80c;
+					}
+					&:hover
+					{
+						background:mix(#80c,#fff,15%)
+					}
+				}
+			}
+			&[lpdd_type=resource]
+			{
+				>[lpdd_role=header]
+				{
+					>b
+					{
+						background:#cc0;
+					}
+					&:hover
+					{
+						background:mix(#cc0,#fff,15%)
+					}
+				}
+			}
+			&[lpdd_expand=yes]
+			{
+
+			}
+			&[lpdd_expand=no]
+			{
+
+				&[lpdd_type=array]
+				{
+					.dd_bg(@dd_randomcolor_01);
+					.dd_bg(@dd_randomcolor_41);
+					>[lpdd_role=header]
+					{
+
+						padding-left:20px;
+
+						&:after
+						{
+							left:8px;
+							top:10px;
+							border-color:transparent transparent transparent #000;
+						}
+
+					}
+
+				}
+
+				>[lpdd_role=subtree]
+				{
+					display:none;
+				}
+
+			}
+
+		}
+
+		&+[__lpdd__=lpdd]
+		{
+			margin-top:20px;
+		}
+
+	}
+
+*/
+
+
+
+
+

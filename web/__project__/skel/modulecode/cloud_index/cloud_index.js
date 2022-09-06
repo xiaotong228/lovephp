@@ -28,7 +28,7 @@ function cloudindex_delete(ids,name)
 
 	ui_confirm(msg,function()
 	{
-		ajax_async('/cloud/index/delete?ids='+ids);
+		ajax_async('/cloud/index/delete',{ids:ids});
 	});
 
 }
@@ -47,7 +47,7 @@ function cloudindex_delete_bat(_this)
 
 		ui_confirm(msg,function()
 		{
-			ajax_async('/cloud/index/delete?ids='+ids.toString());
+			ajax_async('/cloud/index/delete',{ids:ids.toString()});
 		});
 
 
@@ -73,7 +73,7 @@ function cloudindex_move_bat(_this)
 
 	if(ids.length)
 	{
-		ajax_async('/cloud/index/move?ids='+ids.toString());
+		ajax_async('/cloud/index/move',{ids:ids.toString()});
 	}
 	else
 	{

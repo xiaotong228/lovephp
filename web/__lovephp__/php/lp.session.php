@@ -7,73 +7,55 @@
 	Author:Xiaotong<xiaotong228@qq.com>
 */
 
-
-
-function session_set($key,$value)
+//1 get
+function session_get(string $keypath=null)
 {
 
-	if(false===strpos($key,'/'))
+	if(check_isavailable($keypath))
 	{
-
-		$_SESSION[__session_root__][$key]=$value;
-
+		return array_cascade_get($_SESSION[__session_root__],$keypath);
 	}
 	else
-	{
-
-		$key=array_key_convertto_subscript($key);
-
-		$code='return $_SESSION[\''.__session_root__.'\']'.$key.'=$value;';
-
-		eval($code);
-
-	}
-
-}
-
-function session_get($key=false)
-{
-
-	if($key)
-	{
-		if(false===strpos($key,'/'))
-		{
-			return $_SESSION[__session_root__][$key];
-		}
-		else
-		{
-			$key=array_key_convertto_subscript($key);
-			$code='return $_SESSION[\''.__session_root__.'\']'.$key.';';
-			return eval($code);
-		}
-	}
-	else
-	{//此时返回全部
+	{//返回全部
 		return $_SESSION[__session_root__];
 	}
 
 }
 
-function session_delete($key)
+//1 set
+function session_set(string $keypath,$value)
 {
 
-	if(false===strpos($key,'/'))
+	if(check_isavailable($keypath))
 	{
-		unset($_SESSION[__session_root__][$key]);
+		array_cascade_set($_SESSION[__session_root__],$keypath,$value);
 	}
 	else
 	{
-		$key=array_key_convertto_subscript($key);
-		$code='unset($_SESSION[\''.__session_root__.'\']'.$key.');';
-		return eval($code);
+		$_SESSION[__session_root__]=$value;
 	}
 
 }
 
-function session_clear($allcurrentsession=0)
+//1 delete
+function session_delete(string $keypath=null)
 {
 
-	if($allcurrentsession)
+	if(check_isavailable($keypath))
+	{
+		array_cascade_delete($_SESSION[__session_root__],$keypath);
+	}
+	else
+	{
+		R_exception('[error-5317]session错误');
+	}
+
+}
+
+function session_delete_all($root=0)
+{
+
+	if($root)
 	{
 		session_unset();
 	}
@@ -84,8 +66,8 @@ function session_clear($allcurrentsession=0)
 
 }
 
-function session_super_clear($sessionid)
-{//根据sessionid删除,需要有文件夹删除权限
+function session_delete_all_sessionid($sessionid)
+{//根据sessionid删除,需要有文件夹删除权限,只对文件系统存储的session有效
 
 	return fs_file_delete(session_save_path().'/sess_'.$sessionid);
 

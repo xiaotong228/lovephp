@@ -83,10 +83,6 @@ function fs_file_read_xml($filepath,$flag=0)
 function fs_file_save($filepath,$data)
 {
 
-	if(is_null($data))
-	{
-		R_alert('[error-1523]');
-	}
 	fs_dir_create(dirname($filepath));
 
 	return file_put_contents($filepath,$data);
@@ -94,11 +90,6 @@ function fs_file_save($filepath,$data)
 }
 function fs_file_save_data($filepath,$data)
 {
-
-	if(is_null($data))
-	{
-		R_alert('[error-0735]');
-	}
 
 	return fs_file_save($filepath,serialize($data));
 
@@ -159,10 +150,6 @@ function fs_file_idautoinc($filepath)
 }
 function fs_file_prepend($filepath,$data)
 {
-	if(is_null($data))
-	{
-		R_alert('[error-4326]');
-	}
 
 	$data.=fs_file_read($filepath,fs_loose);
 
@@ -171,10 +158,6 @@ function fs_file_prepend($filepath,$data)
 
 function fs_file_append($filepath,$data)
 {
-	if(is_null($data))
-	{
-		R_alert('[error-1523]');
-	}
 
 	fs_dir_create(dirname($filepath));
 
@@ -240,9 +223,10 @@ function fs_dir_list($dirpath)
 	];
 
 	$hd=opendir($dirpath);
+
 	while(false!==($item=readdir($hd)))
 	{
-		if(("."==$item)||(".."==$item))
+		if('.'==$item||'..'==$item)
 		{
 			continue;
 		}
@@ -255,7 +239,9 @@ function fs_dir_list($dirpath)
 			$result['file'][]=$result['all'][]=$item;
 		}
 	}
+
 	closedir($hd);
+
 	return $result;
 
 }
@@ -340,4 +326,36 @@ function fs_dir_copy($from_dirpath,$to_dirpath,$to_dirpath_deletefst=false)
 	return $result;
 
 }
+function fs_dir_size($dirpath)
+{
 
+	$totalsize=0;
+
+	$hd=opendir($dirpath);
+
+	while(false!==($item=readdir($hd)))
+	{
+
+		if('.'==$item||'..'==$item)
+		{
+			continue;
+		}
+
+		$filepath=$dirpath.'/'.$item;
+
+		if(is_dir($filepath))
+		{
+			$totalsize+=fs_dir_size($filepath);
+		}
+		else
+		{
+			$totalsize+=filesize($filepath);
+		}
+
+	}
+
+	closedir($hd);
+
+	return $totalsize;
+
+}

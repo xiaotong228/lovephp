@@ -6,26 +6,37 @@
 
 		<group title='输入框类'>
 
-			<section title='x' folded='false'>
+			<section title='input(含有一个隐藏输入框)' folded='false'>
 
-				<param formtype='hidden' name='input_0000' label='输入框_隐藏' description=''>
-一个隐藏的参数/error-2611
-				</param>
+			<?php
 
-				<param formtype='readonly' name='input_0001' label='输入框_只读' description=''>
-一个只读的参数/error-1324
-				</param>
+				$temp=
+				[
+					'hidden'=>['隐藏','默认值4553'],
+					'readonly'=>['只读','默认值4601'],
+					'text'=>['文本','默认值4608'],
+					'password'=>['密码','000000'],
+					'number'=>['数字',999],
+					'date'=>['日期','2022-01-01'],
+					'time'=>['时间','01:01'],
+					'datetime-local'=>['日期时间','2022-01-01 01:01'],
+				];
+
+				foreach($temp as $k=>$v)
+				{
+
+					echo '<param formtype=\''.$k.'\' name=\'input/'.$k.'\' label=\'input_'.$v[0].'\' description=\'\'>'.$v[1].'</param>';
+
+				}
+
+
+			?>
 
 			</section>
-			<section title='x' folded='false'>
-
-				<param formtype='text' name='input_0002' label='输入框_input' description=''>
-一个默认值/error-3126
+			<section title='textarea' folded='false'>
+				<param formtype='textarea' name='textarea/0' label='textarea' description=''>
+默认值4702
 				</param>
-				<param formtype='textarea' name='input_0003' label='输入框_textarea' description=''>
-
-				</param>
-
 			</section>
 
 		</group>
@@ -34,27 +45,27 @@
 			<section title='x' folded='false'>
 
 
-				<param formtype='select' name='select_0000' label='选项_select' description='' >
+				<param formtype='select' name='select/0' label='选项_select' description='' >
 					<option value='0' selected='selected'>select_A</option>
 					<option value='1'>select_B</option>
 					<option value='2'>select_C</option>
 					<option value='3'>select_D</option>
 				</param>
 
-				<param formtype='radio' name='select_0001' label='选项_radio' description='' >
+				<param formtype='radio' name='radio/0' label='选项_radio' description='' >
 					<option value='0' selected='selected'>radio_A</option>
 					<option value='1'>radio_B</option>
 					<option value='2'>radio_C</option>
 					<option value='3'>radio_D</option>
 				</param>
 
-				<param formtype='checkbox' name='select_0002' label='选项_checkbox' description='php生成选项示例' >
+				<param formtype='checkbox' name='checkbox/0' label='选项_checkbox' description='php生成选项示例' >
 
 				<?php
 					$temp=range('A', 'Z');
 					foreach($temp as $k=>$v)
 					{
-						echo '<option value=\''.$k.'\' >checkbox_'.$v.'</option>';
+						echo '<option value=\''.$k.'\' '.($k<3?'selected=\'selected\'':'').' >checkbox_'.$v.'</option>';
 					}
 				?>
 
@@ -65,10 +76,10 @@
 		<group title='文件上传'>
 			<section title='x' folded='false'>
 
-				<param description='参数描述示例' formtype='xmluploadfile' label='上传_图片' name='file_00' uploadfile_file_exts='<?php echo impd(\Prjconfig::file_pic_exts);?>' uploadfile_file_maxsize='<?php echo 2*datasize_1mb;?>' >
+				<param formtype='xmluploadfile' label='上传_图片' name='uploadfile/0' uploadfile_file_exts='<?php echo impd(\Prjconfig::file_pic_exts);?>' uploadfile_file_maxsize='<?php echo 2*datasize_1mb;?>' description='参数描述示例' >
 				</param>
 
-				<param description='' formtype='xmluploadfile' label='上传_文件' name='file_11' uploadfile_file_exts='doc,docx,pdf,zip,rar,txt' uploadfile_file_maxsize='<?php echo 10*datasize_1mb;?>' >
+				<param formtype='xmluploadfile' label='上传_文件' name='uploadfile/1' uploadfile_file_exts='doc,docx,pdf,zip,rar,txt' uploadfile_file_maxsize='<?php echo 10*datasize_1mb;?>' description='' >
 				</param>
 
 			</section>
