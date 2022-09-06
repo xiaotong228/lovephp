@@ -210,8 +210,15 @@ class Session extends \controller\admin\super\Superadmin
 
 		if(route_judge(cmd_ignore,'cookie'))
 		{
+
 			$__edit_key=0;
 			$__move=0;
+
+			if(0!==strpos($keypath,__cookie_prefix__.'_'))
+			{
+				R_alert('[error-1433]只能操作以'.__cookie_prefix__.'_开头的cookie');
+			}
+
 		}
 
 		if($__add)
