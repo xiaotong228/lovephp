@@ -158,7 +158,7 @@ class Session extends \controller\admin\super\Superadmin
 
 		$__move=0;
 
-		if($keypath)
+		if(check_isavailable($keypath))
 		{
 
 			$data=array_cascade_get($this->__data_handle,$keypath);
@@ -187,14 +187,14 @@ class Session extends \controller\admin\super\Superadmin
 
 		}
 
-		if(1||$keypath)
+		if(1||check_isavailable($keypath))
 		{
 
-			$H.=_div__('','','popupmenu_role=text',$keypath?'keypath:'.$keypath:'root');
+			$H.=_div__('','','popupmenu_role=text',check_isavailable($keypath)?'keypath:'.$keypath:'root');
 
 			if(0)
 			{
-				if($keypath)
+				if(check_isavailable($keypath))
 				{
 					$H.=_div__('','','popupmenu_role=text',$keypath);
 				}
@@ -214,9 +214,9 @@ class Session extends \controller\admin\super\Superadmin
 			$__edit_key=0;
 			$__move=0;
 
-			if(0!==strpos($keypath,__cookie_prefix__.'_'))
+			if(check_isavailable($keypath)&&0!==strpos($keypath,__cookie_prefix__))
 			{
-				R_alert('[error-1433]只能操作以'.__cookie_prefix__.'_开头的cookie');
+				R_toast('[error-1433]只能操作以'.__cookie_prefix__.'开头的cookie');
 			}
 
 		}

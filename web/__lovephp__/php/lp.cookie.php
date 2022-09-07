@@ -12,7 +12,7 @@
 function cookie_set($key,$value,$lifetime=0)
 {
 
-	$key=__cookie_prefix__.'_'.$key;
+	$key=__cookie_prefix__.$key;
 
 	if(is_array($value))
 	{
@@ -35,7 +35,7 @@ function cookie_set($key,$value,$lifetime=0)
 function cookie_get($key)
 {
 
-	$key=__cookie_prefix__.'_'.$key;
+	$key=__cookie_prefix__.$key;
 
 	$value=$_COOKIE[$key];
 
@@ -52,7 +52,7 @@ function cookie_get($key)
 function cookie_delete($key)
 {
 
-	$key=__cookie_prefix__.'_'.$key;
+	$key=__cookie_prefix__.$key;
 	setcookie($key,'',time()-3600,'/',__cookie_domain__);
 	unset($_COOKIE[$key]);
 

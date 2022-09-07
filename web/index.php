@@ -266,7 +266,7 @@ if(1)
 		define('__cookie_domain__',false);
 	}
 
-	define('__cookie_prefix__','lpcookie');
+	define('__cookie_prefix__','lpcookie_');
 
 }
 
@@ -295,8 +295,10 @@ if(1)
 		else if(PHP_SESSION_NONE==$sessionstatus)
 		{
 
-			ini_set('session.name','lpcookie_sessionid');
+			ini_set('session.name',__cookie_prefix__.'sessionid');
+
 			ini_set('session.cookie_path','/');
+
 			ini_set('session.cookie_lifetime',0);
 
 			if(__cookie_domain__)

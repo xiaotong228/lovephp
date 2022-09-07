@@ -44,7 +44,7 @@ class Cookie extends \controller\debug\Session
 			R_alert('[error-4209]value均必填');
 		}
 
-		$keypath=substr($keypath,strlen(__cookie_prefix__.'_'));
+		$keypath=substr($keypath,strlen(__cookie_prefix__));
 
 		cookie_set($keypath,$_POST['data_value'],intval($_POST['data_time']));
 
@@ -55,7 +55,7 @@ class Cookie extends \controller\debug\Session
 	function delete($keypath)
 	{
 
-		$keypath=substr($keypath,strlen(__cookie_prefix__.'_'));
+		$keypath=substr($keypath,strlen(__cookie_prefix__));
 
 		cookie_delete($keypath);
 

@@ -22,7 +22,7 @@ echo _module('c_admin_panel_template_scroll');
 	else if(route_judge(cmd_ignore,'cookie'))
 	{
 
-		echo _div__('g_warnbox','','','只提供了简单的cookie操作,复杂情况请用浏览器调试模式操作<br>右键点击节点操作');
+		echo _div__('g_warnbox','','','只提供了简单的cookie操作,复杂情况请用浏览器调试模式操作<br>右键点击节点操作,只能操作以'.__cookie_prefix__.'开头的cookie');
 		echo debug_dump($_COOKIE);
 
 	}
