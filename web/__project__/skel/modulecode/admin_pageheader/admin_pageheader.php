@@ -35,7 +35,7 @@ echo _module();
 
 		if(route_judge('debug')&&!__online_isonline__)
 		{
-			echo _span__('__color_red__','margin-left:20px;','','开发模式下调试页面不检测管理员权限');
+			echo _span__('__color_red__','margin-left:20px;','','开发模式下调试页面不检测权限,可以不登录后台直接打开本页面');
 		}
 		else if($adminuserdata)
 		{
