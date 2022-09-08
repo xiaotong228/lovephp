@@ -5,10 +5,6 @@
 	<description></description>
 	<params>
 		<group title='x'>
-			<section title='x' folded='false'>
-				<param formtype='text' label='aaa' name='aaa' description=''>
-				</param>
-			</section>
 		</group>
 	</params>
 </module>
