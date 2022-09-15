@@ -28,7 +28,7 @@ function db_buildwhere($keywordfields='',$requestdata=false)
 
 		if('_keyword'==$k&&$keywordfields)
 		{
-			$where[$keywordfields]=array(db_like,"%{$v}%");
+			$where[$keywordfields]=[db_like,'%'.$v.'%'];
 		}
 		else if(0===strpos($k,'_datebegin/'))
 		{

@@ -71,7 +71,7 @@ foreach($__itemlist as $item)
 
 	$__templine[]=$item['id'];
 
-	$__templine[]=\db\User::userbox_admin($item['id']);
+	$__templine[]=\controller\admin\super\Superadmin::userbox_cache($item['id']);
 
 	$__templine[]=$item['user_mobile'];
 

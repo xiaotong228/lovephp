@@ -112,6 +112,7 @@ class Layoutedit extends \controller\admin\super\Superadmin
 
 							for($zoneIndex=0;$zoneIndex<$grid['grid_gridinfo']['zonenum'];$zoneIndex++)
 							{
+
 								$H.=_div('zone',_sty('margin-left',$divi[$zoneIndex]['margin'].'px')._sty('width',$divi[$zoneIndex]['width'].'px'));
 									$H.=_div('zonee skeldrag_container_lv1');
 										foreach($grid['grid_zones'][$zoneIndex] as $vvv)

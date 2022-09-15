@@ -27,7 +27,7 @@ class Index extends super\Superadmin
 	function password_changepassword_1()
 	{
 
-		\db\Adminlog::adminlog_addlog('后台/更改密码/尝试');
+		\db\Adminlog::adminlog_addlog('更改密码/尝试');
 
 		$currentuser=\db\Adminuser::assertfind(clu_admin_id());
 
@@ -50,7 +50,11 @@ class Index extends super\Superadmin
 		$check=\_lp_\Password::check($_POST['password'],$currentuser['adminuser_password_hash'],$currentuser['adminuser_password_salt']);
 		if(!$check)
 		{
+
+			\db\Adminlog::adminlog_addlog('更改密码/失败',0,$_POST);
+
 			R_alert('[error-3710]原密码错误');
+
 		}
 
 		$password=\_lp_\Password::create($_POST['password_new_0']);
@@ -63,7 +67,7 @@ class Index extends super\Superadmin
 
 		clu_admin_login(clu_admin_id());//再登录下防止被踢出去
 
-		\db\Adminlog::adminlog_addlog('后台/更改密码/成功');
+		\db\Adminlog::adminlog_addlog('更改密码/成功');
 
 		R_jump('','修改登录密码完成');
 

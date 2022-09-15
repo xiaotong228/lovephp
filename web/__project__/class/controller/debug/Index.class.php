@@ -32,7 +32,9 @@ class Index extends \controller\admin\super\Superadmin
 			R_alert('[error-0411]请填写用户uid');
 		}
 
-		clu_login(intval($_POST['hacklogin_userid']));
+		clu_login($id);
+
+		\db\Adminlog::adminlog_addlog('调试/前台登录用户',$id);
 
 		R_jump();
 

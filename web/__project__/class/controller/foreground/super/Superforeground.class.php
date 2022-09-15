@@ -45,15 +45,22 @@ class Superforeground extends \_lp_\controller\Supercontroller
 				{
 
 					$userid=clu_autologin_checktoken($autologin_token);
+
 					if($userid)
 					{
+
 						clu_login($userid);
+
+						\db\Userlog::userlog_addllog($userid,'登录/自动登录');
+
 						$__clu_id=clu_id();
+
 					}
 					else
 					{
 						clu_logout();
 					}
+
 				}
 
 			}

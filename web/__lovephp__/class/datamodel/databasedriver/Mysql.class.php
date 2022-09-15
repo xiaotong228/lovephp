@@ -60,7 +60,7 @@ class Mysql
 			}
 			catch(\Exception $e)
 			{
-				R_exception('[error-4705]'.$e->getMessage()."\n\n".$sql,$e->getCode());
+				R_exception('[error-4705]'."\n\n".$e->getMessage()."\n\n".$sql);
 			}
 		}
 		else

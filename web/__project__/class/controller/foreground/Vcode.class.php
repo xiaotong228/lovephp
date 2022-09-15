@@ -177,7 +177,7 @@ class Vcode extends super\Superforeground
 				$data['smssendlog_type']=\db\Smssendlog::type_vcode;
 				$data['smssendlog_mobile']=$__mobile;
 
-				$data['smssendlog_route']=__route_module__.'/'.__route_controller__.'/'.__route_action__;
+				$data['smssendlog_url']=server_url_current(1);
 				$data['smssendlog_ip']=client_ip();
 				$data['smssendlog_sessionid']=session_id();
 				$data['smssendlog_useragent']=client_useragent();

@@ -50,7 +50,7 @@ if(__online_isonline__)
 
 	define('__codepack_compress__',true);//压缩js,css代码
 
-	define('__codepack_salt__','2830');//随便写,不和以前重复就行,主要用来防浏览器缓存的
+	define('__codepack_salt__','2445');//随便写,不和以前重复就行,主要用来防浏览器缓存的
 
 	define('__htmltag_check__',false);//检测html tag的匹配情况,是否正常关闭标签
 

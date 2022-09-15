@@ -154,7 +154,8 @@ function math_divi($total_width,$num,$margin=0,$duo_yu_de_fenpei_dao=null)
 	$boxwidth=floor(($total_width-($num-1)*$margin)/$num);
 	for($i=0; $i<$num; $i++)
 	{
-		$res[]=array('width'=>$boxwidth,'margin'=>$margin);
+		$res[]=['width'=>$boxwidth,'margin'=>$margin];
+//		$res[]=array('width'=>$boxwidth,'margin'=>$margin);
 	}
 	$res[0]['margin']=0;
 	$yushu=$total_width-$boxwidth*$num-($num-1)*$margin;

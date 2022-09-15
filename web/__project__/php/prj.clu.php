@@ -175,12 +175,13 @@ function clu_autologin_checktoken($token)
 		$v=expd($v,'/');
 
 		if(md5($userid.'/'.$__user['user_version'].'/'.$token)==$v[0]&&$v[1]>time())
-		{
+		{//检测时考虑时间和user_version
 
 			$match=true;
 			unset($__currentdata[$k]);
 			$__currentdata=array_values($__currentdata);
 			break;
+
 		}
 
 	}
@@ -246,13 +247,13 @@ function clu_admin_login(int $adminid)
 
 	session_set(\Prjconfig::clu_config['clu_admin_sessionkey'],$sessiondata);
 
-	\db\Adminlog::adminlog_addlog('后台/登录/成功');
+	\db\Adminlog::adminlog_addlog('登录/成功');
 
 }
 function clu_admin_logout()
 {
 
-	\db\Adminlog::adminlog_addlog('后台/退出');
+	\db\Adminlog::adminlog_addlog('退出');
 
 	return session_delete(\Prjconfig::clu_config['clu_admin_sessionkey']);
 

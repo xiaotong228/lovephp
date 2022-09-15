@@ -9,7 +9,7 @@
 
 namespace db;
 
-class Adminlog
+class Userlog
 {
 
 	use \_lp_\datamodel\Superdb;
@@ -22,14 +22,15 @@ class Adminlog
 
 			'db_table_serializedfileds'=>
 			[
-				'adminlog_tracedata',
+				'userlog_tracedata',
 			],
 
 		];
 	}
-	static function adminlog_addlog
+
+	static function userlog_addllog
 	(
-//		int $aid,
+		int $uid,
 		$actionname,
 		string $itemids=null,//记录操作对象的id,可以是多个,中间用,分隔
 		$tracedata=null
@@ -38,26 +39,26 @@ class Adminlog
 
 		$data=[];
 
-		$data['aid']=clu_admin_id();//直接读取当前的adminid,不用参数传入,和前台的操作记录不一样
+		$data['uid']=$uid;
 
-		$data['adminlog_createtime']=time();
+		$data['userlog_createtime']=time();
 
-		$data['adminlog_ip']=client_ip();
+		$data['userlog_ip']=client_ip();
 
-		$data['adminlog_name']=$actionname;
+		$data['userlog_name']=$actionname;
 
-		$data['adminlog_useragent']=client_useragent();
+		$data['userlog_useragent']=client_useragent();
 
-		$data['adminlog_url']=server_url_current(1);
+		$data['userlog_url']=server_url_current(1);
 
 		if($itemids)
 		{
-			$data['adminlog_itemids']=$itemids;
+			$data['userlog_itemids']=$itemids;
 		}
 
 		if(!is_null($tracedata))
 		{
-			$data['adminlog_tracedata']=$tracedata;
+			$data['userlog_tracedata']=$tracedata;
 		}
 
 		return self::add($data);

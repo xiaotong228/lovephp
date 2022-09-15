@@ -13,8 +13,8 @@ echo _module('c_admin_panel_template_scroll');
 	if(route_judge(cmd_ignore,'session'))
 	{
 
-		echo _div__('g_warnbox','','','session_path:&nbsp;'.session_save_path().'<br>session_id:&nbsp;'.session_id().'<br>右键点击节点操作'
-	//		._span__('__color_orange__','','','调试功能在线上模式可能很危险,请注意控制权限')
+		echo _div__('g_warnbox','','','session_path:&nbsp;'.session_save_path().'<br>session_id:&nbsp;'.session_id().'<br>'._span__('__color_orange__','','','通过操作session,可以登录任意的管理员或用户,请注意权限控制')
+		.'<br>右键点击节点操作'
 		);
 		echo debug_dump($_SESSION);
 

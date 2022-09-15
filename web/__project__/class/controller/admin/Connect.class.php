@@ -20,7 +20,7 @@ class Connect extends super\Superadmin
 	function login_1()
 	{
 
-		\db\Adminlog::adminlog_addlog('后台/登录/尝试');
+		\db\Adminlog::adminlog_addlog('登录/尝试');
 
 		postdata_assert(
 		[
@@ -33,7 +33,11 @@ class Connect extends super\Superadmin
 
 		if(!$user||$user['adminuser_isban']||$user['adminuser_isdelete'])
 		{
+
+			\db\Adminlog::adminlog_addlog('登录/失败',0,$_POST);
+
 			R_error('user_name','账号被封或不存在');
+
 		}
 
 		if(\_lp_\Password::check($_POST['user_password'],$user['adminuser_password_hash'],$user['adminuser_password_salt']))
@@ -46,7 +50,11 @@ class Connect extends super\Superadmin
 		}
 		else
 		{
+
+			\db\Adminlog::adminlog_addlog('登录/失败',0,$_POST);
+
 			R_error('user_password','密码错误');
+
 		}
 
 	}

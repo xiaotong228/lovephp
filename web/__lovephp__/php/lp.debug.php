@@ -1,7 +1,14 @@
 <?php
 
-//1 debug,//1 dd=debug dump调试用函数
-function debug_dump
+/*
+	LOVEPHP[Web full stack open source framework]
+	Copyright:http://lovephp.com
+	License:http://opensource.org/licenses/MIT
+	Author:Xiaotong<xiaotong228@qq.com>
+*/
+
+//1 debug
+function debug_dump//替换print_r,var_dump
 (
 	$__data,
 	$__lv_defaultexpand=-1,//-1时会展开所有节点

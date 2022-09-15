@@ -247,31 +247,4 @@ class User
 
 	}
 
-//1 userbox
-	static function userbox_admin($uid)
-	{
-
-		if(!$uid)
-		{
-			return '/';
-		}
-
-		htmlcache_set($uid);
-
-		$H.=_div('c_admin_userbox','','userbox_userid='.$uid);
-
-			$H.=_an('{htmlcache_useravatar_'.$uid.'}','avatar');
-				$H.=_img('{htmlcache_useravatar_'.$uid.'}');
-			$H.=_a_();
-
-			$H.=_a0('name','','onclick="ajax_sync(\'/admin/index/itemdetail_user?id='.$uid.'\');"');
-				$H.=_span__('','','','{htmlcache_username_'.$uid.'}#'.$uid);
-			$H.=_a_();
-
-		$H.=_div_();
-
-		return $H;
-
-	}
-
 }

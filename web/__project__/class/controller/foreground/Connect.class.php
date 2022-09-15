@@ -51,17 +51,28 @@ class Connect extends super\Superforeground
 			{
 				if(\_lp_\Password::check($_POST['user_password'],$__user['user_password_hash'],$__user['user_password_salt']))
 				{
+
+					\db\Userlog::userlog_addllog($__user['id'],'登录/密码登录');
+
 					$this->login_1_sink($__user['id']);
+
 				}
 				else
 				{
+
+					\db\Userlog::userlog_addllog(clu_id(),'登录/失败',0,$_POST);
+
 					R_error('user_password','密码错误');
 
 				}
 			}
 			else
 			{
+
+				\db\Userlog::userlog_addllog(clu_id(),'登录/失败',0,$_POST);
+
 				R_error('user_name','未找到用户');
+
 			}
 
 		}
@@ -87,7 +98,11 @@ class Connect extends super\Superforeground
 			$check=\_lp_\Vcode::vcodeverify_verify(\_lp_\Vcode::vcodetype_sms,$_POST['vcode_smsvcode'],$_POST['user_mobile']);
 			if(true!==$check)
 			{
+
+				\db\Userlog::userlog_addllog(clu_id(),'登录/失败',0,$_POST);
+
 				R_error('vcode_smsvcode',$check);
+
 			}
 		}
 
@@ -102,6 +117,8 @@ class Connect extends super\Superforeground
 				R_alert('[error-4307]');
 			}
 		}
+
+		\db\Userlog::userlog_addllog($__user['id'],'登录/短信登录');
 
 		$this->login_1_sink($__user['id']);
 
@@ -133,6 +150,8 @@ class Connect extends super\Superforeground
 //1 logout
 	function logout()
 	{
+
+		\db\Userlog::userlog_addllog(clu_id(),'退出');
 
 		clu_logout();
 
@@ -255,6 +274,8 @@ class Connect extends super\Superforeground
 
 			session_delete('connectregist_verifiedmobile');
 
+			\db\Userlog::userlog_addllog($userid,'注册');
+
 			$this->login_1_sink($userid,'注册成功');
 
 		}
@@ -348,6 +369,8 @@ class Connect extends super\Superforeground
 		\db\User::save($__uid,$save);
 
 		session_delete('connectretrieve_verifieduid');
+
+		\db\Userlog::userlog_addllog($__uid,'找回密码');
 
 		if(__m_access__)
 		{

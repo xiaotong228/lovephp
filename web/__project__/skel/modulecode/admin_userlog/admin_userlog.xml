@@ -1,0 +1,10 @@
+<module>
+	<name>admin_userlog</name>
+	<title>admin/userlog</title>
+	<thumb></thumb>
+	<description></description>
+	<params>
+		<group title='x'>
+		</group>
+	</params>
+</module>

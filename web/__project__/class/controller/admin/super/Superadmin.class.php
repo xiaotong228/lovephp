@@ -21,7 +21,9 @@ class Superadmin extends \_lp_\controller\Supercontroller
 		'admin/sitedata'=>'业务后台/站点数据',
 		'admin/user'=>'业务后台/用户列表',
 		'admin/article'=>'业务后台/文章列表',
-		'admin/adminlog'=>'业务后台/操作记录',
+
+		'admin/userlog'=>'业务后台/前台操作记录',
+		'admin/adminlog'=>'业务后台/后台操作记录',
 
 		'skel'=>'页面编辑/全部',
 
@@ -37,7 +39,9 @@ class Superadmin extends \_lp_\controller\Supercontroller
 		'sitedata'=>'站点数据',
 		'user'=>'用户列表',
 		'article'=>'文章列表',
-		'adminlog'=>'操作记录',
+
+		'userlog'=>'前台操作记录',
+		'adminlog'=>'后台操作记录',
 
 		'adminuser'=>'超管功能/[超管]管理员列表',
 		'sitesetting'=>'超管功能/[超管]站点设置',
@@ -132,7 +136,7 @@ class Superadmin extends \_lp_\controller\Supercontroller
 			if(route_judge('debug')&&__online_isonline__)
 			{//删除这行代码开启线上模式的调试功能
 
-				R_alert('[error-1131]线上模式默认不开启调试功能');
+				R_alert('[error-1131]线上模式下调试功能可能会很危险,默认不开启');
 
 			}
 
@@ -259,5 +263,29 @@ class Superadmin extends \_lp_\controller\Supercontroller
 		}
 
 	}
+	static function userbox_cache(int $uid)
+	{//先用id缓存起来,最后输出的时候统一替换成表中的数据,用户名,用户头像什么的,省的连表查询了
 
+		if(!$uid)
+		{
+			return '/';
+		}
+
+		htmlcache_set($uid);
+
+		$H.=_div('c_admin_userbox','','userbox_userid='.$uid);
+
+			$H.=_an('{htmlcache_useravatar_'.$uid.'}','avatar');
+				$H.=_img('{htmlcache_useravatar_'.$uid.'}');
+			$H.=_a_();
+
+			$H.=_a0('name','','onclick="ajax_sync(\'/admin/index/itemdetail_user?id='.$uid.'\');"');
+				$H.=_span__('','','','{htmlcache_username_'.$uid.'}#'.$uid);
+			$H.=_a_();
+
+		$H.=_div_();
+
+		return $H;
+
+	}
 }

@@ -24,8 +24,6 @@ class Cluindex extends super\Superforeground_clu
 	function username_1()
 	{
 
-
-
 		postdata_assert
 		([
 			'user_name'=>'新用户名',
@@ -48,6 +46,9 @@ class Cluindex extends super\Superforeground_clu
 		}
 
 		\db\User::save_fieldset(clu_id(),'user_name',$_POST['user_name']);
+
+		\db\Userlog::userlog_addllog(clu_id(),'设置用户名',0,$_POST['user_name']);
+
 		if(__m_access__)
 		{
 			\_mobile_\Mobile::return_route_back(1,'操作完成');
@@ -69,7 +70,10 @@ class Cluindex extends super\Superforeground_clu
 
 		if($_POST['@uploadavatar_resultimgurl'])
 		{
+
 			\db\User::save_fieldset(clu_id(),'user_avatar',$_POST['@uploadavatar_resultimgurl']);
+
+			\db\Userlog::userlog_addllog(clu_id(),'设置头像',0,$_POST['@uploadavatar_resultimgurl']);
 
 			if(__m_access__)
 			{
@@ -132,6 +136,9 @@ class Cluindex extends super\Superforeground_clu
 
 
 		\db\User::save_fieldset(clu_id(),'user_mobile',$_POST['user_mobile']);
+
+		\db\Userlog::userlog_addllog(clu_id(),'设置手机号',0,$_POST['user_mobile']);
+
 		if(__m_access__)
 		{
 			\_mobile_\Mobile::return_route_back(1,'操作完成');
@@ -207,6 +214,8 @@ class Cluindex extends super\Superforeground_clu
 		$save['user_password_salt']=$temp['salt'];
 
 		\db\User::save(clu_id(),$save);
+
+		\db\Userlog::userlog_addllog(clu_id(),'设置密码');
 
 		clu_login(clu_id());//重新登录下防止被踢出去
 

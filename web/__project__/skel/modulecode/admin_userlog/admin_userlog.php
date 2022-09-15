@@ -7,20 +7,38 @@
 	Author:Xiaotong<xiaotong228@qq.com>
 */
 
+$__db=\db\Userlog::db_instance();
 
+
+$__names=[];
+
+if(1)
+{
+
+	$temp=$__db->groupby('userlog_name')->field(['userlog_name'])->select();
+	foreach($temp as $v)
+	{
+		$__names[]=$v['userlog_name'];
+	}
+	sort($__names);
+
+}
 
 if(check_isavailable($_GET['_keyword']))
 {
 	$_GET['_keyword']=htmlentity_decode($_GET['_keyword']);
 }
 
-$__where=db_buildwhere('id|smssendlog_mobile|smssendlog_useragent|smssendlog_url|smssendlog_channel_args');
+$__where=db_buildwhere('id|userlog_url|userlog_useragent|userlog_ip');
+
+if(check_isavailable($_GET['_userlog_itemids']))
+{
+	$__where['userlog_itemids']=[db_findinset,$_GET['_userlog_itemids']];
+}
 
 $__p=intval($_GET['_p']);
 
 $__npp=10;
-
-$__db=\db\Smssendlog::db_instance();
 
 $__itemlist=$__db->where($__where)->orderby($_GET['_order']?$_GET['_order']:'id desc')->select_splitpage($__p,$__npp,$__totalpagenum,$__totalitemnum);
 
@@ -32,11 +50,9 @@ $table_thlist=
 
 	'用户'=>'200px',
 
-	'手机号'=>'100px',
+	'操作'=>'200px',
 
-	'分类'=>'100px',
-
-	'参数'=>'200px',
+	'操作ID'=>'200px',
 
 	'详情'=>0,
 
@@ -52,26 +68,33 @@ foreach($__itemlist as $item)
 	$__templine[]=$item['id'];
 
 	$__templine[]=\controller\admin\super\Superadmin::userbox_cache($item['uid']);
-	$__templine[]=$item['smssendlog_mobile'];
-	$__templine[]=\db\Smssendlog::type_namemap[$item['smssendlog_type']];
-	$__templine[]=$item['smssendlog_channel_args'];
+
+	$__templine[]=$item['userlog_name'];
+
+	$__templine[]=$item['userlog_itemids'];
 
 	if(1)
 	{
+
 		$temp1=[];
 
-		if($item['smssendlog_url'])
+		if($item['userlog_url'])
 		{
-			$temp1[]='URL:'.$item['smssendlog_url'];
+			$temp1[]='URL:'.$item['userlog_url'];
 		}
 
-		if($item['smssendlog_useragent'])
+		if($item['userlog_useragent'])
 		{
-			$temp1[]='USERAGENT:'.$item['smssendlog_useragent'];
+			$temp1[]='USERAGENT:'.$item['userlog_useragent'];
 		}
 
-		$temp1[]=time_str($item['smssendlog_createtime']);
-		$temp1[]=ip_ipbox($item['smssendlog_ip']);
+		if(''!==$item['userlog_tracedata'])
+		{
+			$temp1[]=debug_dump($item['userlog_tracedata'],0,0);
+		}
+
+		$temp1[]=time_str($item['userlog_createtime']);
+		$temp1[]=ip_ipbox($item['userlog_ip']);
 
 
 
@@ -95,51 +118,42 @@ echo _module('c_admin_panel_template_fixed');
 
 		echo _form(url_build());
 
+
 			if(1)
 			{
 				echo _span__('','','','用户:');
 				echo _input('uid',$_GET['uid'],'用户UID','gap0');
 			}
+
+			if(1)
+			{
+
+				echo _span__('','','','操作:');
+				echo _select('userlog_name',$_GET['userlog_name'],'gap0');
+					echo _option('','全部');
+					foreach($__names as $v)
+					{
+						echo _option($v,$v);
+					}
+				echo _select_();
+			}
+
+			if(1)
+			{
+				echo _span__('','','','操作ID:');
+				echo _input('_userlog_itemids',$_GET['_userlog_itemids'],'操作ID','gap0','');
+			}
+
 			if(1)
 			{
 				echo _span__('','','','关键字:');
-				echo _input('_keyword',$_GET['_keyword'],'id/url/useragent/ip/参数/手机号','gap0','width:300px;');
+				echo _input('_keyword',$_GET['_keyword'],'id/url/useragent/ip','gap0');
 			}
-
-			if(1)
-			{
-
-				echo _span__('','','','分类:');
-
-				echo _select('smssendlog_type',$_GET['smssendlog_type'],'gap0');
-					echo _option('','全部');
-					foreach(\db\Smssendlog::type_namemap as $k=>$v)
-					{
-						echo _option($k,$v);
-					}
-				echo _select_();
-			}
-
 
 			echo _span__('','','','创建时间:');
-			echo _input_date('_datebegin/smssendlog_createtime',$_GET['_datebegin/smssendlog_createtime'],'起始时间');
+			echo _input_date('_datebegin/userlog_createtime',$_GET['_datebegin/userlog_createtime'],'起始时间');
 			echo _span__('','','','-');
-			echo _input_date('_dateend/smssendlog_createtime',$_GET['_dateend/smssendlog_createtime'],'结束时间','gap0');
-
-			if(1)
-			{
-				$options=[];
-				$options[]=['id desc','ID↘'];
-				$options[]=['id asc','ID↗'];
-
-				echo _span__('','','','排序:');
-				echo _select('_order',$_GET['_order'],'gap1');
-					foreach($options as $v)
-					{
-						echo _option($v[0],$v[1]);
-					}
-				echo _select_();
-			}
+			echo _input_date('_dateend/userlog_createtime',$_GET['_dateend/userlog_createtime'],'结束时间');
 
 			echo _button('submit','搜索','','','__button__="small black" ');
 
@@ -162,8 +176,6 @@ echo _module('c_admin_panel_template_fixed');
 			echo _b__('','','','没有相关数据');
 		echo _div_();
 	}
-
-
 
 echo _module_();
 

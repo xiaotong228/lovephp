@@ -19,7 +19,7 @@ function ip_ipbox($ip)
 
 }
 function htmlcache_set($user_ids=false,$article_ids=false)
-{
+{//因为不想连表查询,所以会缓存下页面展示的用户id,或者是文章id,最后输出html的时候再统一替换成正常的表中的数据
 
 	static $user_ids_cache=[];
 	static $article_ids_cache=[];
@@ -92,7 +92,7 @@ function htmlcache_replace($H)
 	}
 
 	if($article_ids)
-	{//预留,如果需要替换article的相关信息
+	{//预留,如果需要替换article的相关信息,没有做这个
 
 	}
 
