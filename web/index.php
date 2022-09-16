@@ -13,7 +13,7 @@ if(0&&PHP_VERSION_ID<70000)
 	exit;
 }
 
-error_reporting(E_ALL&~E_WARNING&~E_DEPRECATED);
+error_reporting(E_ALL&~E_WARNING&~E_DEPRECATED&~E_NOTICE);
 /*
 E_ALL
 E_ERROR

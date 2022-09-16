@@ -13,7 +13,7 @@ function debug_dump//替换print_r,var_dump
 	$__data,
 	$__lv_defaultexpand=-1,//-1时会展开所有节点
 	$__showcallinfo=true,
-	$__echojscss=true,
+	$__echojscss=true
 )
 {
 
