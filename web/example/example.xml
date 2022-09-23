@@ -76,10 +76,19 @@
 		<group title='文件上传'>
 			<section title='x' folded='false'>
 
-				<param formtype='xmluploadfile' label='上传_图片' name='uploadfile/0' uploadfile_file_exts='<?php echo impd(\Prjconfig::file_pic_exts);?>' uploadfile_file_maxsize='<?php echo 2*datasize_1mb;?>' description='参数描述示例' >
+				<param
+					label='上传_图片' name='uploadfile/0' description='参数描述示例'
+					formtype='xmluploadfile' 
+					uploadfile_file_exts='<?php echo impd(\Prjconfig::file_pic_exts);?>' uploadfile_file_maxsize='<?php echo 2*datasize_1mb;?>'
+				>
 				</param>
 
-				<param formtype='xmluploadfile' label='上传_文件' name='uploadfile/1' uploadfile_file_exts='doc,docx,pdf,zip,rar,txt' uploadfile_file_maxsize='<?php echo 10*datasize_1mb;?>' description='' >
+				<param
+					label='上传_文件' name='uploadfile/1' description=''
+					formtype='xmluploadfile'
+					uploadfile_file_exts='doc,docx,pdf,zip,rar,txt'
+					uploadfile_file_maxsize='<?php echo 10*datasize_1mb;?>'
+				>
 				</param>
 
 			</section>

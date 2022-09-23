@@ -28,7 +28,6 @@ class Routemap extends \controller\admin\super\Superadmin
 		$this->treedata_treeobj=new \_lp_\datamodel\Treedata($this->treedata_filepath);
 
 	}
-
 	function index()
 	{
 		_skel();
@@ -42,7 +41,9 @@ class Routemap extends \controller\admin\super\Superadmin
 
 		$xmlfilepath=str_replace('.xml','.lv'.($nodelv+1).'.xml',$xmlfilepath);
 
-		$this->treedata_add_trait($dna,$xmlfilepath);
+		$this->treedata_xmlfilepath=$xmlfilepath;
+
+		$this->treedata_add_trait($dna);
 	}
 
 	function treedata_edit($dna)
@@ -61,7 +62,9 @@ class Routemap extends \controller\admin\super\Superadmin
 			$xmlfilepath=str_replace('.xml','.lv'.$nodelv.'.xml',$xmlfilepath);
 		}
 
-		$this->treedata_edit_trait($dna,$xmlfilepath);
+		$this->treedata_xmlfilepath=$xmlfilepath;
+
+		$this->treedata_edit_trait($dna);
 
 	}
 

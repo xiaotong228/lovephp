@@ -16,12 +16,16 @@ trait Supercontroller_listdata
 
 	public $listdata_dataclass;
 
+	public $listdata_xmlfilepath=false;
 	function listdata_add()
 	{
 
-		$xmlfilepath=xml_getxmlfilepath();
+		if(!$this->listdata_xmlfilepath)
+		{
+			$this->listdata_xmlfilepath=xml_getxmlfilepath();
+		}
 
-		R_window_xml($xmlfilepath,url_build('listdata_add_1'));
+		R_window_xml($this->listdata_xmlfilepath,url_build('listdata_add_1'));
 
 	}
 	function listdata_add_1()
@@ -37,11 +41,14 @@ trait Supercontroller_listdata
 	function listdata_edit($id)
 	{
 
-		$xmlfilepath=xml_getxmlfilepath();
+		if(!$this->listdata_xmlfilepath)
+		{
+			$this->listdata_xmlfilepath=xml_getxmlfilepath();
+		}
 
 		$data=$this->listdata_dataclass::item_finditem($id);
 
-		R_window_xml($xmlfilepath,url_build('listdata_edit_1?id='.$id),$data,'ID:'.$id);
+		R_window_xml($this->listdata_xmlfilepath,url_build('listdata_edit_1?id='.$id),$data,'ID:'.$id);
 
 	}
 	function listdata_edit_1($id)

@@ -17,16 +17,17 @@ trait Supercontroller_treedata
 	public $treedata_filepath;
 	public $treedata_treeobj;
 
+	public $treedata_xmlfilepath=false;
 //1 add
-	function treedata_add($dna,$xmlfilepath=false)
+	function treedata_add($dna)
 	{
 
-		if(!$xmlfilepath)
+		if(!$this->treedata_xmlfilepath)
 		{
-			$xmlfilepath=xml_getxmlfilepath();
+			$this->treedata_xmlfilepath=xml_getxmlfilepath();
 		}
 
-		R_window_xml($xmlfilepath,url_build('treedata_add_1?dna='.$dna));
+		R_window_xml($this->treedata_xmlfilepath,url_build('treedata_add_1?dna='.$dna));
 
 	}
 	function treedata_add_1($dna)
@@ -93,19 +94,19 @@ trait Supercontroller_treedata
 	}
 
 //1 edit
-	function treedata_edit($dna,$xmlfilepath=false)
+	function treedata_edit($dna)
 	{
 
 		$node=$this->treedata_treeobj->node_findnode($dna);
 
-		if(!$xmlfilepath)
+		if(!$this->treedata_xmlfilepath)
 		{
-			$xmlfilepath=xml_getxmlfilepath();
+			$this->treedata_xmlfilepath=xml_getxmlfilepath();
 		}
 
 		$nodelv=$this->treedata_treeobj->node_nodelv($dna);
 
-		R_window_xml($xmlfilepath,url_build('treedata_edit_1?dna='.$dna),$node['self'],'ID:'.$dna);
+		R_window_xml($this->treedata_xmlfilepath,url_build('treedata_edit_1?dna='.$dna),$node['self'],'ID:'.$dna);
 
 	}
 	function treedata_edit_1($dna)
