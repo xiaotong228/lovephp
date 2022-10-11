@@ -29,24 +29,27 @@ function ajax_async
 		return;
 	}
 
-	if(client_is_mobile_js()&&alp_isalp()&&0==__url.indexOf('/'))
+	if('undefined'!==typeof(alp_isalp))
 	{
-
-		if(__ajax_setting.ajax_on_error)
+		if(client_is_mobile_js()&&alp_isalp()&&0==__url.indexOf('/'))
 		{
-			console_log_wreckage('59','lovephp/0326/ajax_on_errorajax_on_errorajax_on_errorajax_on_error');
-			function_call(__ajax_setting.ajax_on_error);
+
+			if(__ajax_setting.ajax_on_error)
+			{
+				console_log_wreckage('59','lovephp/0326/ajax_on_errorajax_on_errorajax_on_errorajax_on_error');
+				function_call(__ajax_setting.ajax_on_error);
+			}
+			if(__ajax_setting.ajax_on_complete)
+			{
+				console_log_wreckage('57','lovephp/0326/ajax_on_completeajax_on_completeajax_on_completeajax_on_complete');
+				function_call(__ajax_setting.ajax_on_complete);
+			}
+
+			alp_tryconnectserver(__url);
+
+			return;
+
 		}
-		if(__ajax_setting.ajax_on_complete)
-		{
-			console_log_wreckage('57','lovephp/0326/ajax_on_completeajax_on_completeajax_on_completeajax_on_complete');
-			function_call(__ajax_setting.ajax_on_complete);
-		}
-
-		alp_tryconnectserver(__url);
-
-		return;
-
 	}
 
 	var __setting_base=
